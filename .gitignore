@@ -1,0 +1,15 @@
+/bootstrap/compiled.php
+/vendor
+.env.production.php
+.env.staging.php
+.env.php
+.env.local.php
+.DS_Store
+Thumbs.db
+.idea
+*.iml
+_ide_helper.php
+*~
+app/storage
+node_modules
+bower_components
