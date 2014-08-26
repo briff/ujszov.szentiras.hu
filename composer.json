@@ -2,12 +2,16 @@
 	"name": "laravel/laravel",
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
-	"license": "MIT",
+	"license": "GPL",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+        "rcrowe/twigbridge": "0.6.*"
 	},
-	"autoload": {
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "1.11.1"
+    },
+    "autoload": {
 		"classmap": [
 			"app/commands",
 			"app/controllers",
