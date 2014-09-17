@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'HomeController@showWelcome');
+
+Route::controller("/technikai", "TechnicalController");

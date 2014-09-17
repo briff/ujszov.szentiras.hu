@@ -1,0 +1,30 @@
+{% extends 'adminLayout' %}
+
+{% block content %}
+<h1>Konvertáló program</h1>
+<p>Ezen a felületen kereszül lehet frissíteni az adatbázist.</p>
+<p class="it">A program bemenete egy .txt, vagy egy .csv tabulátorokkal tagolt
+    szövegfájl, mely frissítendő sorokat tartalmazza. A szövegelválasztó karakter
+    a dupla idézőjel ("). Elvileg készült egy makró, ami legenerálja,
+    de az imént említett beállítások mellett csv, vagy txt szabvánnyal
+    elmentve az Excell automatikusan legenerálja.
+    Íme két mintasor:</p>
+
+<pre><small>"Mt 1,1,1"  1010101  27030517  27221934  "Βίβλος"  "Bivblo"  "b i b k o s"  1  ""  "könyv"  "nm."  "f.sg.nom."  "976"  ""  9760  ""  "βίβλος, -ου"</small></pre>
+<p class="it">Valamint szótár:</p>
+<pre><small>210  "ἀγαλλιάω"  "verb."  "&#7936;&#947;&#945;&#955;&#955;&#953;&#940;&#969;, &#7936;&#947;&#945;&#955;&#955;&#953;&#940;&#963;&#969; ?, &#7968;&#947;&#945;&#955;&#955;&#943;&#945;&#963;&#945;, &#7968;&#947;&#945;&#955;&#955;&#953;&#940;&#954;&#945; ?, ?, ?"  "&#246;r&#252;l, &#246;rvendezik, ujjong"  "ELEM"  "STRONG"  "BK"</small></pre>
+<hr><p></p>
+<form name="form" acion="<? print($_SERVER['PHP_SELF']); ?>" method="post">
+    <p>Milyen típusú fájlt kell konvertálni?</p>
+    <p><label for="konyvek">Könyvek</label> <input type="radio" name="tipus" value="konyvek" id="konyvek" checked />
+        <label for="szotar">Szótár</label> <input type="radio" name="tipus" value="szotar" id="szotar" /></p>
+    <p class="help"><label for="general">General update</label> <input type="checkbox" name="general" id="general" />
+    <span class="helpmsg">
+      Abban az esetben, ha az új verzióban kevesebb szó van
+    </span>
+    </p>
+    <p>Melyik a forrásfájl?</p>
+    <p><input type="text" name="fajl_text" disabled>
+        <input type="hidden" name="fajl" />
+        <input type="button" value="Konvertál" onclick="elkuld()" /></p>
+{% endblock %}
