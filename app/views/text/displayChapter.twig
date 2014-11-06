@@ -1,0 +1,28 @@
+{% extends "layout" %}
+
+{% block content %}
+    <div class="container">
+        <h3>{{ book.nev }} {{ chapter }}</h3>
+    </div>
+    <p class="chapterText">
+        {% set currentVerse = 0 %}
+        {% for word in words %}
+            {% set wordVerse = word.lh|split(',')[1] %}
+            {% if wordVerse > currentVerse %}
+                {% set currentVerse = wordVerse %}
+                <sup>{{ currentVerse }}</sup>
+            {% endif %}
+            {% set popoverContent %}
+            <p class="wordPopover">
+            <span class="word">{{ word.unic|raw }}</span>
+            (<span class="word">{{ word.szal|raw }}</span>)
+            <br />
+            {{ word.mj }}
+            <br />
+            <a href="#">Részletek</a>
+            </p>
+            {% endset %}
+            <a href="javascript:void(0)" data-toggle="popover" data-trigger="click" data-placement="auto" data-content="{{ popoverContent|e }}" data-html="true"><span class="word">{{  word.unic|raw }}</span></a>
+        {% endfor %}
+    </p>
+{% endblock %}

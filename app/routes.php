@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@showWelcome');
 
 Route::controller("/technikai", "TechnicalController");
+
+Route::controller("/text", "TextController");

@@ -1,5 +1,5 @@
-<form name="form" action="./jobb.php?szamol=1" method="post" target="jobb">
-    <label for="konyv">Könyv</label><select name="konyv" class="form-control">
+<form name="form" action="/text" method="get">
+    <label for="book">Könyv</label><select name="book" class="form-control">
         <option value="1">Mt</option>
         <option value="2">Mk</option>
         <option value="3">Lk</option>
@@ -28,7 +28,7 @@
         <option value="26">Júd</option>
         <option value="27">Jel</option>
     </select>
-    <label for="fejezet">Fejezet</label><input name="fejezet" value="1" type="text" class="form-control">
-    <label for="ugras">Vers</label><input name="ugras" type="text" class="form-control" style="margin-bottom: 10px">
+    <label for="chapter">Fejezet</label><input name="chapter" value="1" type="text" class="form-control">
+    <label for="verse">Vers</label><input name="verse" type="text" class="form-control" style="margin-bottom: 10px">
     <button class="btn btn-primary" type="submit">Keres</button>
 </form>
