@@ -20,8 +20,11 @@ class TextController extends BaseController
         ]);
     }
 
-    public function getDetails() {
-        return View::make("text.detailsModal");
+    public function getDetails($wordId) {
+        $word = Word::find($wordId);
+        return View::make("text.detailsModal", [
+            "word" => $word
+        ]);
     }
 
 }

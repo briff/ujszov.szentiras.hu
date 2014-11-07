@@ -15,12 +15,14 @@
             {% set wordVerse = word.lh|split(',')[1] %}
             {% if wordVerse > currentVerse %}
                 {% set currentVerse = wordVerse %}
+        <a href="javascript:void(0)" data-trigger="toggle" data-poload="//szentiras.hu/api/ref/{{ book.nev }}{{ chapter }},{{ currentVerse }}">
                 <sup>{{ currentVerse }}</sup>
+            </a>
             {% endif %}
             {% set popoverContent %}
             {% spaceless %}
                 <div class="wordPopover" id="pop{{ word.fh }}">
-            <span class="word">{{ word.unic|raw }}</span>(<span class="word">{{ word.szal|raw }}</span>)<br />{{ word.mj }}<br />
+            <span class="word">{{ word.unic|raw }}</span> (<span class="word">{{ word.szal|raw }}</span>)<br />{{ word.mj }}<br />
             <a id="a{{ word.fh }}" href="/text/details" class="btn btn-default">Részletek</a>
             </div>
             {% endspaceless %}

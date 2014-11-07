@@ -1,9 +1,8 @@
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-</div>
 <div class="modal-body">
-    asdfasdf
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4><span class="greek">{{ word.unic|raw }}</span> <i>{{ word.mj }}</i> <small>({{ word.szf }}, {{ word.elem }}<sup><i class="fa fa-info-circle"></i></sup>)</small> - <small>{{ word.lh }}</small></h4>
+    <b>Szótári alak:</b> <span class="word">{{ word.szal|raw }}</span>
+    <br />
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Bezár</button>
