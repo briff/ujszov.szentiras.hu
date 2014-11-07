@@ -15,7 +15,8 @@
             {% set wordVerse = word.lh|split(',')[1] %}
             {% if wordVerse > currentVerse %}
                 {% set currentVerse = wordVerse %}
-        <a href="javascript:void(0)" data-trigger="toggle" data-poload="//szentiras.hu/api/ref/{{ book.nev }}{{ chapter }},{{ currentVerse }}">
+                {% set verseId = book.nev ~ chapter ~ "," ~ currentVerse %}
+        <a href="javascript:void(0)" data-verse-id="{{ verseId }}" data-trigger="toggle" data-poload="//szentiras.hu/api/ref/{{ verseId }}">
                 <sup>{{ currentVerse }}</sup>
             </a>
             {% endif %}
@@ -27,7 +28,7 @@
             </div>
             {% endspaceless %}
             {% endset %}
-            <a href="javascript:void(0)" data-wordid="{{ word.fh }}" data-trigger="manual" class="word" data-placement="auto" data-content="{{ popoverContent|e }}" data-html="true"><span class="word">{{  word.unic|raw }}</span></a>
+            <a href="javascript:void(0)" data-wordid="{{ word.fh }}" data-trigger="manual" class="word" data-placement="auto" data-content="{{ popoverContent|e }}" data-html="true"><span class="word">{{  word.unic|raw }}</span><sup data-verse-id="{{ verseId }}" class="magyar" style="display:none">{{ word.mj }}</sup></a>
         {% endfor %}
     </p>
 {% endblock %}

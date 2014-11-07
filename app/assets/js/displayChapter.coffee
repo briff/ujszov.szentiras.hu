@@ -17,7 +17,18 @@ define ['bootstrap'], ->
     if (!e.data('cache'))
       $.get(e.data('poload'), (d) ->
         e.data('cache', d.text);
-        e.popover({ content: d.text, placement: "auto top" }).popover('toggle')
+        e.popover(
+          html: true
+          content: d.text +
+            '<a target="_blank" href="'+d.canonicalUrl+'">'+d.canonicalRef+'</a>' +
+           ' <button data-verse-id="'+e.data('verse-id')+'" type="button" class="btn btn-default btn-xs">Szavanként</button>'
+          placement: "auto top"
+        ).popover('toggle')
+        $("button[data-verse-id='"+e.data('verse-id')+"']").click ->
+          $("sup[data-verse-id='"+e.data('verse-id')+"']").toggle()
       )
     else
       e.popover('toggle')
+      $("button[data-verse-id='"+e.data('verse-id')+"']").click ->
+        $("sup[data-verse-id='"+e.data('verse-id')+"']").toggle()
+
