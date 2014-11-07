@@ -29,7 +29,6 @@ cache:
 
 env:
   global:
-  global:
   - secure: YiurJLxt3TZzwQ2Tvgs1ANXzk8++YnouT5H2EYvlbVwJTTt0wA6CNCKayxjY6qZgvnaE/0+CMl5imzP1u3wFNJnRj+Tj0rgkEbP6C/QikfSJVKl0KxbeUbbxWz6ySLHMRHpVf0xXipnumwZEHCUqTWnHuHheGJKmCx6ErQj0SfE=
   - secure: Z+UDNk4J9jyXY/5QlPFzYaQizBIuZIXdFU87Imq+9zOUnHSk2sRa5DOoh7WYxXQ1usiua6CXj9x/dSd3rfPe1sJ73X0l/dz2aqKP81C6OEp/cj9vKUekqo9hbNZnWh/dQqcMPJlk5pRcn8zcFcyL7Gz1RCwKXELZmvQh4bV53mE=
   - secure: ZL8INpw2GK8hBKLgrrH3SobR6DHZbJE2FTSllUrDGdIC5EKq6jgUUa9Afuh9mMVyGcmCvifdFq4Ewer0wtLhWNqu5ouQIyXHnBMHO2HzBcvlGWCLXaHC2uBjkZlK3CChvdDgwFdeI1Il5A31fKAcdCmo2JSsGFBykRC08QvcvTc=
