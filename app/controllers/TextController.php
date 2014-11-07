@@ -18,7 +18,10 @@ class TextController extends BaseController
             "chapter" => $chapter,
             "words" => $words
         ]);
+    }
 
+    public function getDetails() {
+        return View::make("text.detailsModal");
     }
 
 }

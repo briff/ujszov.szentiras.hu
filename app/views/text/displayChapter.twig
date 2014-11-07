@@ -1,6 +1,11 @@
 {% extends "layout" %}
 
 {% block content %}
+
+    <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog"><div class="modal-content"></div></div>
+    </div>
+
     <div class="container">
         <h3>{{ book.nev }} {{ chapter }}</h3>
     </div>
@@ -13,16 +18,14 @@
                 <sup>{{ currentVerse }}</sup>
             {% endif %}
             {% set popoverContent %}
-            <p class="wordPopover">
-            <span class="word">{{ word.unic|raw }}</span>
-            (<span class="word">{{ word.szal|raw }}</span>)
-            <br />
-            {{ word.mj }}
-            <br />
-            <a href="#">Részletek</a>
-            </p>
+            {% spaceless %}
+                <div class="wordPopover" id="pop{{ word.fh }}">
+            <span class="word">{{ word.unic|raw }}</span>(<span class="word">{{ word.szal|raw }}</span>)<br />{{ word.mj }}<br />
+            <a id="a{{ word.fh }}" href="/text/details" class="btn btn-default">Részletek</a>
+            </div>
+            {% endspaceless %}
             {% endset %}
-            <a href="javascript:void(0)" data-toggle="popover" data-trigger="click" data-placement="auto" data-content="{{ popoverContent|e }}" data-html="true"><span class="word">{{  word.unic|raw }}</span></a>
+            <a href="javascript:void(0)" data-wordid="{{ word.fh }}" data-trigger="manual" class="word" data-placement="auto" data-content="{{ popoverContent|e }}" data-html="true"><span class="word">{{  word.unic|raw }}</span></a>
         {% endfor %}
     </p>
 {% endblock %}

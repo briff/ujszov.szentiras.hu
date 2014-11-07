@@ -1,0 +1,21 @@
+#!/bin/bash
+while read oldrev newrev refname
+do
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    echo Received ref $refname meaning branch $branch
+    echo Branch $branch push received
+    cd /home/szentiras_hu_git/github/briff/
+    if [ "$branch" == "master" ]; then
+      appEnv=staging
+    else
+      appEnv=$branch
+    fi
+    if [ ! -d "$appEnv.ujszov.szentiras.hu" ]; then
+      git clone ujszov.szentiras.hu.git $appEnv.ujszov.szentiras.hu
+    fi
+    echo Shutting down the app
+    cd $appEnv.ujszov.szentiras.hu
+    if [ -f composer.lock ]; then
+       php artisan down
+    fi
+done

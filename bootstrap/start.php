@@ -25,7 +25,8 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(function() {
-    return 'local';
+    $env = getenv('UJSZOV_WEBAPP_ENVIRONMENT');
+    return $env ? $env : 'production';
 });
 
 /*
