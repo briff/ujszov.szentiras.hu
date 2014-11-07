@@ -10,6 +10,7 @@ before_script:
   - php artisan migrate --seed --env=testing
 
 script:
+  - mkdir -p app/storage/meta
   - phpunit --configuration phpunit.xml
 
 after_success:
