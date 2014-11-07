@@ -5,7 +5,7 @@ php:
 
 before_script:
   - mysql -e 'create database ujszovszoszedet;'
-  - php composer.phar install
+  - php composer.phar install --prefer-source --no-interaction --dev
 # migrate needs environment specification
   - php artisan migrate --seed --env=testing
 
