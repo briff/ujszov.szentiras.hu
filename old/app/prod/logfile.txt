@@ -1,0 +1,800 @@
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CACHE_CONTROL: max-age=0
+HTTP_CONNECTION: keep-alive
+HTTP_DNT: 1
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://sutda.itk.ppke.hu/piwik/index.php?module=CoreHome&action=index&idSite=1&period=month&date=2013-02-01
+HTTP_USER_AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/9.0
+PATH: /bin
+QUERY_STRING: fh=1054512
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 89.132.95.244
+REMOTE_PORT: 39982
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1054512
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359809432
+argv: Array
+argc: 1
+--------------------------------DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_id.1.8dbe=ec88a6393e6d701c.1358978332.4.1359809425.1359029019.; _pk_ses.1.8dbe=*
+HTTP_HOST: ujszov.hu
+HTTP_REFERER: http://ujszov.hu/Mkv.php?konyv=1&fejezet=5
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1050308
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 82.137.14.22
+REMOTE_PORT: 2744
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1050308
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359809435
+argv: Array
+argc: 1
+--------------------------------DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_id.1.8dbe=ec88a6393e6d701c.1358978332.4.1359809435.1359029019.; _pk_ses.1.8dbe=*
+HTTP_HOST: ujszov.hu
+HTTP_REFERER: http://ujszov.hu/Mkv.php?konyv=1&fejezet=5
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1050309
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 82.137.14.22
+REMOTE_PORT: 2744
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1050309
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359809444
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_id.1.8dbe=ec88a6393e6d701c.1358978332.4.1359809442.1359029019.; _pk_ses.1.8dbe=*
+HTTP_HOST: ujszov.hu
+HTTP_REFERER: http://ujszov.hu/Mkv.php?konyv=1&fejezet=5
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1050310
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 82.137.14.22
+REMOTE_PORT: 2744
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1050310
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359809447
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_id.1.8dbe=ec88a6393e6d701c.1358978332.4.1359809442.1359029019.; _pk_ses.1.8dbe=*
+HTTP_HOST: ujszov.hu
+HTTP_REFERER: http://ujszov.hu/Mkv.php?konyv=1&fejezet=5
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1050311
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 82.137.14.22
+REMOTE_PORT: 2744
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1050311
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359809452
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_id.1.8dbe=ec88a6393e6d701c.1358978332.4.1359809450.1359029019.; _pk_ses.1.8dbe=*
+HTTP_HOST: ujszov.hu
+HTTP_REFERER: http://ujszov.hu/Mkv.php?konyv=1&fejezet=5
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1050301
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 82.137.14.22
+REMOTE_PORT: 2744
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1050301
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359809457
+argv: Array
+argc: 1
+--------------------------------
+
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=6
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1061001
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 2.219.144.59
+REMOTE_PORT: 50155
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1061001
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810058
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810052%2C%22http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDcQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3DV-vpUOquO8aY1AWps4DAAw%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26bvm%3Dbv.1355534169%2Cd.d2k%22%5D; _pk_id.1.9175=a2875b705cb92a90.1359810052.1.1359810052.1359810052.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=6
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1060907
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 2.219.144.59
+REMOTE_PORT: 50155
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1060907
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810067
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810052%2C%22http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDcQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3DV-vpUOquO8aY1AWps4DAAw%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26bvm%3Dbv.1355534169%2Cd.d2k%22%5D; _pk_id.1.9175=a2875b705cb92a90.1359810052.1.1359810061.1359810052.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=6
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1060908
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 2.219.144.59
+REMOTE_PORT: 50155
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1060908
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810070
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810052%2C%22http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDcQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3DV-vpUOquO8aY1AWps4DAAw%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26bvm%3Dbv.1355534169%2Cd.d2k%22%5D; _pk_id.1.9175=a2875b705cb92a90.1359810052.1.1359810063.1359810052.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=6
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1061002
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 2.219.144.59
+REMOTE_PORT: 50155
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1061002
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810072
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810052%2C%22http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDcQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3DV-vpUOquO8aY1AWps4DAAw%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26bvm%3Dbv.1355534169%2Cd.d2k%22%5D; _pk_id.1.9175=a2875b705cb92a90.1359810052.1.1359810066.1359810052.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=6
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1061006
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 2.219.144.59
+REMOTE_PORT: 50155
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1061006
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810086
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810052%2C%22http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDcQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3DV-vpUOquO8aY1AWps4DAAw%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26bvm%3Dbv.1355534169%2Cd.d2k%22%5D; _pk_id.1.9175=a2875b705cb92a90.1359810052.1.1359810079.1359810052.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=6
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1061311
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 2.219.144.59
+REMOTE_PORT: 50155
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1061311
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810092
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810052%2C%22http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDcQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3DV-vpUOquO8aY1AWps4DAAw%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26bvm%3Dbv.1355534169%2Cd.d2k%22%5D; _pk_id.1.9175=a2875b705cb92a90.1359810052.1.1359810086.1359810052.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=6
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1061511
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 2.219.144.59
+REMOTE_PORT: 50177
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1061511
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810149
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_DNT: 1
+HTTP_HOST: www.ujszov.hu
+HTTP_USER_AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/9.0
+PATH: /bin
+QUERY_STRING: fh=3153218
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 89.132.95.244
+REMOTE_PORT: 40021
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=3153218
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810162
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.5
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810052%2C%22http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDcQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3DV-vpUOquO8aY1AWps4DAAw%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26bvm%3Dbv.1355534169%2Cd.d2k%22%5D; _pk_id.1.9175=a2875b705cb92a90.1359810052.1.1359810142.1359810052.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=6
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1061002
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 2.219.144.59
+REMOTE_PORT: 50181
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1061002
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810175
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: hu-hu,hu;q=0.8,en-US;q=0.5,en;q=0.3
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810278%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3D3g4NUdeqLNHPsgaOvYEQ%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26sig2%3DybIFfOh1NVbAFnjenjv8Pw%26bvm%3Dbv.41867550%2Cd.Yms%22%5D; _pk_id.1.9175=96e15ca29f16f7c9.1359810278.1.1359810358.1359810278.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1010102
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 213.181.202.113
+REMOTE_PORT: 51620
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1010102
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810361
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: hu-hu,hu;q=0.8,en-US;q=0.5,en;q=0.3
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810278%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3D3g4NUdeqLNHPsgaOvYEQ%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26sig2%3DybIFfOh1NVbAFnjenjv8Pw%26bvm%3Dbv.41867550%2Cd.Yms%22%5D; _pk_id.1.9175=96e15ca29f16f7c9.1359810278.1.1359810365.1359810278.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1010103
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 213.181.202.113
+REMOTE_PORT: 51620
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1010103
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810367
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: hu-hu,hu;q=0.8,en-US;q=0.5,en;q=0.3
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810278%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3D3g4NUdeqLNHPsgaOvYEQ%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26sig2%3DybIFfOh1NVbAFnjenjv8Pw%26bvm%3Dbv.41867550%2Cd.Yms%22%5D; _pk_id.1.9175=96e15ca29f16f7c9.1359810278.1.1359810371.1359810278.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1010104
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 213.181.202.113
+REMOTE_PORT: 51620
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1010104
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810371
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: hu-hu,hu;q=0.8,en-US;q=0.5,en;q=0.3
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810278%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3D3g4NUdeqLNHPsgaOvYEQ%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26sig2%3DybIFfOh1NVbAFnjenjv8Pw%26bvm%3Dbv.41867550%2Cd.Yms%22%5D; _pk_id.1.9175=96e15ca29f16f7c9.1359810278.1.1359810376.1359810278.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1010105
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 213.181.202.113
+REMOTE_PORT: 51620
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1010105
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810374
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: hu-hu,hu;q=0.8,en-US;q=0.5,en;q=0.3
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810278%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3D3g4NUdeqLNHPsgaOvYEQ%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26sig2%3DybIFfOh1NVbAFnjenjv8Pw%26bvm%3Dbv.41867550%2Cd.Yms%22%5D; _pk_id.1.9175=96e15ca29f16f7c9.1359810278.1.1359810378.1359810278.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1010106
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 213.181.202.113
+REMOTE_PORT: 51620
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1010106
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810376
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: hu-hu,hu;q=0.8,en-US;q=0.5,en;q=0.3
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810278%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3D3g4NUdeqLNHPsgaOvYEQ%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26sig2%3DybIFfOh1NVbAFnjenjv8Pw%26bvm%3Dbv.41867550%2Cd.Yms%22%5D; _pk_id.1.9175=96e15ca29f16f7c9.1359810278.1.1359810381.1359810278.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1010108
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 213.181.202.113
+REMOTE_PORT: 51620
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1010108
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810378
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: hu-hu,hu;q=0.8,en-US;q=0.5,en;q=0.3
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810278%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3D3g4NUdeqLNHPsgaOvYEQ%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26sig2%3DybIFfOh1NVbAFnjenjv8Pw%26bvm%3Dbv.41867550%2Cd.Yms%22%5D; _pk_id.1.9175=96e15ca29f16f7c9.1359810278.1.1359810382.1359810278.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1010601
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 213.181.202.113
+REMOTE_PORT: 51620
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1010601
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810383
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate
+HTTP_ACCEPT_LANGUAGE: hu-hu,hu;q=0.8,en-US;q=0.5,en;q=0.3
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810278%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3Dhttp%253A%252F%252Fwww.ujszov.hu%252F%26ei%3D3g4NUdeqLNHPsgaOvYEQ%26usg%3DAFQjCNHjIA2-s2JBgB2y_rFE1VXS-zgXdw%26sig2%3DybIFfOh1NVbAFnjenjv8Pw%26bvm%3Dbv.41867550%2Cd.Yms%22%5D; _pk_id.1.9175=96e15ca29f16f7c9.1359810278.1.1359810388.1359810278.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=1&fejezet=1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0
+PATH: /bin
+QUERY_STRING: fh=1010603
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 213.181.202.113
+REMOTE_PORT: 51620
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=1010603
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810386
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET: ISO-8859-2,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING: gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE: hu-HU,hu;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810616%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Df%26rct%3Dj%26url%3Dhttp%3A%2F%2Fwww.ujszov.hu%2F%26q%3Dg%25C3%25B6r%25C3%25B6g%2Bbibliaford%25C3%25ADt%25C3%25A1s%26ei%3DKxANUauRMYf5sga-toEo%26usg%3DAFQjCNEOTO_2DgMZuqcQSa4afLpG3EjwmA%22%5D; _pk_id.1.9175=485e6d3ca8c0ce7f.1359810616.1.1359810664.1359810616.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=5&fejezet=9
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.0) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17
+PATH: /bin
+QUERY_STRING: fh=5090414
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 89.132.166.203
+REMOTE_PORT: 51971
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=5090414
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810680
+argv: Array
+argc: 1
+--------------------------------
+DOCUMENT_ROOT: /var/www/ujszov.hu
+GATEWAY_INTERFACE: CGI/1.1
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET: ISO-8859-2,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING: gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE: hu-HU,hu;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _pk_ref.1.9175=%5B%22%22%2C%22%22%2C1359810616%2C%22http%3A%2F%2Fwww.google.hu%2Furl%3Fsa%3Df%26rct%3Dj%26url%3Dhttp%3A%2F%2Fwww.ujszov.hu%2F%26q%3Dg%25C3%25B6r%25C3%25B6g%2Bbibliaford%25C3%25ADt%25C3%25A1s%26ei%3DKxANUauRMYf5sga-toEo%26usg%3DAFQjCNEOTO_2DgMZuqcQSa4afLpG3EjwmA%22%5D; _pk_id.1.9175=485e6d3ca8c0ce7f.1359810616.1.1359810687.1359810616.; _pk_ses.1.9175=*
+HTTP_HOST: www.ujszov.hu
+HTTP_REFERER: http://www.ujszov.hu/Mkv.php?konyv=5&fejezet=9
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.0) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17
+PATH: /bin
+QUERY_STRING: fh=5090414
+REDIRECT_STATUS: 200
+REMOTE_ADDR: 89.132.166.203
+REMOTE_PORT: 51971
+REQUEST_METHOD: GET
+REQUEST_URI: /db3.php?fh=5090414
+SCRIPT_FILENAME: /var/www/ujszov.hu/db3.php
+SCRIPT_NAME: /db3.php
+SERVER_ADDR: 193.225.109.33
+SERVER_ADMIN: [no address given]
+SERVER_NAME: www.ujszov.hu
+SERVER_PORT: 80
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE: <address>Apache Server at www.ujszov.hu Port 80</address>
+
+SERVER_SOFTWARE: Apache
+PHP_SELF: /db3.php
+REQUEST_TIME: 1359810681
+argv: Array
+argc: 1
+--------------------------------

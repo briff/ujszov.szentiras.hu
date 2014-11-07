@@ -1,0 +1,3 @@
+#!/bin/bash
+
+wc -l newcounter.dat | cut -d' ' -f1 > szamol.dat

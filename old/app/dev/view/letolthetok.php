@@ -1,0 +1,19 @@
+<div id="letolthetok">
+ <h3><a href="letolthetok/Gorog_iras_szamitogepen.doc">Görög írás számítógépen</a></h3>
+  <p>A letölthető fájl egy Winword dokumentum, amely tartalmazza azokat a makrókat, amelyek a görög írást lehetővé teszik. Éppen ezért betöltés előtt állítsuk a Wordben az Eszközök/Makrók/Biztonság menüútvonalon elindulva közepesre a biztonsági szintet, és indítsuk újra a Wordöt. Ekkor a letöltött fájl indítása előtt a Word kérdezi, hogy engedélyezze-e a makrók futását. Aki valóban szeretne görögül írni, az engedélyezze. A fájl szövege leírja az ezzel kapcsolatos nehézségeket, és azok megoldását, és a makrók közvetlenül használhatóak.</p>
+
+ <h3><a href="letolthetok/GNT_WH_e_book.zip">E-book az 1885-ös Wescott & Hort féle szövegkiadás alapján</a></h3>
+  <p>A letölthető fájl egy 2,1 Mb méretű, 548 oldalas Winword dokumentum, amelyben az Újszövetségi Szentírás szövegét pontosan Wescott és Hort 1885 évi szövegkiadása szerint osztottuk oldalakra. Így a honlapunkon lévő digitalizált szöveg és a könyvkiadás jól összehasonlítható. <br> 
+  Hasznos gyakorlat kezdő görög nyelvtanulók számára, ha úgy tanulnak görögül olvasni, hogy ennek az e-booknak és a könyv fénymásolatának szövegét párhuzamosan olvassák, másrészt haladó görögösök számára ez a gyakorlat lassú, figyelmes Szentírásolvasást jelent, ami tapasztalataink szerint gyorsan válik imádsággá. <br>
+  Az összehasonlításhoz a a könyv fénymásolt lapjai a következő linken letölthetőek. Ha az összeolvasással digitalizációs hibákat sikerül föltárni, készséggel és köszönettel javítjuk mind az e-bookot, mind a web-oldalunkat. Komolyan reméljük azonban, hogy már sokat kell dolgozni egy-egy hiba megtalálásáért, mert legföljebb néhány vessző- és ékezethiba lehet a szövegben. <br>
+  Az e-bookhoz írt angol, olasz ill. magyar nyelvű utószó fontos információkat tartalmaz, az e-book konkrét használata előtt mindenképpen ajánlott elolvasni. Az olasz utószó javításáért, és angolra való továbbfordításáért hálás köszönet Richard Wilsonnak, a <a href="http://www.laparola.net">www.laparola.net</a> weboldal szerkesztőjének! </p>
+
+ <h3><a href="letolthetok/GNT_T_e_book.zip">E-book az 1886-os Tischendorf-féle szövegkiadás alapján</a></h3>
+  <p>A letölthető fájl egy 2,1 Mb méretű, 460 oldalas Winword dokumentum, amelyben az Újszövetségi Szentírás szövegét pontosan Tischendorf 1886 évi szövegkiadása szerint osztottuk oldalakra. Így a digitalizált szöveg és a könyvkiadás jól összehasonlítható. A szövegkiadás bescannelve <a href="http://www.archive.org/download/Tischendorf.I.GreekNewTestament.NovumTestamentumGraece.various/08.NovumTestamentumGraece.Tischendorf.Gebhardt.8th.3rd.1886..pdf">Google book formában itt </a> található.<br> 
+  A digitalizált szöveget a The Word szoftverből vettük át, Isten fizesse meg. Sajnos az összehasonlítás eredménye, hogy a digitalizált szöveg nem túl megbízható, oldalanként 4-5 vessző- és ékezethiba, kb. 2 oldalanként egy betűhiba és 10 oldalanként egy kihagyott szó is előfordul. Emiatt fölhasználóink segítségét kérjük: <br>
+  Tényleg nagyon hasznos olvasási gyakorlat a két szöveg összevetése, és ha sikerül a hibákat kijavítgatni, akkor már a nyelvtanulás ezen első fázisában szolgálhatják a keresztény közösséget! <br>
+  Az e-bookhoz írt angol, olasz ill. magyar nyelvű utószó fontos információkat tartalmaz, az e-book konkrét használata előtt mindenképpen ajánlott elolvasni. Az olasz utószó javításáért, és angolra való továbbfordításáért hálás köszönet Richard Wilsonnak, a <a href="http://www.laparola.net">www.laparola.net</a> weboldal szerkesztőjének! </p>
+
+ <h3><a href="http://clerus.hu/sites/clerus.hu/files/ujszov/scan/ls.html">Az 1885-ös Wescott & Hort féle szövegkiadás szkennelt lapjai</a></h3>
+    <p>Az egyes oldalak jpg form&aacute;tumban tal&aacute;lhat&oacute;ak meg.</p>
+</div>

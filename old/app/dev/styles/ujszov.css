@@ -1,0 +1,100 @@
+
+/* MENU */
+
+#menu ul {
+        padding-left: 0px;
+        padding-right: 10px;
+}
+
+#menu li {
+        list-style-type: none;
+        height: auto;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+}
+
+#menu li a {
+        color: black;
+        text-decoration: none;
+        line-height: 23px;
+}
+
+#menu li a.selected {
+        font-style: oblique;
+}
+
+#menu li a.selected:hover {
+        text-decoration: underline;
+}
+
+#menu li a:hover {
+        text-decoration: underline;
+}
+
+#menu #form {
+	text-align: center;
+}
+
+#menu h3 {
+	margin-bottom: 5px;
+}
+
+#menu h3.dolt {
+	font-style: italic;
+}
+
+/* Szómagyarázat */
+#szoveg {
+	padding-bottom: 30%;
+}
+#explicate {
+	position: fixed;
+	top: 70%;
+	left:inherit;
+	width: inherit;
+	height: 30%;
+	z-index: 90001;
+	background-color: #E5ECF9;
+}
+
+#explicate .close {
+	float: right;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+/* Könyv folyó szövege */
+#szoveg a.txt {
+	text-decoration: none;
+	color: #000000;
+	cursor: pointer;
+}
+#szoveg a.versid {
+	text-decoration: none
+}
+#szoveg a.txt:focus {
+	color: #ff0000
+}
+#szoveg a.focused {
+	color: #ff0000
+}
+
+/* Egyéb */
+#index{
+	text-align: center;
+}
+#help p {
+	text-align: justify;
+}
+#linkek p {
+	text-align: center;
+}
+#linkek h3 {
+	text-align: center;
+}
+#letolthetok h3 {
+	text-align: center;
+}
+#letolthetok p {
+	text-align: justify;
+}
