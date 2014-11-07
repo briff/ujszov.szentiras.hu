@@ -5,12 +5,12 @@ php:
 
 before_script:
   - mysql -e 'create database ujszovszoszedet;'
+  - mkdir -p app/storage/meta
   - php composer.phar install --prefer-source --no-interaction --dev
 # migrate needs environment specification
   - php artisan migrate --seed --env=testing
 
 script:
-  - mkdir -p app/storage/meta
   - phpunit --configuration phpunit.xml
 
 after_success:
