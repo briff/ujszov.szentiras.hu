@@ -9,33 +9,32 @@
     <div class="container">
         <h3>{{ book.nev }} {{ chapter }}</h3>
     </div>
-    <p class="chapterText">
+    <p>
         {% set currentVerse = 0 %}
+        {% set insideMark = false %}
         {% for word in words %}
             {% set wordVerse = word.lh|split(',')[1] %}
             {% if wordVerse > currentVerse %}
                 {% set currentVerse = wordVerse %}
                 {% set verseId = book.nev ~ chapter ~ "," ~ currentVerse %}
-        <a href="javascript:void(0)" data-verse-id="{{ verseId }}" data-trigger="toggle" data-poload="//szentiras.hu/api/ref/{{ verseId }}">
-                <sup>{{ currentVerse }}</sup>
-            </a>
+                {% if insideMark %}</mark>{% endif %}
+                {% if currentVerse == verse %}<mark id="selectedVerse">{% set insideMark = true %}{% endif %}
+                <a name="{{  currentVerse }}" href="#" data-verse-id="{{ verseId }}" data-trigger="toggle" data-poload="//szentiras.hu/api/ref/{{ verseId }}">
+                    <sup>{{ currentVerse }}</sup>
+                </a>
             {% endif %}
-            {% set popoverHeader %}
-            <span class="word">{{ word.unic|raw }}</span> <i>{{ word.mj }}</i>
-            <button type="button" class="close"><span aria-hidden="true" style="padding-left: 10px"><sup>&times;</sup></span><span class="sr-only">Close</span></button>
-            <br><small>{{ word.szf }}, {{ word.elem }}</small>
-            {% endset %}
-            {% set popoverContent %}
-            {% spaceless %}
-                <div class="wordPopover" id="pop{{ word.fh }}">
-                    <span class="word">{{ word.szal|raw }}</span><br /><br />
-            <a id="a{{ word.fh }}" href="/text/details" class="btn btn-default btn-sm">Részletek</a>
-            </div>
-            {% endspaceless %}
-            {% endset %}
-            <a href="javascript:void(0)" data-wordid="{{ word.fh }}" data-trigger="manual" class="word" data-placement="auto"
-               data-title="{{ popoverHeader|e }}"
-               data-content="{{ popoverContent|e }}" data-html="true"><span class="word">{{  word.unic|raw }}</span><sup data-verse-id="{{ verseId }}" class="magyar" style="display:none">{{ word.mj }}</sup></a>
-        {% endfor %}
+            <a href="#"
+               class="word"
+               data-wordid="{{ word.fh }}"
+               data-unic="{{ word.unic|raw }}"
+               data-mj="{{ word.mj }}"
+               data-elem="{{ word.elem }}"
+               data-szal="{{ word.szal|raw }}"
+               data-szf="{{ word.szf }}"
+                    >
+                <span class="word">{{  word.unic|raw }}</span>
+                <sup data-verse-id="{{ verseId }}" class="magyar" style="display:none">{{ word.mj }}</sup></a>
+            {% endfor %}
+            {% if insideMark %}</mark>{% endif %}
     </p>
 {% endblock %}

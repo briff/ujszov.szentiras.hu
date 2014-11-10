@@ -1,8 +1,31 @@
 define ['bootstrap'], ->
 
+  $ ->
+    if ($("#selectedVerse"))
+      $('html, body').animate
+        scrollTop: $("#selectedVerse").offset().top-20,
+        1000
+
   $words = $('a.word')
-  $words.click ->
-    $(this).popover('toggle')
+  $words.click (wordClickEvent) ->
+    popoverHeader = """
+            <span class="word">#{$(this).data('unic')}</span> <i>#{$(this).data('mj')}</i>
+            <button type="button" class="close"><span aria-hidden="true" style="padding-left: 10px"><sup>&times;</sup></span><span class="sr-only">Bezár</span></button>
+            <br><small>#{$(this).data('szf')}, #{$(this).data('elem')}</small>
+      """
+    popoverContent = """
+        <div class="wordPopover" id="pop#{$(this).data('wordid')}">
+                    <span class="word">#{$(this).data('szal')}</span><br /><br />
+            <a id="a#{$(this).data('wordid')}" href="/text/details" class="btn btn-default btn-sm">Részletek</a>
+            </div>
+      """
+    $(this).popover(
+      placement: "auto top"
+      trigger: "manual"
+      html: true
+      title: popoverHeader
+      content: popoverContent
+    ).popover('toggle')
     wordId = $(this).data("wordid");
     popLink = this;
     $(this).on 'shown.bs.popover', ->
@@ -14,9 +37,10 @@ define ['bootstrap'], ->
       $closeButton = $(".popover-title .close", $("div#pop#{ wordId }").parent().parent())
       $closeButton.click ->
         $(popLink).popover('hide')
+    wordClickEvent.preventDefault()
 
   $verseNums = $('a[data-poload]');
-  $verseNums.click ->
+  $verseNums.click (verseNumEvent) ->
     e=$(this);
     if (!e.data('cache'))
       $.get(e.data('poload'), (d) ->
@@ -45,4 +69,4 @@ define ['bootstrap'], ->
         $("sup[data-verse-id='#{e.data('verse-id')}']").toggle()
       $("button[data-verse-id='#{e.data('verse-id')}'].close").click ->
         e.popover('hide')
-
+    verseNumEvent.preventDefault()

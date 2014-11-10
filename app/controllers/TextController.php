@@ -16,7 +16,8 @@ class TextController extends BaseController
         return View::make("text.displayChapter", [
             "book" => $book,
             "chapter" => $chapter,
-            "words" => $words
+            "words" => $words,
+            "verse" => $verse
         ]);
     }
 
