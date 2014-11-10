@@ -1,6 +1,7 @@
 define ['bootstrap'], ->
+
   $words = $('a.word')
-  $words.click (e) ->
+  $words.click ->
     $(this).popover('toggle')
     wordId = $(this).data("wordid");
     popLink = this;
@@ -19,6 +20,7 @@ define ['bootstrap'], ->
         e.data('cache', d.text);
         e.popover(
           html: true
+          trigger: "manual"
           content: d.text +
             '<a target="_blank" href="'+d.canonicalUrl+'">'+d.canonicalRef+'</a>' +
            ' <button data-verse-id="'+e.data('verse-id')+'" type="button" class="btn btn-default btn-xs">Szavanként</button>'
@@ -31,4 +33,3 @@ define ['bootstrap'], ->
       e.popover('toggle')
       $("button[data-verse-id='"+e.data('verse-id')+"']").click ->
         $("sup[data-verse-id='"+e.data('verse-id')+"']").toggle()
-
