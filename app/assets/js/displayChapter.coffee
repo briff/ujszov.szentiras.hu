@@ -11,6 +11,9 @@ define ['bootstrap'], ->
         $(".modal-content").load "/text/details/"+wordId
         $("#detailsModal").modal('show')
         false
+      $closeButton = $(".popover-title .close", $("div#pop"+wordId).parent().parent())
+      $closeButton.click ->
+        $(popLink).popover('hide')
 
   $verseNums = $('a[data-poload]');
   $verseNums.click ->

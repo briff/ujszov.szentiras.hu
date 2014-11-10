@@ -20,16 +20,21 @@
                 <sup>{{ currentVerse }}</sup>
             </a>
             {% endif %}
+            {% set popoverHeader %}
+            <span class="word">{{ word.unic|raw }}</span> <i>{{ word.mj }}</i>
+            <button type="button" class="close"><span aria-hidden="true" style="padding-left: 10px"><sup>&times;</sup></span><span class="sr-only">Close</span></button>
+            {% endset %}
             {% set popoverContent %}
             {% spaceless %}
-                <button type="button" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <div class="wordPopover" id="pop{{ word.fh }}">
                     <span class="word">{{ word.unic|raw }}</span> (<span class="word">{{ word.szal|raw }}</span>)<br />{{ word.mj }}<br />
             <a id="a{{ word.fh }}" href="/text/details" class="btn btn-default btn-sm">Részletek</a>
             </div>
             {% endspaceless %}
             {% endset %}
-            <a href="javascript:void(0)" data-wordid="{{ word.fh }}" data-trigger="manual" class="word" data-placement="auto" data-content="{{ popoverContent|e }}" data-html="true"><span class="word">{{  word.unic|raw }}</span><sup data-verse-id="{{ verseId }}" class="magyar" style="display:none">{{ word.mj }}</sup></a>
+            <a href="javascript:void(0)" data-wordid="{{ word.fh }}" data-trigger="manual" class="word" data-placement="auto"
+               data-title="{{ popoverHeader|e }}"
+               data-content="{{ popoverContent|e }}" data-html="true"><span class="word">{{  word.unic|raw }}</span><sup data-verse-id="{{ verseId }}" class="magyar" style="display:none">{{ word.mj }}</sup></a>
         {% endfor %}
     </p>
 {% endblock %}
