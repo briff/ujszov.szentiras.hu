@@ -1,7 +1,7 @@
 define ['bootstrap'], ->
 
   $ ->
-    if ($("#selectedVerse"))
+    if ($("#selectedVerse").length>0)
       $('html, body').animate
         scrollTop: $("#selectedVerse").offset().top-20,
         1000
