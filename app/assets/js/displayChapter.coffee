@@ -11,7 +11,7 @@ define ['bootstrap'], ->
         $(".modal-content").load "/text/details/"+wordId
         $("#detailsModal").modal('show')
         false
-      $closeButton = $(".popover-title .close", $("div#pop"+wordId).parent().parent())
+      $closeButton = $(".popover-title .close", $("div#pop#{ wordId }").parent().parent())
       $closeButton.click ->
         $(popLink).popover('hide')
 
@@ -24,15 +24,25 @@ define ['bootstrap'], ->
         e.popover(
           html: true
           trigger: "manual"
-          content: d.text +
-            '<a target="_blank" href="'+d.canonicalUrl+'">'+d.canonicalRef+'</a>' +
-           ' <button data-verse-id="'+e.data('verse-id')+'" type="button" class="btn btn-default btn-xs">Szavanként</button>'
+          content: """
+              <button data-verse-id="#{e.data('verse-id')}" type="button" class="close"><sup>&times;</sup></button>
+              <div>#{d.text}</div>
+              <div style="border-top: 1px solid #ccc; padding-top:4px">
+                <button data-verse-id="#{e.data('verse-id')}" type="button" class="btn btn-default btn-xs byWords">Szavanként</button>
+                <a target="_blank" href="#{d.canonicalUrl}"><span style="white-space: nowrap; padding-left:5px; float:right;"><small>#{d.canonicalRef}</small></span></a>
+              </div>
+            """
           placement: "auto top"
         ).popover('toggle')
-        $("button[data-verse-id='"+e.data('verse-id')+"']").click ->
-          $("sup[data-verse-id='"+e.data('verse-id')+"']").toggle()
+        $("button[data-verse-id='#{e.data('verse-id')}'].byWords").click ->
+          $("sup[data-verse-id='#{e.data('verse-id')}']").toggle()
+        $("button[data-verse-id='#{e.data('verse-id')}'].close").click ->
+          e.popover('hide')
       )
     else
       e.popover('toggle')
-      $("button[data-verse-id='"+e.data('verse-id')+"']").click ->
-        $("sup[data-verse-id='"+e.data('verse-id')+"']").toggle()
+      $("button[data-verse-id='#{e.data('verse-id')}'].byWords").click ->
+        $("sup[data-verse-id='#{e.data('verse-id')}']").toggle()
+      $("button[data-verse-id='#{e.data('verse-id')}'].close").click ->
+        e.popover('hide')
+
