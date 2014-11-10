@@ -9,7 +9,7 @@
     "bower_components"
   ],
   "devDependencies": {
-    "bootstrap": "3.2.x",
+    "bootstrap": "3.3.x",
     "requirejs": "2.1.11"
   },
   "dependencies": {

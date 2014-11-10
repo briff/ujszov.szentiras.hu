@@ -22,8 +22,9 @@
             {% endif %}
             {% set popoverContent %}
             {% spaceless %}
+                <button type="button" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <div class="wordPopover" id="pop{{ word.fh }}">
-            <span class="word">{{ word.unic|raw }}</span> (<span class="word">{{ word.szal|raw }}</span>)<br />{{ word.mj }}<br />
+                    <span class="word">{{ word.unic|raw }}</span> (<span class="word">{{ word.szal|raw }}</span>)<br />{{ word.mj }}<br />
             <a id="a{{ word.fh }}" href="/text/details" class="btn btn-default btn-sm">Részletek</a>
             </div>
             {% endspaceless %}
