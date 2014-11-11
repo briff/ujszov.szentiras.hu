@@ -59,14 +59,14 @@ define ['bootstrap'], ->
           placement: "auto top"
         ).popover('toggle')
         $("button[data-verse-id='#{e.data('verse-id')}'].byWords").click ->
-          $("sup[data-verse-id='#{e.data('verse-id')}']").toggle()
+          $("sup[data-verse-id='#{e.data('verse-id')}']").toggleClass('hidden')
         $("button[data-verse-id='#{e.data('verse-id')}'].close").click ->
           e.popover('hide')
       )
     else
       e.popover('toggle')
       $("button[data-verse-id='#{e.data('verse-id')}'].byWords").click ->
-        $("sup[data-verse-id='#{e.data('verse-id')}']").toggle()
+        $("sup[data-verse-id='#{e.data('verse-id')}']").toggleClass('hidden')
       $("button[data-verse-id='#{e.data('verse-id')}'].close").click ->
         e.popover('hide')
     verseNumEvent.preventDefault()

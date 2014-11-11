@@ -12,15 +12,20 @@
         {% set insideMark = false %}
         {% for word in words %}
             {% set wordVerse = word.lh|split(',')[1] %}
+            {% set verseLink="" %}
             {% if wordVerse > currentVerse %}
                 {% set currentVerse = wordVerse %}
                 {% set verseId = book.nev ~ chapter ~ "," ~ currentVerse %}
                 {% if insideMark %}</mark>{% endif %}
                 {% if currentVerse == verse %}<mark id="selectedVerse">{% set insideMark = true %}{% endif %}
+                {% set verseLink %}
                 <a name="{{  currentVerse }}" href="#" data-verse-id="{{ verseId }}" data-trigger="toggle" data-poload="//szentiras.hu/api/ref/{{ verseId }}">
                     <sup>{{ currentVerse }}</sup>
                 </a>
+                {% endset %}
             {% endif %}
+            <span {% if verseLink is not empty %}class="text-nowrap"{% endif %}>
+                {{ verseLink }}
             <a href="#"
                class="word"
                data-wordid="{{ word.fh }}"
@@ -30,8 +35,12 @@
                data-szal="{{ word.szal|raw }}"
                data-szf="{{ word.szf }}"
                     >
-                <span class="word">{{  word.unic|raw }}</span>
-                <sup data-verse-id="{{ verseId }}" class="magyar" style="display:none">{{ word.mj }}</sup></a>
+                <span class="word">
+                    {{  word.unic|raw }}
+                </span>
+                </a>
+                </span>
+                <sup data-verse-id="{{ verseId }}" class="magyar hidden">{{ word.mj }}</sup>
             {% endfor %}
             {% if insideMark %}</mark>{% endif %}
     </p>
