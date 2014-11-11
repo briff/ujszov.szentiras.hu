@@ -2,16 +2,6 @@
 
 {% import _self as macros %}
 
-{% macro showDirs(dirs, parent) %}
-    {% import _self as macros %}
-    <ul class="file">
-        {% for dir in dirs %}
-            <li {% if dir.children is empty %}class="file" data-path="{{ parent ~ "/" ~ dir.name }}"{% endif %}>{{ dir.name }}</li>
-            {{ macros.showDirs(dir.children, parent ~ "/" ~ dir.name) }}
-        {% endfor %}
-    </ul>
-{% endmacro %}
-
 {% block content %}
     <h1>Konvertáló program</h1>
     <p>Ezen a felületen kereszül lehet frissíteni az adatbázist.</p>
@@ -27,23 +17,10 @@
     <pre><small>210  "ἀγαλλιάω"  "verb."  "&#7936;&#947;&#945;&#955;&#955;&#953;&#940;&#969;, &#7936;&#947;&#945;&#955;&#955;&#953;&#940;&#963;&#969; ?, &#7968;&#947;&#945;&#955;&#955;&#943;&#945;&#963;&#945;, &#7968;&#947;&#945;&#955;&#955;&#953;&#940;&#954;&#945; ?, ?, ?"  "&#246;r&#252;l, &#246;rvendezik, ujjong"  "ELEM"  "STRONG"  "BK"</small></pre>
     <hr><p></p>
     <form name="form" action="/technikai/convert" method="post" role="form">
-    <div class="form-group">
-        <p class="form-control-static">Milyen típusú fájlt kell konvertálni?</p>
-        <div class="radio">
-            <label><input type="radio" name="tipus" value="konyvek" id="konyvek" checked>Könyvek</label>
-        </div>
-        <div class="radio">
-            <label for="szotar"><input type="radio" name="tipus" value="szotar" id="szotar">Szótár</label>
-        </div>
-    </div>
     <p class="help"><label for="general">General update</label> <input type="checkbox" name="general" id="general" />
     <span class="helpmsg">
       Abban az esetben, ha az új verzióban kevesebb szó van
     </span>
     </p>
-    <p>Melyik a forrásfájl?</p>
-    <p><input type="text" name="fajl_text" disabled>
-        <input type="hidden" name="fajl" />
-        <input type="submit" value="Konvertál" /></p>
-    {{ macros.showDirs(contents) }}
+
 {% endblock %}

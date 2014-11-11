@@ -79,3 +79,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+Auth::extend('property', function($app)
+{
+    return new PropertyAuthProvider();
+});

@@ -3,7 +3,12 @@
 class TechnicalController extends \BaseController
 {
 
-    /**
+    public function __construct()
+    {
+        $this->beforeFilter('auth.basic');
+    }
+
+        /**
      * Display a listing of the resource.
      *
      * @return Response

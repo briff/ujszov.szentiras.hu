@@ -15,6 +15,7 @@
 		"classmap": [
 			"app/commands",
 			"app/controllers",
+            "app/extensions",
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",

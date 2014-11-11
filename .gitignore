@@ -3,7 +3,6 @@
 .env.production.php
 .env.staging.php
 .env.php
-.env.local.php
 .DS_Store
 Thumbs.db
 .idea

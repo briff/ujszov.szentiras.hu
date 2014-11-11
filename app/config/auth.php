@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'eloquent',
+	'driver' => 'property',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,5 +67,9 @@ return array(
 		'expire' => 60,
 
 	),
+
+    'admin' => [
+        getenv('ADMIN_USER_EMAIL') => getenv('ADMIN_USER_PASSWORD_HASH')
+        ]
 
 );
