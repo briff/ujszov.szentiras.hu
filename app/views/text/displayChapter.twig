@@ -6,9 +6,7 @@
         <div class="modal-dialog"><div class="modal-content"></div></div>
     </div>
 
-    <div class="container">
         <h3>{{ book.nev }} {{ chapter }}</h3>
-    </div>
     <p>
         {% set currentVerse = 0 %}
         {% set insideMark = false %}
@@ -37,4 +35,12 @@
             {% endfor %}
             {% if insideMark %}</mark>{% endif %}
     </p>
+    <p>
+        {% if chapter > 1 %}
+            <a href="/text/{{ book.nev }}/{{ chapter-1 }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Előző fejezet</a>
+        {% endif %}
+        {% if chapter < book.hossz %}
+            <a href="/text/{{ book.nev }}/{{ chapter+1 }}" class="btn btn-default">Következő fejezet <span class="glyphicon glyphicon-chevron-right"></span></a>
+        {% endif %}
+     </p>
 {% endblock %}

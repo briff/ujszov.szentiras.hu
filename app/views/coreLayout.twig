@@ -26,15 +26,23 @@
 <div class="container">
     {% block navbar %}{% endblock %}
     <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-2">
             {% block menu %}{% endblock %}
         </div>
-        <div class="col-md-11">
+        <div class="col-md-10">
             <div>
                 {% block content %}{% endblock %}
             </div>
         </div>
     </div>
+</div>
+<div class="footer">
+    <p>Kérdések, ötletek, problémák: Harmai Gábor, e-mail (ember számára olvasható formában): harmaig kukac ehf pont hu</p>
+    <p>Fejlesztés: <a href="https://github.com/briff/ujszov.szentiras.hu">GitHub</a>
+        {% if config_get('version.hash') %}- <small>verzió:
+            <a href="https://github.com/briff/ujszov.szentiras.hu.hu/commit/{{ config_get('version.hash') }}">
+                {{ config_get('version.hash')[0:7] }}</a></small>{% endif %}</p>
+    <p>Programozók: <a href="https://github.com/briff">Fodor Bertalan</a> (2014-). Az eredeti honlapot készítette és sok éven át karbantartotta: <b>Süttő Dániel</b></p>
 </div>
 <script data-main="/js/requirejs_config" src="/js/lib/require.js"></script>
 </body>
