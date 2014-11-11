@@ -16,7 +16,7 @@ define ['bootstrap'], ->
     popoverContent = """
         <div class="wordPopover" id="pop#{$(this).data('wordid')}">
                     <span class="word">#{$(this).data('szal')}</span><br /><br />
-            <a id="a#{$(this).data('wordid')}" href="/text/details" class="btn btn-default btn-sm">Részletek</a>
+            <a id="a#{$(this).data('wordid')}" href="/details" class="btn btn-default btn-sm">Részletek</a>
             </div>
       """
     $(this).popover(
@@ -31,7 +31,7 @@ define ['bootstrap'], ->
     $(this).on 'shown.bs.popover', ->
       $("#a"+wordId).click ->
         $(popLink).popover('hide')
-        $(".modal-content").load "/text/details/"+wordId
+        $(".modal-content").load "/details/"+wordId
         $("#detailsModal").modal('show')
         false
       $closeButton = $(".popover-title .close", $("div#pop#{ wordId }").parent().parent())

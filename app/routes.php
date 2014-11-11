@@ -13,6 +13,8 @@
 
 Route::controller("/technikai", "TechnicalController");
 
+Route::get("/details/{id}", "TextController@getDetails");
+
 Route::controller("/text/{book?}/{chapter?}/{verse?}", "TextController");
 
 Route::controller('/', 'HomeController');
