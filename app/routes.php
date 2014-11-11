@@ -11,8 +11,8 @@
 |
 */
 
-Route::controller('/', 'HomeController');
-
 Route::controller("/technikai", "TechnicalController");
 
 Route::controller("/text/{book?}/{chapter?}/{verse?}", "TextController");
+
+Route::controller('/', 'HomeController');
