@@ -26,21 +26,22 @@
             {% endif %}
             <span {% if verseLink is not empty %}class="text-nowrap"{% endif %}>
                 {{ verseLink }}
-            <a href="#"
-               class="word"
-               data-wordid="{{ word.fh }}"
-               data-unic="{{ word.unic|raw }}"
-               data-mj="{{ word.mj }}"
-               data-elem="{{ word.elem }}"
-               data-szal="{{ word.szal|raw }}"
-               data-szf="{{ word.szf }}"
-                    >
-                <span class="word">
-                    {{  word.unic|raw }}
-                </span>
-                </a>
-                </span>
+                <span class="word text-nowrap">
+
+                    <a href="#"
+                       class="word"
+                       data-wordid="{{ word.fh }}"
+                       data-unic="{{ word.unic|raw }}"
+                       data-mj="{{ word.mj }}"
+                       data-elem="{{ word.elem }}"
+                       data-szal="{{ word.szal|raw }}"
+                       data-szf="{{ word.szf }}"
+                            >
+                            {{  word.unic|raw }}
+                        </a>
                 <sup data-verse-id="{{ verseId }}" class="magyar hidden">{{ word.mj }}</sup>
+                </span>
+            </span>
             {% endfor %}
             {% if insideMark %}</mark>{% endif %}
     </p>
