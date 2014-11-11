@@ -17,6 +17,6 @@ do
     export UJSZOV_WEBAPP_ENVIRONMENT=$appEnv
     sh install.sh
     php artisan cache:clear
-    php artisan twig:clear
+    php artisan twig:clean
     php artisan up
 done
