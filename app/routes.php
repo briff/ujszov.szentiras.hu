@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@showWelcome');
+Route::controller('/', 'HomeController');
 
 Route::controller("/technikai", "TechnicalController");
 
-Route::controller("/text", "TextController");
+Route::controller("/text/{book?}/{chapter?}/{verse?}", "TextController");

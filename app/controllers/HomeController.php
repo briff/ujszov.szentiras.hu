@@ -2,9 +2,14 @@
 
 class HomeController extends BaseController {
 
-	public function showWelcome()
+	public function getIndex()
 	{
-        return View::make('welcome');
+        $books = Book::where('tipus', 'default')->orderBy('konyv_id')->get();
+        return View::make('welcome', [ 'books' => $books]);
 	}
+
+    public function getHelp() {
+        return View::make('help');
+    }
 
 }
