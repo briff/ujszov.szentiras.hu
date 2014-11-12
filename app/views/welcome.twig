@@ -1,17 +1,15 @@
 {% extends "layout" %}
 
 {% block content %}
-    <div class="container">
         <h3>Üdvözöljük a görög újszövetségi szószedetben!</h3>
-        <div>
+        <p>
             <small>
                 {% for book in books %}
                     <a class="btn btn-default btn-xs" href="/text/{{ book.nev }}/">{{ book.nev }}</a>
                 {% endfor %}
             </small>
-        </div>
-        <div>
+        </p>
+        <p>
             <img class="img-responsive" alt="" title="Fil 1,3-8" src="/img/gnt_wh.jpg">
-        </div>
-    </div>
+        </p>
 {% endblock %}

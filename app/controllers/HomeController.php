@@ -12,4 +12,8 @@ class HomeController extends BaseController {
         return View::make('help');
     }
 
+    public function getRovjegyz() {
+        return View::make('rovjegyz');
+    }
+
 }
