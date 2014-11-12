@@ -16,4 +16,12 @@ class HomeController extends BaseController {
         return View::make('rovjegyz');
     }
 
+    public function getLinkek() {
+        return View::make('linkek');
+    }
+
+    public function getDownload() {
+        return View::make('download');
+    }
+
 }
