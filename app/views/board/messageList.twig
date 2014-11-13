@@ -1,0 +1,60 @@
+{% extends 'layout' %}
+
+{% block content %}
+
+    <div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="replyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="name">Név</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email <small>(Kitöltése nem kötelezõ, a könnyebb kapcsolatfelvételt szolgálja)</small></label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Üzenet</label>
+                            <textarea name="text" class="form-control" rows="6"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Robotszűrés:</label>
+                            Aki másnak vermet ás, maga <input type="text" size="5" name="password"> bele.
+                        </div>
+                        <input type="hidden" name="messageId" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Küldés</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Mégse</button>
+                </div>
+                <div class="modal-body">
+                    <div id="originalText" class="panel panel-default" style="font-size:12px; max-height:200px; overflow-y:auto;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p><a href="#" id="newMessage" class="btn btn-default">Új üzenet...</a></p>
+
+    {% for message in messages %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>{{ message.nev }}</strong>
+                <div class="pull-right"><small>{{ message.datum }}</small> - <small>{{ message.ssz }}</small></div>
+            </div>
+            <div class="panel-body">
+                <span id="msg{{ message.ssz }}">{{ message.uzenet|raw }}</span>
+                <div class="pull-right"><a href="#" id="reply{{ message.ssz }}" class="btn btn-default" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">Válasz</a></div>
+            </div>
+        </div>
+
+    {% endfor %}
+    {{ messages.links|raw }}
+
+
+{% endblock %}
