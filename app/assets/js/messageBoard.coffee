@@ -10,3 +10,14 @@ define ['bootstrap'], ->
     $("#replyModal .modal-header").html("Válasz #{senderName} #{messageId}. számú üzenetére")
     $("#replyModal #originalText").html(messageText)
     $("#replyModal").modal('show')
+  $("#sendMessage").click ->
+    hasError = false
+    if ($("#name").text().length = 0)
+      $("#name").parent().addClass("has-error")
+      hasError = true
+
+    if ($("#password").text() != "esik")
+      $("#password").parent().addClass("has-error")
+      hasError = true
+    if (!hasError)
+      $("#messageForm").submit()

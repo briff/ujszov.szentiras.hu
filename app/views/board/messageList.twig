@@ -8,10 +8,10 @@
                 <div class="modal-header">
                 </div>
                 <div class="modal-body">
-                    <form role="form">
+                    <form role="form" method="post" action="/board" id="messageForm">
                         <div class="form-group">
                             <label for="name">Név</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" id="name">
                         </div>
                         <div class="form-group">
                             <label for="email">Email <small>(Kitöltése nem kötelezõ, a könnyebb kapcsolatfelvételt szolgálja)</small></label>
@@ -23,13 +23,13 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Robotszűrés:</label>
-                            Aki másnak vermet ás, maga <input type="text" size="5" name="password"> bele.
+                            Aki másnak vermet ás, maga <input type="text" size="5" name="password" id="password"> bele.
                         </div>
                         <input type="hidden" name="messageId" />
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Küldés</button>
+                    <button type="submit" class="btn btn-primary" id="sendMessage">Küldés</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Mégse</button>
                 </div>
                 <div class="modal-body">
