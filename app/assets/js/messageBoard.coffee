@@ -12,7 +12,7 @@ define ['bootstrap'], ->
     $("#replyModal").modal('show')
   $("#sendMessage").click ->
     hasError = false
-    if ($("#name").text().length = 0)
+    if ($("#name").text().length == 0)
       $("#name").parent().addClass("has-error")
       hasError = true
 

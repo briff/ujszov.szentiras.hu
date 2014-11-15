@@ -19,7 +19,9 @@ class BoardController extends BaseController {
             $message['e-mail'] = Input::get('email');
             $message['uzenet'] = htmlspecialchars(Input::get('text'));
             $message['datum'] = date("Y.m.d. H:i:s");
-            $message->save();
+            if (!empty($message['nev'])) {
+                $message->save();
+            }
         }
         return $this->getIndex();
     }
