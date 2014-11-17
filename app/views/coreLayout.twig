@@ -44,6 +44,6 @@
                 {{ config_get('version.hash')[0:7] }}</a></small>{% endif %}</p>
     <p>Programozók: <a href="https://github.com/briff">Fodor Bertalan</a> (2014-). Az eredeti honlapot készítette és sok éven át karbantartotta: <b>Süttő Dániel</b></p>
 </div>
-<script data-main="/js/requirejs_config" src="/js/lib/require.js"></script>
+<script data-main="/js/{{ jsModule ?: 'common' }}" src="/js/lib/require.js"></script>
 </body>
 </html>

@@ -1,1 +1,0 @@
-define ['convert', 'displayChapter', 'messageBoard'], ->

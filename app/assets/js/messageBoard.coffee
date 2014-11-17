@@ -1,4 +1,4 @@
-define ['bootstrap'], ->
+define ['common'], ->
   $("a#newMessage").click (e) ->
     $("#replyModal .modal-header").html("Új üzenet")
     $("#replyModal textarea#originalText").hide()

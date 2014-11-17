@@ -1,4 +1,24 @@
 {% extends 'adminLayout' %}
 
+{% set jsModule = 'twig' %}
+
 {% block content %}
+
+    {% for message in messages %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>{{ message.nev }}</strong>
+                <div class="pull-right"><small>{{ message.created_at }}</small> - <small>{{ message.ssz }}</small></div>
+            </div>
+            <div class="panel-body">
+                <span id="msg{{ message.ssz }}">{{ message.uzenet|raw }}</span>
+                <div class="pull-right">
+                    <a href="#" id="delete{{ message.ssz }}" class="btn btn-primary" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">Töröl</a>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+    {{ messages.links|raw }}
+
 {% endblock %}

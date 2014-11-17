@@ -7,10 +7,9 @@ require.config(
     ]
 
     bootstrap: "lib/bootstrap.min"
-    app_modules: 'app_bundle'
 
   shim:
     bootstrap: ['jquery']
-
-  deps: ['app_modules', 'jquery', 'bootstrap']
 )
+
+define ['bootstrap', 'jquery'], ->

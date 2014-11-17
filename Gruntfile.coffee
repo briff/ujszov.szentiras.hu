@@ -3,20 +3,33 @@ module.exports = (grunt) ->
     requirejs:
       compile:
         options:
-          baseUrl: 'public/js'
-          name: 'app_modules'
-          out: 'public/js/app_bundle.js'
+          baseUrl: 'app/assets/js/build'
+          mainConfigFile: 'app/assets/js/build/common.js'
+          dir: 'public/js'
           paths: {
             jquery: "empty:"
             bootstrap: "empty:"
           }
+          modules: [
+            {
+              name: 'common'
+            }
+            {
+              name: 'messageBoard'
+              exclude: ['common']
+            }
+            {
+              name: 'displayChapter'
+              exclude: ['common']
+            }
+          ]
     clean: ["public/js", "public/img", "public/css"]
     coffee:
       compile:
         expand: true
         cwd: 'app/assets/js'
         src: ['**/*.coffee']
-        dest: 'public/js'
+        dest: 'app/assets/js/build'
         ext: '.js'
     less:
       main:
@@ -24,8 +37,15 @@ module.exports = (grunt) ->
           'public/css/style.css': 'app/assets/css/style.less'
     copy:
       dev:
-        files:
-          'public/js/app_bundle.js': 'public/js/app_modules.js'
+       files:
+          [
+            {
+              expand: true
+              cwd: 'app/assets/js/build'
+              src: ['**/*.js']
+              dest: 'public/js'
+            }
+          ]
       main:
         files: [
           {
@@ -85,5 +105,5 @@ module.exports = (grunt) ->
     'grunt-contrib-less'
   ]
 
-  grunt.registerTask 'default', ['clean', 'copy:main', 'coffee', 'less', 'requirejs']
+  grunt.registerTask 'default', ['clean', 'coffee', 'less', 'requirejs', 'copy:main']
   grunt.registerTask 'dev', ['clean', 'coffee', 'less', 'copy:main', 'copy:dev']

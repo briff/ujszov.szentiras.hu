@@ -1,0 +1,4 @@
+AuthName "Csak adminisztratoroknak"
+AuthType Basic
+AuthUserFile /home/sutda/.ujszov.htpasswd
+require valid-user

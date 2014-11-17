@@ -1,4 +1,4 @@
-define ['bootstrap'], ->
+define ['common'], ->
 
   $ ->
     if ($("#selectedVerse").length>0)

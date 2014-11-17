@@ -148,7 +148,8 @@ class TechnicalController extends \BaseController
     }
 
     public function getModerate() {
-        return View::make('technical.moderate');
+        $messages = Message::orderBy('ssz', 'desc')->paginate(50);
+        return View::make('technical.moderate', [ 'messages' => $messages] );
     }
 
 }
