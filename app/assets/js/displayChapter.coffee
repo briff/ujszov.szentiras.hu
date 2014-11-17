@@ -19,13 +19,6 @@ define ['common'], ->
             <a id="a#{$(this).data('wordid')}" href="/details" class="btn btn-default btn-sm">Részletek</a>
             </div>
       """
-    $(this).popover(
-      placement: "auto top"
-      trigger: "manual"
-      html: true
-      title: popoverHeader
-      content: popoverContent
-    ).popover('toggle')
     wordId = $(this).data("wordid");
     popLink = this;
     $(this).on 'shown.bs.popover', ->
@@ -37,6 +30,13 @@ define ['common'], ->
       $closeButton = $(".popover-title .close", $("div#pop#{ wordId }").parent().parent())
       $closeButton.click ->
         $(popLink).popover('hide')
+    $(this).popover(
+      placement: "auto top"
+      trigger: "manual"
+      html: true
+      title: popoverHeader
+      content: popoverContent
+    ).popover('toggle')
     wordClickEvent.preventDefault()
 
   $verseNums = $('a[data-poload]');

@@ -101,7 +101,6 @@ module.exports = (grunt) ->
     'grunt-contrib-clean'
     'grunt-contrib-coffee'
     'grunt-contrib-copy'
-    'grunt-contrib-watch'
     'grunt-contrib-less'
   ]
 
