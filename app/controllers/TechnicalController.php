@@ -147,4 +147,8 @@ class TechnicalController extends \BaseController
         return $contents;
     }
 
+    public function getModerate() {
+        return View::make('technical.moderate');
+    }
+
 }
