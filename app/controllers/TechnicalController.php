@@ -152,4 +152,12 @@ class TechnicalController extends \BaseController
         return View::make('technical.moderate', [ 'messages' => $messages] );
     }
 
-}
+    public function postModerate() {
+        $id = Input::get('id');
+        $message = Message::find($id);
+        $message->hidden = true;
+        $message->save();
+        return $this->getModerate();
+    }
+
+};

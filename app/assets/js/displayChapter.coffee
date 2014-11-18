@@ -37,7 +37,7 @@ define ['common'], ->
       title: popoverHeader
       content: popoverContent
     ).popover('toggle')
-    wordClickEvent.preventDefault()
+    false
 
   $verseNums = $('a[data-poload]');
   $verseNums.click (verseNumEvent) ->
@@ -69,4 +69,4 @@ define ['common'], ->
         $("sup[data-verse-id='#{e.data('verse-id')}']").toggleClass('hidden')
       $("button[data-verse-id='#{e.data('verse-id')}'].close").click ->
         e.popover('hide')
-    verseNumEvent.preventDefault()
+    false
