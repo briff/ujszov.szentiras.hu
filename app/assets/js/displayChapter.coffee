@@ -44,9 +44,11 @@ define ['common'], ->
       span = """
         <span class="word">#{word}</span>
       """
-      $wordDetailsDiv.parent().hide(400);
-      $wordDetailsDiv.parent().html(span)
-      $wordDetailsDiv.parent().show(400);
+      $parent = $wordDetailsDiv.parent()
+      $parent.hide 400, ->
+        $parent.html span
+        $parent.show 400
+
   replaceWord = ($word) ->
     $word.fadeOut(
       complete: ->
