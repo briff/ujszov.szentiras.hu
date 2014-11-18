@@ -28,7 +28,6 @@
             {% endif %}
             <span {% if verseLink is not empty %}class="text-nowrap"{% endif %}>
                 {{ verseLink }}
-                <span class="text-nowrap">
                     <a href="#"
                        class="word"
                        data-wordid="{{ word.fh }}"
@@ -37,9 +36,10 @@
                        data-elem="{{ word.elem }}"
                        data-szal="{{ word.szal|raw }}"
                        data-szf="{{ word.szf }}"
+                       data-dict-mj="{{ word.dictEntry.mj|raw }}"
+                       data-dict-valt="{{ word.dictEntry.valt|raw }}"
                             >{{  word.unic|raw }}</a>
                 <sup data-verse-id="{{ verseId }}" class="magyar hidden">{{ word.mj }}</sup>
-                </span>
             </span>
             {% endfor %}
             {% if insideMark %}</mark>{% endif %}
