@@ -1,18 +1,3 @@
-ul.folder {
-    font-family: courier;
-    list-style-image: url(/img/mappa.png);
-}
-
-ul.file {
-  font-family: courier;
-  list-style-image: url(/img/fajl.png);
-}
-
-li.file {
-  color: blue;
-  cursor: pointer;
-}
-
 @font-face {
   font-family: "gentiumW";
   src: url("/fonts/GentiumPlus-R.woff") format('woff');
@@ -39,15 +24,88 @@ a.word { color: black }
 a.word:hover { color: #428bca }
 
 .footer {
-  padding: 40px 0;
+  width: 100%;
   color: #999;
   text-align: center;
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;
+  position: fixed;
+  height:80px;
+  bottom:0;
+  font-size: small;
+  display: none;
 }
 
 div.wordDetails {
   display: inline-block;
   margin-bottom:0px;
   max-width: 400px;
+}
+
+div.textDisplay {
+  overflow-y: scroll;
+  position: fixed;
+  bottom: 0px;
+  top:80px;
+}
+
+div.detailsDisplay {
+  overflow-y: scroll;
+  position: fixed;
+}
+
+// small screen
+@media screen and (max-width: 767px) {
+  div.chooser {
+    height: 40px;
+    width: 100%;
+  }
+  div.textDisplay {
+    top:100px;
+    bottom: 200px;
+  }
+  div.detailsDisplay {
+    bottom: 0px;
+    height: 200px;
+  }
+}
+
+// landscape
+@media screen and (min-width: 992px) {
+  div.textDisplay {
+    top: 100px;
+    right: 200px;
+    left: 200px;
+  }
+  div.detailsDisplay {
+    width: 200px;
+    right: 0px;
+    top: 100px;
+    bottom: 80px;
+  }
+}
+
+.jumper-form-control {
+  width: auto;
+  display: inline;
+}
+
+// big portrait
+@media screen and (min-width: 768px) and (max-width:991px) {
+  div.textDisplay {
+    top:100px;
+    bottom: 200px;
+  }
+  div.detailsDisplay {
+    bottom: 0px;
+    height: 200px;
+    width: 100%;
+  }
+}
+
+// show footer if has place
+@media screen and (min-height: 600px) and (min-width: 768px) {
+  div.footer {
+    display: block;
+  }
 }

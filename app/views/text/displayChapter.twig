@@ -4,52 +4,61 @@
 
 {% block content %}
 
-    <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog"><div class="modal-content"></div></div>
+    <div class="row">
+        <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog"><div class="modal-content"></div></div>
+        </div>
+
+
+        <div class="textDisplay">
+            <h3>{{ book.nev }} {{ chapter }}</h3>
+        <p>
+            {% set currentVerse = 0 %}
+            {% set insideMark = false %}
+            {% for word in words %}
+                {% set wordVerse = word.lh|split(',')[1] %}
+                {% set verseLink="" %}
+                {% if wordVerse > currentVerse %}
+                    {% set currentVerse = wordVerse %}
+                    {% set verseId = book.nev ~ chapter ~ "," ~ currentVerse %}
+                    {% if insideMark %}</mark>{% endif %}
+                    {% if currentVerse == verse %}<mark id="selectedVerse">{% set insideMark = true %}{% endif %}
+                    {% set verseLink %}
+                    <a name="{{  currentVerse }}" href="#" data-verse-id="{{ verseId }}" data-trigger="toggle" data-poload="//szentiras.hu/api/ref/{{ verseId }}">
+                        <sup>{{ currentVerse }}</sup>
+                    </a>
+                    {% endset %}
+                {% endif %}
+                <span {% if verseLink is not empty %}{% endif %}>
+                    {{ verseLink }}
+                        <a href="#"
+                           class="word"
+                           data-wordid="{{ word.fh }}"
+                           data-unic="{{ word.unic|raw }}"
+                           data-mj="{{ word.mj }}"
+                           data-elem="{{ word.elem }}"
+                           data-szal="{{ word.szal|raw }}"
+                           data-szf="{{ word.szf }}"
+                           data-dict-mj="{{ word.dictEntry.mj|raw }}"
+                           data-dict-valt="{{ word.dictEntry.valt|raw }}"
+                                >{{  word.unic|raw }}</a>
+                    <sup data-verse-id="{{ verseId }}" class="magyar hidden">{{ word.mj }}</sup>
+                </span>
+                {% endfor %}
+                {% if insideMark %}</mark>{% endif %}
+        </p>
+        <p>
+            {% if chapter > 1 %}
+                <a href="/text/{{ book.nev }}/{{ chapter-1 }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Előző fejezet</a>
+            {% endif %}
+            {% if chapter < book.hossz %}
+                <a href="/text/{{ book.nev }}/{{ chapter+1 }}" class="btn btn-default">Következő fejezet <span class="glyphicon glyphicon-chevron-right"></span></a>
+            {% endif %}
+         </p>
+            </div>
+        </div>
+    <div class="detailsDisplay">
+        Magyarázatok
     </div>
 
-        <h3>{{ book.nev }} {{ chapter }}</h3>
-    <p>
-        {% set currentVerse = 0 %}
-        {% set insideMark = false %}
-        {% for word in words %}
-            {% set wordVerse = word.lh|split(',')[1] %}
-            {% set verseLink="" %}
-            {% if wordVerse > currentVerse %}
-                {% set currentVerse = wordVerse %}
-                {% set verseId = book.nev ~ chapter ~ "," ~ currentVerse %}
-                {% if insideMark %}</mark>{% endif %}
-                {% if currentVerse == verse %}<mark id="selectedVerse">{% set insideMark = true %}{% endif %}
-                {% set verseLink %}
-                <a name="{{  currentVerse }}" href="#" data-verse-id="{{ verseId }}" data-trigger="toggle" data-poload="//szentiras.hu/api/ref/{{ verseId }}">
-                    <sup>{{ currentVerse }}</sup>
-                </a>
-                {% endset %}
-            {% endif %}
-            <span {% if verseLink is not empty %}class="text-nowrap"{% endif %}>
-                {{ verseLink }}
-                    <a href="#"
-                       class="word"
-                       data-wordid="{{ word.fh }}"
-                       data-unic="{{ word.unic|raw }}"
-                       data-mj="{{ word.mj }}"
-                       data-elem="{{ word.elem }}"
-                       data-szal="{{ word.szal|raw }}"
-                       data-szf="{{ word.szf }}"
-                       data-dict-mj="{{ word.dictEntry.mj|raw }}"
-                       data-dict-valt="{{ word.dictEntry.valt|raw }}"
-                            >{{  word.unic|raw }}</a>
-                <sup data-verse-id="{{ verseId }}" class="magyar hidden">{{ word.mj }}</sup>
-            </span>
-            {% endfor %}
-            {% if insideMark %}</mark>{% endif %}
-    </p>
-    <p>
-        {% if chapter > 1 %}
-            <a href="/text/{{ book.nev }}/{{ chapter-1 }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Előző fejezet</a>
-        {% endif %}
-        {% if chapter < book.hossz %}
-            <a href="/text/{{ book.nev }}/{{ chapter+1 }}" class="btn btn-default">Következő fejezet <span class="glyphicon glyphicon-chevron-right"></span></a>
-        {% endif %}
-     </p>
 {% endblock %}

@@ -28,11 +28,20 @@ class TextController extends BaseController
           $dictWord->szal = html_entity_decode($dictWord->szal, null, 'UTF-8');
           return $dictWord;
         });
+        $books = Book::where('tipus', 'default')->orderBy('konyv_id')->get();
+        $bookLength = Book::getBookLength($book->nev);
+        $chapterLength = Book::getChapterLength($book->nev, $chapter);
         return View::make("text.displayChapter", [
             "book" => $book,
             "chapter" => $chapter,
             "words" => $words,
-            "verse" => $verse
+            "verse" => $verse,
+            'books' => $books,
+            'currentBook' => $book->konyv_id,
+            'currentChapter' => $chapter,
+            'currentVerse' => $verse,
+            'currentBookLength' => $bookLength,
+            'currentChapterLength' => $chapterLength
         ]);
     }
 

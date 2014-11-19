@@ -12,4 +12,4 @@ require.config(
     bootstrap: ['jquery']
 )
 
-define ['bootstrap', 'jquery'], ->
+define ['bootstrap', 'jquery', 'menu'], ->
