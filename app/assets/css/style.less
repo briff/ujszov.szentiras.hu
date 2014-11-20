@@ -54,7 +54,7 @@ a.word:hover { color: #428bca }
 div.wordDetails {
   width:100%;
   font-family: "gentiumW";
-  font-size:18px;
+  font-size: 16px;
 }
 
 a.word.mark {
@@ -85,13 +85,30 @@ div.detailsDisplay {
   display: inline;
 }
 
-// landscape
-@media (min-width: 992px) {
+// no columns, popup
+@media screen and (max-width: 480px) {
   div.textContainer {
-    width: 940px;
+    width: 100%;
+    max-width: 480px
+  }
+  div.textDisplay {
+    width: 100%;
+    height: 100%;
+    padding-right: 30px;
+  }
+  div.detailsDisplay {
+    display: none;
+  }
+}
+
+// two columns
+@media (min-width: 641px) {
+  div.textContainer {
+    width: 100%;
   }
   div.textDisplay {
     width: 70%;
+    padding-right: 10px;
   }
   div.detailsDisplay {
     top: 0;
@@ -101,31 +118,16 @@ div.detailsDisplay {
   }
 }
 
-// small screen
-@media screen and (max-width: 767px) {
+// two rows
+@media (min-width: 481px) and (max-width:640px) {
   div.textContainer {
     width: 100%;
-    max-width: 718px
-  }
-  div.textDisplay {
-    width: 100%;
-    height: 100%;
-  }
-  div.detailsDisplay {
-    display: none;
-  }
-}
-
-
-// big portrait
-@media (min-width: 768px) and (max-width:991px) {
-  div.textContainer {
-    width: 100%;
-    max-width: 718px
+    max-width: 640px;
   }
   div.textDisplay {
     width: 100%;
     height: 70%;
+    padding-right: 30px;
   }
   div.detailsDisplay {
     bottom: 0px;
