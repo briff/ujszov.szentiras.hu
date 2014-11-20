@@ -1,10 +1,16 @@
 define ['common'], ->
 
+
+  scrollToVerse = (verse) ->
+    $('div.textDisplay').animate
+      scrollTop: $(verse).offsetParent().scrollTop()+$(verse).offset().top - 140, # todo: this is calculated from the top of window, should be made responsive
+      1000
+
   $ ->
-    if ($("#selectedVerse").length>0)
-      $('html, body').animate
-        scrollTop: $("#selectedVerse").offset().top-20,
-        1000
+    scrollToVerse($("#selectedVerse")) if ($("#selectedVerse").length>0)
+
+  $("select[name='verse']").change ->
+    scrollToVerse($("a[name='#{$(this).val()}']"))
 
   showPopover = ->
     popoverHeader = """

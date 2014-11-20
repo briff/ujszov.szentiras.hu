@@ -42,16 +42,25 @@ div.wordDetails {
   max-width: 400px;
 }
 
+div.textContainer {
+  bottom: 0;
+}
+
 div.textDisplay {
   overflow-y: scroll;
   position: fixed;
   bottom: 0px;
-  top:80px;
+  top:0px;
 }
 
 div.detailsDisplay {
   overflow-y: scroll;
   position: fixed;
+}
+
+.form-inline .form-control.jumper-form-control {
+  width: auto;
+  display: inline;
 }
 
 // small screen
@@ -71,27 +80,27 @@ div.detailsDisplay {
 }
 
 // landscape
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
+  div.textContainer {
+    position: fixed;
+    width: 940px;
+    top: 120px;
+  }
   div.textDisplay {
-    top: 100px;
-    right: 200px;
-    left: 200px;
+    position: absolute;
+    width: 70%;
   }
   div.detailsDisplay {
-    width: 200px;
+    position: absolute;
+    top: 0;
     right: 0px;
-    top: 100px;
-    bottom: 80px;
+    width: 30%;
+    bottom: 0;
   }
-}
-
-.jumper-form-control {
-  width: auto;
-  display: inline;
 }
 
 // big portrait
-@media screen and (min-width: 768px) and (max-width:991px) {
+@media (min-width: 768px) and (max-width:991px) {
   div.textDisplay {
     top:100px;
     bottom: 200px;
@@ -104,8 +113,17 @@ div.detailsDisplay {
 }
 
 // show footer if has place
-@media screen and (min-height: 600px) and (min-width: 768px) {
+@media (min-height: 600px) and (min-width: 768px) {
+  div.textContainer {
+    bottom: 80px;
+  }
   div.footer {
     display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  div.textContainer {
+    width: 1140px;
   }
 }

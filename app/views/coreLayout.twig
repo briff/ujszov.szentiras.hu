@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="cleartype" content="on">
 
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -23,14 +23,8 @@
 <body>
 <div class="container">
     {% block navbar %}{% endblock %}
-    <div class="row">
-        <div class="col-md-2">
             {% block menu %}{% endblock %}
-        </div>
-        <div class="col-md-10">
             {% block content %}{% endblock %}
-        </div>
-    </div>
 </div>
 <div class="footer">
     <p>Kérdések, ötletek, problémák: Harmai Gábor, e-mail (ember számára olvasható formában): harmaig kukac ehf pont hu</p>
