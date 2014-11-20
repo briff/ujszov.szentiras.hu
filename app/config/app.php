@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
     |
     */
 
-    'providers' => array(
+    'providers' => [
 
         'Illuminate\Foundation\Providers\ArtisanServiceProvider',
         'Illuminate\Auth\AuthServiceProvider',
@@ -123,8 +123,8 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'TwigBridge\ServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-
-	),
+        'Barryvdh\Debugbar\ServiceProvider',
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -150,7 +150,7 @@ return array(
 	|
 	*/
 
-	'aliases' => array(
+	'aliases' => [
 
 		'App'               => 'Illuminate\Support\Facades\App',
 		'Artisan'           => 'Illuminate\Support\Facades\Artisan',
@@ -189,8 +189,8 @@ return array(
 		'Str'               => 'Illuminate\Support\Str',
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
-		'View'              => 'Illuminate\Support\Facades\View'
+		'View'              => 'Illuminate\Support\Facades\View',
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
+	],
 
-	),
-
-);
+];
