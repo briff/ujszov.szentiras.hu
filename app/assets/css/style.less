@@ -37,25 +37,30 @@ a.word:hover { color: #428bca }
 }
 
 div.wordDetails {
-  display: inline-block;
-  margin-bottom:0px;
-  max-width: 400px;
+  width:100%;
+}
+
+a.word.mark {
+  padding: 0;
 }
 
 div.textContainer {
   bottom: 0;
+  position: fixed;
+  top: 120px;
 }
 
 div.textDisplay {
   overflow-y: scroll;
-  position: fixed;
-  bottom: 0px;
-  top:0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
 
 div.detailsDisplay {
   overflow-y: scroll;
-  position: fixed;
+  position: absolute;
+  padding:5px;
 }
 
 .form-inline .form-control.jumper-form-control {
@@ -63,35 +68,15 @@ div.detailsDisplay {
   display: inline;
 }
 
-// small screen
-@media screen and (max-width: 767px) {
-  div.chooser {
-    height: 40px;
-    width: 100%;
-  }
-  div.textDisplay {
-    top:100px;
-    bottom: 200px;
-  }
-  div.detailsDisplay {
-    bottom: 0px;
-    height: 200px;
-  }
-}
-
 // landscape
 @media (min-width: 992px) {
   div.textContainer {
-    position: fixed;
     width: 940px;
-    top: 120px;
   }
   div.textDisplay {
-    position: absolute;
     width: 70%;
   }
   div.detailsDisplay {
-    position: absolute;
     top: 0;
     right: 0px;
     width: 30%;
@@ -99,21 +84,41 @@ div.detailsDisplay {
   }
 }
 
+// small screen
+@media screen and (max-width: 767px) {
+  div.textContainer {
+    width: 100%;
+    max-width: 718px
+  }
+  div.textDisplay {
+    width: 100%;
+    height: 100%;
+  }
+  div.detailsDisplay {
+    display: none;
+  }
+}
+
+
 // big portrait
 @media (min-width: 768px) and (max-width:991px) {
+  div.textContainer {
+    width: 100%;
+    max-width: 718px
+  }
   div.textDisplay {
-    top:100px;
-    bottom: 200px;
+    width: 100%;
+    height: 70%;
   }
   div.detailsDisplay {
     bottom: 0px;
-    height: 200px;
+    height: 30%;
     width: 100%;
   }
 }
 
 // show footer if has place
-@media (min-height: 600px) and (min-width: 768px) {
+@media (min-height: 768px) and (min-width: 768px) {
   div.textContainer {
     bottom: 80px;
   }

@@ -7,26 +7,29 @@ define ['common'], ->
       1000
 
   $ ->
-    scrollToVerse($("#selectedVerse")) if ($("#selectedVerse").length>0)
+    scrollToVerse($(".selectedVerse")) if ($(".selectedVerse").length>0)
 
   $("select[name='verse']").change ->
-    scrollToVerse($("a[name='#{$(this).val()}']"))
+    $link = $("a[name='#{$(this).val()}']");
+    $("span.verse.mark").removeClass("mark")
+    $link.parent().parent().addClass('mark')
+    scrollToVerse($link)
 
-  showPopover = ->
+  showPopover = ($word) ->
     popoverHeader = """
-            <span class="word">#{$(this).data('unic')}</span> <i>#{$(this).data('mj')}</i>
+            <span class="word">#{$word.data('unic')}</span> <i>#{$word.data('mj')}</i>
             <button type="button" class="close"><span aria-hidden="true" style="padding-left: 10px"><sup>&times;</sup></span><span class="sr-only">Bezár</span></button>
-            <br><small>#{$(this).data('szf')}, #{$(this).data('elem')}</small>
+            <br><small>#{$word.data('szf')}, #{$word.data('elem')}</small>
       """
     popoverContent = """
-          <div class="wordPopover" id="pop#{$(this).data('wordid')}">
-                      <span class="word">#{$(this).data('szal')}</span><br /><br />
-              <a id="a#{$(this).data('wordid')}" href="/details" class="btn btn-default btn-sm">Részletek</a>
+          <div class="wordPopover" id="pop#{$word.data('wordid')}">
+                      <span class="word">#{$word.data('szal')}</span><br /><br />
+              <a id="a#{$word.data('wordid')}" href="/details" class="btn btn-default btn-sm">Részletek</a>
               </div>
         """
-    wordId = $(this).data("wordid");
+    wordId = $word.data("wordid");
     popLink = this;
-    $(this).on 'shown.bs.popover', ->
+    $word.on 'shown.bs.popover', ->
       $("#a"+wordId).click ->
         $(popLink).popover('hide')
         $(".modal-content").load "/details/"+wordId
@@ -35,7 +38,7 @@ define ['common'], ->
       $closeButton = $(".popover-title .close", $("div#pop#{ wordId }").parent().parent())
       $closeButton.click ->
         $(popLink).popover('hide')
-    $(this).popover(
+    $word.popover(
       placement: "auto top"
       trigger: "manual"
       html: true
@@ -45,7 +48,7 @@ define ['common'], ->
     false
 
   resetWord = ($wordDetailsDiv) ->
-    if ($wordDetailsDiv.length>0)
+    if ($wordDetailsDiv.length>0 and not $(".detailsDisplay").is ':visible')
       word = $('span.word:first', $wordDetailsDiv).text()
       span = """
         <span class="word">#{word}</span>
@@ -56,27 +59,30 @@ define ['common'], ->
         $parent.show 400
 
   replaceWord = ($word) ->
-    $word.fadeOut(
-      complete: ->
-        div = """
+    $('a.word.mark').removeClass('mark')
+    $word.addClass('mark')
+    div = """
             <div class="panel panel-default wordDetails">
-                <div class="panel-body">
+                <div class="panel-heading">
                   <span class="word">#{$word.data('unic')}</span> <i>#{$word.data('mj')}</i>
-                  <!--<button type="button" class="close"><span aria-hidden="true" style="padding-left: 10px"><sup>&times;</sup></span><span class="sr-only">Bezár</span></button>-->
+                </div>
+                <div class="panel-body">
                   <div><small>#{$word.data('szf')}, #{$word.data('elem')}</small></div>
                   <div><span class="greek">#{$word.data('szal')}</span> <small><i>#{$word.data('dict-mj')}</i></small></div>
                   <div><span class="greek"><small>#{$word.data('dict-valt')}</small></span></div>
                 </div>
             </div>
           """
-        $word.html(div);
-        $word.show(500);
-    );
+    $(".detailsDisplay").html(div)
+
   $words = $('a.word')
   $words.click (wordClickEvent) ->
-    resetWord($('div.wordDetails'))
-    replaceWord($(this))
+    if $(".detailsDisplay").is ":visible"
+      replaceWord($(this))
+    else
+      showPopover($(this))
     false
+
   $verseNums = $('a[data-poload]');
   $verseNums.click (verseNumEvent) ->
     e=$(this);
@@ -86,6 +92,7 @@ define ['common'], ->
         e.popover(
           html: true
           trigger: "manual"
+          container: "body"
           content: """
               <button data-verse-id="#{e.data('verse-id')}" type="button" class="close"><sup>&times;</sup></button>
               <div>#{d.text}</div>

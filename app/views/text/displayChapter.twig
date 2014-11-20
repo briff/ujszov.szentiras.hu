@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="textContainer">
-        <div class="textDisplay">
+        <div id="textDisplay" class="textDisplay">
             <h3>{{ book.nev }} {{ chapter }}
                 {% if chapter > 1 %}
                     <a href="/text/{{ book.nev }}/{{ chapter-1 }}" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
@@ -20,8 +20,6 @@
                     <a href="/text/{{ book.nev }}/{{ chapter+1 }}" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
                 {% endif %}
             </h3>
-
-
             <p>
                 {% set currentVerse = 0 %}
                 {% set insideMark = false %}
@@ -29,18 +27,18 @@
                 {% set wordVerse = word.lh|split(',')[1] %}
                 {% set verseLink="" %}
                 {% if wordVerse > currentVerse %}
-                {% set currentVerse = wordVerse %}
-                {% set verseId = book.nev ~ chapter ~ "," ~ currentVerse %}
-                {% if insideMark %}</mark>{% endif %}
-                {% if currentVerse == verse %}
-                <mark id="selectedVerse">{% set insideMark = true %}{% endif %}
-                    {% set verseLink %}
-                    <a name="{{ currentVerse }}" href="#" data-verse-id="{{ verseId }}" data-trigger="toggle"
-                       data-poload="//szentiras.hu/api/ref/{{ verseId }}">
-                        <sup>{{ currentVerse }}</sup>
-                    </a>
-                    {% endset %}
+                    {% set currentVerse = wordVerse %}
+                    {% if currentVerse > 1 %}
+                        </span>
                     {% endif %}
+                    <span class="verse {{ currentVerse == verse and verse != 1 ? 'mark selectedVerse' }}">
+                    {% set verseId = book.nev ~ chapter ~ "," ~ currentVerse %}
+                    {% set verseLink %}
+                        <a name="{{ currentVerse }}" href="#" data-verse-id="{{ verseId }}" data-trigger="toggle"
+                           data-poload="//szentiras.hu/api/ref/{{ verseId }}">
+                            <sup>{{ currentVerse }}</sup></a>
+                    {% endset %}
+                {% endif %}
                     <span {% if verseLink is not empty %}{% endif %}>
                     {{ verseLink }}
                         <a href="#"
