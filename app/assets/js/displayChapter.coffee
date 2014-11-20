@@ -64,12 +64,12 @@ define ['common'], ->
     div = """
             <div class="panel panel-default wordDetails">
                 <div class="panel-heading">
-                  <span class="word">#{$word.data('unic')}</span> <i>#{$word.data('mj')}</i>
+                  <span class="word">#{$word.data('unic')}</span> - #{$word.data('mj')}
+                    <div><small>#{$word.data('szf')}, #{$word.data('elem')}</small></div>
                 </div>
                 <div class="panel-body">
-                  <div><small>#{$word.data('szf')}, #{$word.data('elem')}</small></div>
-                  <div><span class="greek">#{$word.data('szal')}</span> <small><i>#{$word.data('dict-mj')}</i></small></div>
-                  <div><span class="greek"><small>#{$word.data('dict-valt')}</small></span></div>
+                  <div><span class="word">#{$word.data('szal')}</span> - #{$word.data('dict-mj')}</div>
+                  <div><span class="word">#{$word.data('dict-valt')}</span></div>
                 </div>
             </div>
           """
