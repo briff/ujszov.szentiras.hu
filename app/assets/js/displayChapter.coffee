@@ -28,7 +28,7 @@ define ['common'], ->
               </div>
         """
     wordId = $word.data("wordid");
-    popLink = this;
+    popLink = $word;
     $word.on 'shown.bs.popover', ->
       $("#a"+wordId).click ->
         $(popLink).popover('hide')
