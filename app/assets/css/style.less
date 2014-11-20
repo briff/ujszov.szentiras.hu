@@ -3,8 +3,23 @@
   src: url("/fonts/GentiumPlus-R.woff") format('woff');
 }
 
+@font-face {
+  font-family: 'ezraW';
+  src: url('/fonts/ezrasilsr-webfont.woff') format('woff');
+}
+
 div.wordPopover {
   font-size: 14px;
+}
+
+.hebrew {
+  font-family: 'ezraW';
+  font-size: 21px;
+  direction: rtl;
+}
+
+:lang(he) {
+  .hebrew
 }
 
 .greek {
@@ -38,6 +53,8 @@ a.word:hover { color: #428bca }
 
 div.wordDetails {
   width:100%;
+  font-family: "gentiumW";
+  font-size:18px;
 }
 
 a.word.mark {

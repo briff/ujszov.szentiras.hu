@@ -1,12 +1,12 @@
 <?php
+
 /**
 
  */
-
 class TextController extends BaseController
 {
 
-    public function getIndex($bookName=false, $chapter=false, $verse=false)
+    public function getIndex($bookName = false, $chapter = false, $verse = false)
     {
         if ($bookName) {
             $bookId = Book::where('nev', $bookName)->first()->konyv_id;
@@ -23,10 +23,13 @@ class TextController extends BaseController
             $verse = Input::get('verse');
         }
         $book = Book::findById($bookId);
-        $words = Word::findChapterWords($bookId, $chapter)->filter(function($dictWord) {
-          $dictWord->unic = html_entity_decode($dictWord->unic, null, 'UTF-8');
-          $dictWord->szal = html_entity_decode($dictWord->szal, null, 'UTF-8');
-          return $dictWord;
+        $words = Word::findChapterWords($bookId, $chapter)->filter(function ($dictWord) {
+            $dictWord->unic = preg_replace("/ *¬/u", "&#x231f;", preg_replace("/⌐ */u", "&#x231e;", html_entity_decode($dictWord->unic, null, 'UTF-8')));
+            $dictWord->szal = html_entity_decode($dictWord->szal, null, 'UTF-8');
+            $dictMeaning = html_entity_decode($dictWord->dictEntry->mj, null, 'UTF-8');
+            $hebrewReplaced = preg_replace("/([\x{0590}-\x{05FF}]+)/u", "<span lang='he'>$1</span>", $dictMeaning);
+            $dictWord->dictMeaning = $hebrewReplaced;
+            return $dictWord;
         });
         $books = Book::where('tipus', 'default')->orderBy('konyv_id')->get();
         $bookLength = Book::getBookLength($book->nev);
@@ -45,7 +48,8 @@ class TextController extends BaseController
         ]);
     }
 
-    public function getDetails($wordId) {
+    public function getDetails($wordId)
+    {
         $word = Word::find($wordId);
         return View::make("text.detailsModal", [
             "word" => $word
