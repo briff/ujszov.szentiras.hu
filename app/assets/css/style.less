@@ -72,6 +72,7 @@ div.textDisplay {
   position: absolute;
   top: 0;
   bottom: 0;
+  left: 0;
 }
 
 div.detailsDisplay {
@@ -86,7 +87,7 @@ div.detailsDisplay {
 }
 
 // no columns, popup
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 529px) {
   div.textContainer {
     width: 100%;
     max-width: 480px
@@ -101,8 +102,27 @@ div.detailsDisplay {
   }
 }
 
+// two rows
+@media (min-width:530px) and (min-height: 640px) and (max-width: 767px) {
+  div.textContainer {
+    width: 100%;
+    max-width: 640px;
+  }
+  div.textDisplay {
+    width: 100%;
+    height: 60%;
+    padding-right: 30px;
+  }
+  div.detailsDisplay {
+    bottom: 0px;
+    height: 40%;
+    width: 100%;
+    padding-right: 30px;
+  }
+}
+
 // two columns
-@media (min-width: 641px) {
+@media (min-width: 768px), (min-width: 530px) and (max-height: 639px) {
   div.textContainer {
     width: 100%;
   }
@@ -115,26 +135,10 @@ div.detailsDisplay {
     right: 0px;
     width: 30%;
     bottom: 0;
+    padding-right: 10px;
   }
 }
 
-// two rows
-@media (min-width: 481px) and (max-width:640px) {
-  div.textContainer {
-    width: 100%;
-    max-width: 640px;
-  }
-  div.textDisplay {
-    width: 100%;
-    height: 70%;
-    padding-right: 30px;
-  }
-  div.detailsDisplay {
-    bottom: 0px;
-    height: 30%;
-    width: 100%;
-  }
-}
 
 // show footer if has place
 @media (min-height: 768px) and (min-width: 768px) {
@@ -146,8 +150,22 @@ div.detailsDisplay {
   }
 }
 
+@media (min-width: 750px) and (max-width: 991px) {
+  div.textContainer {
+    max-width: 750px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  div.textContainer {
+    max-width: 970px;
+  }
+}
+
 @media (min-width: 1200px) {
   div.textContainer {
     width: 1140px;
   }
 }
+
+
