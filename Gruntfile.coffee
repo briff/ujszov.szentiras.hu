@@ -5,6 +5,7 @@ module.exports = (grunt) ->
         options:
           baseUrl: 'app/assets/js/build'
           mainConfigFile: 'app/assets/js/build/common.js'
+          keepBuildDir: true
           dir: 'public/js'
           paths: {
             jquery: "empty:"
@@ -105,5 +106,5 @@ module.exports = (grunt) ->
     'grunt-contrib-less'
   ]
 
-  grunt.registerTask 'default', ['clean', 'coffee', 'less', 'requirejs', 'copy:main']
+  grunt.registerTask 'default', ['clean', 'coffee', 'less', 'copy:main', 'requirejs' ]
   grunt.registerTask 'dev', ['clean', 'coffee', 'less', 'copy:main', 'copy:dev']
