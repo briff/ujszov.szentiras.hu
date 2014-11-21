@@ -27,8 +27,9 @@ class TextController extends BaseController
             $dictWord->unic = preg_replace("/ *¬/u", "&#x231f;", preg_replace("/⌐ */u", "&#x231e;", html_entity_decode($dictWord->unic, null, 'UTF-8')));
             $dictWord->szal = html_entity_decode($dictWord->szal, null, 'UTF-8');
             $dictMeaning = html_entity_decode($dictWord->dictEntry->mj, null, 'UTF-8');
-            $hebrewReplaced = preg_replace("/([\x{0590}-\x{05FF}]+)/u", "<span lang='he'>$1</span>", $dictMeaning);
-            $dictWord->dictMeaning = $hebrewReplaced;
+            $replaced = preg_replace("/([\x{0590}-\x{05FF}]+)/u", "<span lang='he'>$1</span>", $dictMeaning);
+            $replaced = preg_replace('/([[:upper:]]{2,}[[:alpha:]]*_?[[:alpha:]]*\d*)/u', "<abbr>$1</abbr>", $replaced);
+            $dictWord->dictMeaning = $replaced;
             return $dictWord;
         });
         $books = Book::where('tipus', 'default')->orderBy('konyv_id')->get();

@@ -1,4 +1,4 @@
-define ['common'], ->
+define ['common', 'abbrevs'], (common, abbrevs) ->
 
 
   scrollToVerse = (verse) ->
@@ -74,6 +74,11 @@ define ['common'], ->
             </div>
           """
     $(".detailsDisplay").html(div)
+    $("abbr").tooltip(
+      container: 'body'
+      title: ->
+        abbrevs.abbrevs[$(this).text()]
+    )
 
   $words = $('a.word')
   $words.click (wordClickEvent) ->
