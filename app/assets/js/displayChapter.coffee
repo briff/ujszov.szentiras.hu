@@ -1,5 +1,26 @@
 define ['common', 'abbrevs'], (common, abbrevs) ->
 
+  detailTemplate = """
+            <div class="panel panel-default wordDetails">
+                <div class="panel-heading">
+                  <span class="word">{{ unic }}</span> - {{ mj }}
+                    <div><small>{{ szf }}, {{ elem }}</small></div>
+                </div>
+                <div class="panel-body">
+                  <div><span class="word">{{ szal }}</span> - {{{ dictMj }}}</div>
+                  {{#dictValt}}
+                  <div class="variants"><small>Változatok:</small> {{{ dictValt }}}</div>
+                  {{/dictValt}}
+                  {{#lj}}
+                  <div class="footnote"><small>{{{ lj }}}</small></div>
+                  {{/lj}}
+                </div>
+            </div>
+          """
+  quickTranslation = """
+    <div class="greek">{{#words}}{{ unic }} {{/words}}
+    </div>
+  """
 
   scrollToVerse = (verse) ->
     $('div.textDisplay').animate
@@ -61,24 +82,37 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
   replaceWord = ($word) ->
     $('a.word.mark').removeClass('mark')
     $word.addClass('mark')
-    div = """
-            <div class="panel panel-default wordDetails">
-                <div class="panel-heading">
-                  <span class="word">#{$word.data('unic')}</span> - #{$word.data('mj')}
-                    <div><small>#{$word.data('szf')}, #{$word.data('elem')}</small></div>
-                </div>
-                <div class="panel-body">
-                  <div><span class="word">#{$word.data('szal')}</span> - #{$word.data('dict-mj')}</div>
-                  <div><span class="word">#{$word.data('dict-valt')}</span></div>
-                </div>
-            </div>
-          """
+    div = Hogan.compile(detailTemplate).render({
+      lj : $word.data('lj')
+      mj: $word.data('mj')
+      dictMj: $word.data('dict-mj')
+      unic : $word.data('unic')
+      szal : $word.data('szal')
+      dictValt: $word.data('dict-valt')
+      elem: $word.data('elem')
+      szf: $word.data('szf')
+    });
     $(".detailsDisplay").html(div)
     $("abbr").tooltip(
       container: 'body'
       title: ->
-        abbrevs.abbrevs[$(this).text()]
+        abbrevs.abbrevs[$(this).text().toUpperCase()]
     )
+    $("a.ref").each ->
+      a = $(this)
+      a.append('<i class="fa fa-spinner fa-spin"></i>');
+      $.get a.data('poload'), (d) ->
+        a.popover(
+          container: 'body'
+          html: true
+          content: ->
+            Hogan.compile(quickTranslation).render({
+              words: d
+            })
+          trigger: 'hover'
+          placement: 'top auto'
+        )
+        $('i', a).hide()
 
   $words = $('a.word')
   $words.click (wordClickEvent) ->

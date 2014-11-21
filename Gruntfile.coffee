@@ -84,6 +84,7 @@ module.exports = (grunt) ->
               'bower_components/requirejs/require.js'
               'bower_components/jquery/dist/jquery.min.js'
               'bower_components/jquery/dist/jquery.min.map'
+              'bower_components/hogan/web/builds/3.0.2/hogan-3.0.2.min.amd.js'
             ]
             dest: 'public/js/lib'
           }

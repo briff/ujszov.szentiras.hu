@@ -15,6 +15,7 @@ Route::controller("/technikai", "TechnicalController");
 
 Route::get("/details/{id}", "TextController@getDetails");
 
+Route::get("/text/verse-text/{book}/{chapter}/{verse}", "TextController@getVerseText");
 Route::controller("/text/{book?}/{chapter?}/{verse?}", "TextController");
 Route::controller("/board", "BoardController");
 

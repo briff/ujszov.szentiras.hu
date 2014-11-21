@@ -7,9 +7,10 @@ require.config(
     ]
 
     bootstrap: "lib/bootstrap.min"
+    hogan: "lib/hogan-3.0.2.min.amd"
 
   shim:
     bootstrap: ['jquery']
 )
 
-define ['bootstrap', 'jquery', 'menu'], ->
+define ['bootstrap', 'jquery', 'hogan', 'menu'], ->
