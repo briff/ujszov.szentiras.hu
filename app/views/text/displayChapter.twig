@@ -45,7 +45,7 @@
                 {% endif %}
                     <span {% if verseLink is not empty %}{% endif %}>
                     {{ verseLink }}
-                        <a href="#"
+                        <a id="{{ word.fh }}" href="#"
                            class="word"
                            data-wordid="{{ word.fh }}"
                            data-unic="{{ word.unic|raw }}"

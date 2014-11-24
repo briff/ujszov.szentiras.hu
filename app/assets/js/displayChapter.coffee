@@ -4,7 +4,7 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
             <div class="panel panel-default wordDetails">
                 <div class="panel-heading">
                   <span class="word">{{ unic }}</span> - {{ mj }}
-                    <div><small>{{ szf }}, {{ elem }}</small></div>
+                    <div><small>{{ szf }} {{ elem }}</small></div>
                 </div>
                 <div class="panel-body">
                   <div><span class="word">{{ szal }}</span> - {{{ dictMj }}}</div>
@@ -17,10 +17,65 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
                 </div>
             </div>
           """
+
+  replaceWord = ($word) ->
+    $('a.word.mark').removeClass('mark')
+    $word.addClass('mark')
+    div = Hogan.compile(detailTemplate).render({
+      lj : $word.data('lj')
+      mj: $word.data('mj')
+      dictMj: $word.data('dict-mj')
+      unic : $word.data('unic')
+      szal : $word.data('szal')
+      dictValt: $word.data('dict-valt')
+      elem: $word.data('elem')
+      szf: $word.data('szf')
+    });
+    $(".detailsDisplay").html(div)
+    $("abbr").tooltip(
+      container: 'body'
+      title: ->
+        abbrevs.abbrevs[$(this).text().toUpperCase()]
+    )
+    $("a.ref").each ->
+      a = $(this)
+      a.append('<i class="fa fa-spinner fa-spin"></i>');
+      $.get a.data('poload'), (d) ->
+        a.popover(
+          container: 'body'
+          html: true
+          content: ->
+            Hogan.compile(quickTranslation).render({
+              words: d
+            })
+          trigger: 'hover'
+          placement: 'top auto'
+        )
+        $('i', a).hide()
+
+  handleWordClick = ($words) ->
+      if $(".detailsDisplay").is ":visible"
+        replaceWord($words)
+      else
+        showPopover($words)
+      false
+
+  $ ->
+    $word = $("a#{window.location.hash}")
+    handleWordClick($word) if $word and $word.length == 1
+
+    window.onpopstate = (e) ->
+      handleWordClick $("a##{e.state.wordId}") if e.state
+      false
+
+    window.onhashchange = ->
+      $word = $("a#{window.location.hash}")
+      handleWordClick($word) if $word and $word.length == 1
+
   quickTranslation = """
     <div class="greek">{{#words}}{{ unic }} {{/words}}
     </div>
-  """
+    """
 
   scrollToVerse = (verse) ->
     $('div.textDisplay').animate
@@ -79,48 +134,12 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
         $parent.html span
         $parent.show 400
 
-  replaceWord = ($word) ->
-    $('a.word.mark').removeClass('mark')
-    $word.addClass('mark')
-    div = Hogan.compile(detailTemplate).render({
-      lj : $word.data('lj')
-      mj: $word.data('mj')
-      dictMj: $word.data('dict-mj')
-      unic : $word.data('unic')
-      szal : $word.data('szal')
-      dictValt: $word.data('dict-valt')
-      elem: $word.data('elem')
-      szf: $word.data('szf')
-    });
-    $(".detailsDisplay").html(div)
-    $("abbr").tooltip(
-      container: 'body'
-      title: ->
-        abbrevs.abbrevs[$(this).text().toUpperCase()]
-    )
-    $("a.ref").each ->
-      a = $(this)
-      a.append('<i class="fa fa-spinner fa-spin"></i>');
-      $.get a.data('poload'), (d) ->
-        a.popover(
-          container: 'body'
-          html: true
-          content: ->
-            Hogan.compile(quickTranslation).render({
-              words: d
-            })
-          trigger: 'hover'
-          placement: 'top auto'
-        )
-        $('i', a).hide()
-
   $words = $('a.word')
-  $words.click (wordClickEvent) ->
-    if $(".detailsDisplay").is ":visible"
-      replaceWord($(this))
-    else
-      showPopover($(this))
-    false
+  $words.click ->
+    $word = $(this)
+    wordId = $word.data 'wordid'
+    history.pushState({ wordId: wordId }, null, "##{wordId}")
+    handleWordClick($word)
 
   $verseNums = $('a[data-poload]');
   $verseNums.click (verseNumEvent) ->
