@@ -1,5 +1,15 @@
 define ['common', 'abbrevs'], (common, abbrevs) ->
 
+  scrollToWord = ($word) ->
+    $('div.textDisplay').animate
+      scrollTop: $word.offsetParent().scrollTop()+$word.offset().top - 140, # todo: this is calculated from the top of window, should be made responsive
+      1000
+
+  scrollToVerse = (verse) ->
+    $('div.textDisplay').animate
+      scrollTop: $(verse).offsetParent().scrollTop()+$(verse).offset().top - 140, # todo: this is calculated from the top of window, should be made responsive
+      1000
+
   detailTemplate = """
             <div class="panel panel-default wordDetails">
                 <div class="panel-heading">
@@ -60,27 +70,30 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
         showPopover($words)
       false
 
+  handleHashChange = ->
+    if (window.location.hash.length>2)
+      $word = $("a##{window.location.hash.substring(2)}")
+      if $word and $word.length == 1
+        handleWordClick($word)
+        scrollToWord($word)
+
   $ ->
-    $word = $("a#{window.location.hash}")
-    handleWordClick($word) if $word and $word.length == 1
+    handleHashChange()
 
     window.onpopstate = (e) ->
-      handleWordClick $("a##{e.state.wordId}") if e.state
-      false
+      if e.state
+        $word =$("a##{e.state.wordId}")
+        handleWordClick($word)
+        scrollToWord($word)
+        false
 
     window.onhashchange = ->
-      $word = $("a#{window.location.hash}")
-      handleWordClick($word) if $word and $word.length == 1
+      handleHashChange()
 
   quickTranslation = """
     <div class="greek">{{#words}}{{ unic }} {{/words}}
     </div>
     """
-
-  scrollToVerse = (verse) ->
-    $('div.textDisplay').animate
-      scrollTop: $(verse).offsetParent().scrollTop()+$(verse).offset().top - 140, # todo: this is calculated from the top of window, should be made responsive
-      1000
 
   $ ->
     scrollToVerse($(".selectedVerse")) if ($(".selectedVerse").length>0)
@@ -138,7 +151,7 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
   $words.click ->
     $word = $(this)
     wordId = $word.data 'wordid'
-    history.pushState({ wordId: wordId }, null, "##{wordId}")
+    history.pushState({ wordId: wordId }, null, "#!#{wordId}")
     handleWordClick($word)
 
   $verseNums = $('a[data-poload]');
