@@ -1,13 +1,8 @@
 define ['common', 'abbrevs'], (common, abbrevs) ->
 
-  scrollToWord = ($word) ->
+  scrollToElement = (element) ->
     $('div.textDisplay').animate
-      scrollTop: $word.offsetParent().scrollTop()+$word.offset().top - 140, # todo: this is calculated from the top of window, should be made responsive
-      1000
-
-  scrollToVerse = (verse) ->
-    $('div.textDisplay').animate
-      scrollTop: $(verse).offsetParent().scrollTop()+$(verse).offset().top - 140, # todo: this is calculated from the top of window, should be made responsive
+      scrollTop: $(element).offsetParent().scrollTop()+$(element).offset().top - 140, # todo: this is calculated from the top of window, should be made responsive
       1000
 
   detailTemplate = """
@@ -75,7 +70,7 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
       $word = $("a##{window.location.hash.substring(2)}")
       if $word and $word.length == 1
         handleWordClick($word)
-        scrollToWord($word)
+        scrollToElement($word)
 
   $ ->
     handleHashChange()
@@ -84,7 +79,7 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
       if e.state
         $word =$("a##{e.state.wordId}")
         handleWordClick($word)
-        scrollToWord($word)
+        scrollToElement($word)
         false
 
     window.onhashchange = ->
@@ -96,13 +91,13 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
     """
 
   $ ->
-    scrollToVerse($(".selectedVerse")) if ($(".selectedVerse").length>0)
+    scrollToElement($(".selectedVerse")) if ($(".selectedVerse").length>0)
 
   $("select[name='verse']").change ->
     $link = $("a[name='#{$(this).val()}']");
     $("span.verse.mark").removeClass("mark")
     $link.parent().parent().addClass('mark')
-    scrollToVerse($link)
+    scrollToElement($link)
 
   showPopover = ($word) ->
     popoverHeader = """
@@ -186,3 +181,4 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
       $("button[data-verse-id='#{e.data('verse-id')}'].close").click ->
         e.popover('hide')
     false
+

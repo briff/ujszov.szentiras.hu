@@ -68,7 +68,7 @@ class TextController extends BaseController
     private function getChapterText($bookId, $chapter)
     {
         $words = Word::findChapterWords($bookId, $chapter)->map(function ($dictWord) {
-            $dictWord->unic = preg_replace("/ *¬/u", "&#x231f;", preg_replace("/⌐ */u", "&#x231e;", html_entity_decode($dictWord->unic, null, 'UTF-8')));
+            $dictWord->unic = preg_replace("/ *¬/u", "˺", preg_replace("/⌐ */u", "˹", html_entity_decode($dictWord->unic, null, 'UTF-8')));
             $dictWord->szal = html_entity_decode($dictWord->szal, null, 'UTF-8');
             $dictWord->dictMeaning = $this->replaceSpecialParts($dictWord->dictEntry->mj);
             $dictWord->dictValt = $this->replaceSpecialParts($dictWord->dictEntry->valt);
