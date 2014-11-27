@@ -50,7 +50,7 @@ class TextController extends BaseController
     {
         $replaced = htmlspecialchars(html_entity_decode($text, null, 'UTF-8'));
         $replaced = preg_replace("/([\x{0590}-\x{05FF}]+)/u", "<span lang='he'>$1</span>", $replaced);
-        $replaced = preg_replace('/([[:upper:]]{2,}[[:alpha:]]*_?[[:alpha:]]*\d*|Úszsz)/u', "<abbr>$1</abbr>", $replaced);
+        $replaced = preg_replace('/([[:upper:]]{2,}[[:alpha:]]*_?[[:alpha:]]*\d*|Úszsz)/u', "<abbr class='literature'>$1</abbr>", $replaced);
         $replaced = preg_replace("/((Mt|Mk|Lk|Jn) (\d+),(\d+))/", "<a href='/text/$2/$3/$4' class='ref' data-poload='/text/verse-text/$2/$3/$4'>$2&nbsp;$3,$4</a>", $replaced);
         return $replaced;
     }
@@ -72,9 +72,34 @@ class TextController extends BaseController
             $dictWord->dictValt = $this->replaceSpecialParts($dictWord->dictEntry->valt);
             $dictWord->lj = $this->replaceSpecialParts($dictWord->lj);
             $dictWord->verse = preg_split('/,/', $dictWord->lh)[1];
+            $dictWord->szf = $this->formatLexicalClass($dictWord->szf);
+            $dictWord->elem = $this->formatMorphs($dictWord->elem);
             return $dictWord;
         });
         return $words;
+    }
+
+    public function formatLexicalClass($classString) {
+        return preg_replace("/([[:alpha:]\.]+)/", "<abbr class='morph'>$1</abbr>", $classString);
+    }
+
+    public function formatMorphs($morphString) {
+        $result = "";
+        $declinationAnalysis = [];
+        preg_match("/(\w+\(\w+\)\.)/", $morphString, $declinationAnalysis);
+        $morphString = preg_replace("/\w+\(\w+\)\./", "", $morphString);
+        $sentenceAnalysis = [];
+        $sentencePattern = "/(\((?:\w|[ \.])+\))/";
+        preg_match($sentencePattern, $morphString, $sentenceAnalysis);
+        $morphString = preg_replace($sentencePattern, "", $morphString);
+        $newMorphString = preg_replace("/(\w+\.)/", "<abbr class='morph'>$1</abbr> ", $morphString);
+        for ($i = 1; $i<count($declinationAnalysis); $i++) {
+            $newMorphString .= "<abbr class='morph'>{$declinationAnalysis[$i]}</abbr>";
+        }
+        for ($i = 1; $i<count($sentenceAnalysis); $i++) {
+            $newMorphString .= "<abbr class='morph'>{$sentenceAnalysis[$i]}</abbr>";
+        }
+        return $newMorphString;
     }
 
     public function getVerseText($bookName, $chapter, $verse)

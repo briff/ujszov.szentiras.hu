@@ -9,7 +9,7 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
             <div class="panel panel-default wordDetails">
                 <div class="panel-heading">
                   <span class="word">{{ unic }}</span> - {{ mj }}
-                    <div><small>{{ szf }} {{ elem }}</small></div>
+                    <div><small>{{{ szf }}} {{{ elem }}}</small></div>
                 </div>
                 <div class="panel-body">
                   <div><span class="word">{{ szal }}</span> - {{{ dictMj }}}</div>
@@ -70,10 +70,20 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
       szf: $word.data('szf')
     });
     $(".detailsDisplay").html(div)
-    $("abbr").tooltip(
+    $("abbr.literature").tooltip(
       container: 'body'
       title: ->
-        abbrevs.abbrevs[$(this).text().toUpperCase()]
+        abbrevs.literature[$(this).text().toUpperCase()]
+    )
+    $("abbr.morph").tooltip(
+      container: 'body'
+      title: ->
+        text = abbrevs.morphs[$(this).text()];
+        if text
+          if text.latin
+            text.latin + (if text.hungarian then ' ('+text.hungarian+' )' else '')
+          else
+            text.hungarian
     )
     $("a.ref").each ->
       a = $(this)
