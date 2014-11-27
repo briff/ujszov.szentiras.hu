@@ -19,13 +19,46 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
                   {{#lj}}
                   <div class="footnote"><small>{{{ lj }}}</small></div>
                   {{/lj}}
+                  <div class="concordance"><small>Konkordancia betöltése <i class="fa fa-spinner fa-spin"></i></small></div>
                 </div>
             </div>
           """
 
+  concordanceTemplate =
+    main: """
+        <small>
+          <ul class="list-unstyled">
+            <li>{{^first}}
+              Ez az első előfordulás.
+            {{/first}}
+            {{#first}}
+              <li>Első azonos szótári alakú szó: {{> link }}</li>
+            {{/first}}
+            {{#previous}}
+              <li>Előző azonos szótári alakú szó: {{> link }}</li>
+            {{/previous}}
+            {{#next}}
+              <li>Következő azonos szótári alakú szó: {{> link }}</li>
+            {{/next}}
+            {{#previousAlphabetic}}
+              <li>Abc-rendben előző szóalak: {{> link }}</li>
+            {{/previousAlphabetic}}
+            {{#nextAlphabetic}}
+              <li>Abc-rendben következő szóalak: {{> link }}</li>
+            {{/nextAlphabetic}}
+            </li>
+          </ul>
+        </small>
+      """
+    partials:
+      link: """
+          <a href="/text/{{ id }}">{{bookName}} {{ chapter }},{{ verse }},{{ wordNum }}</a>
+        """
+
   replaceWord = ($word) ->
     $('a.word.mark').removeClass('mark')
     $word.addClass('mark')
+    wordId = $word.data('wordid');
     div = Hogan.compile(detailTemplate).render({
       lj : $word.data('lj')
       mj: $word.data('mj')
@@ -57,6 +90,16 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
           placement: 'top auto'
         )
         $('i', a).hide()
+    $.get "/text/concordance/#{wordId}", (result) ->
+      concordanceFragment = Hogan.compile(concordanceTemplate.main).render( {
+          result: result
+          first: if result.first.id == wordId then null else result.first
+          previous: result.previous if result.previous
+          next: result.next if result.next
+          nextAlphabetic: result.nextAlphabetic if result.nextAlphabetic
+          previousAlphabetic: result.previousAlphabetic if result.previousAlphabetic
+        }, concordanceTemplate.partials)
+      $("div.concordance").html(concordanceFragment);
 
   handleWordClick = ($words) ->
       if $(".detailsDisplay").is ":visible"

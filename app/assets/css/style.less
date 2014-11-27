@@ -59,6 +59,7 @@ div.wordDetails {
 
 a.word.mark {
   padding: 0;
+  background-color: #f7f0dd;
 }
 
 div.textContainer {
@@ -86,14 +87,20 @@ div.detailsDisplay {
   display: inline;
 }
 
-div.footnote {
+.detailsBlock() {
   border-top: 1px solid #ddd;
   margin-top: 6px;
 }
 
+div.footnote {
+  .detailsBlock;
+}
+
 div.variants {
-  border-top: 1px solid #eee;
-  margin-top: 6px;
+  .detailsBlock;}
+
+div.concordance {
+  .detailsBlock;
 }
 
 // no columns, popup

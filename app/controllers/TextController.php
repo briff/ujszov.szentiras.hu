@@ -6,12 +6,9 @@
 class TextController extends BaseController
 {
 
-    public function getVerseText($bookName, $chapter, $verse) {
-        $words = $this->getChapterText(Book::find($bookName)->konyv_id, $chapter);
-        $words = $words->filter(function ($word) use ($verse) {
-            return $word->verse == $verse;
-        });
-        return Response::json($words->values());
+    public function getByWordId($wordId) {
+        $ref = $this->createWordRef(Word::find($wordId));
+        return Redirect::to("/text/{$ref['bookName']}/{$ref['chapter']}/{$ref['verse']}#!{$wordId}");
     }
 
     public function getIndex($bookName = false, $chapter = false, $verse = false)
@@ -49,7 +46,8 @@ class TextController extends BaseController
         ]);
     }
 
-    private function replaceSpecialParts($text) {
+    private function replaceSpecialParts($text)
+    {
         $replaced = htmlspecialchars(html_entity_decode($text, null, 'UTF-8'));
         $replaced = preg_replace("/([\x{0590}-\x{05FF}]+)/u", "<span lang='he'>$1</span>", $replaced);
         $replaced = preg_replace('/([[:upper:]]{2,}[[:alpha:]]*_?[[:alpha:]]*\d*|Úszsz)/u', "<abbr>$1</abbr>", $replaced);
@@ -79,4 +77,46 @@ class TextController extends BaseController
         return $words;
     }
 
+    public function getVerseText($bookName, $chapter, $verse)
+    {
+        $words = $this->getChapterText(Book::find($bookName)->konyv_id, $chapter);
+        $words = $words->filter(function ($word) use ($verse) {
+            return $word->verse == $verse;
+        });
+        return Response::json($words->values());
+    }
+
+    public function getConcordance($wordId)
+    {
+
+        return Response::json($this->findConcordance($wordId));
+    }
+
+    private function createWordRef($word) {
+        if ($word !== null) {
+            $wordId = $word->fh;
+            $ref['id'] = $wordId;
+            $matches = [];
+            preg_match("/^(\d{1,2}?)(\d{2})(\d{2})(\d{2})$/", $wordId, $matches);
+            $ref['bookId'] = (int) $matches[1];
+            $ref['bookName'] = Book::findById($ref['bookId'])->nev;
+            $ref['chapter'] = (int) $matches[2];
+            $ref['verse'] = (int) $matches[3];
+            $ref['wordNum'] = (int) $matches[4];
+            return $ref;
+        } else {
+            return null;
+        }
+    }
+
+    private function findConcordance($wordId) {
+        $concordance = [];
+        $word = Word::find($wordId);
+        $concordance['first'] = $this->createWordRef(Word::where('szal', $word->szal)->groupBy('szal')->first());
+        $concordance['previous'] = $this->createWordRef(Word::where('szal', $word->szal)->where('fh', '<', $wordId)->orderBy('fh', 'desc')->first());
+        $concordance['next'] = $this->createWordRef(Word::where('szal', $word->szal)->where('fh', '>', $wordId)->orderBy('fh')->first());
+        $concordance['nextAlphabetic'] = $this->createWordRef(Word::find($word->fkh));
+        $concordance['previousAlphabetic'] = $this->createWordRef(Word::find($word->feh));
+        return $concordance;
+    }
 }
