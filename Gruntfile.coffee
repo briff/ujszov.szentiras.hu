@@ -106,5 +106,5 @@ module.exports = (grunt) ->
     'grunt-contrib-less'
   ]
 
-  grunt.registerTask 'default', ['clean', 'coffee', 'less', 'copy:main', 'requirejs' ]
+  grunt.registerTask 'default', ['clean', 'coffee', 'less', 'copy:main' ]
   grunt.registerTask 'dev', ['clean', 'coffee', 'less', 'copy:main', 'copy:dev']
