@@ -55,6 +55,11 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
           <a href="/text/{{ id }}">{{bookName}} {{ chapter }},{{ verse }},{{ wordNum }}</a>
         """
 
+  quickTranslation = """
+    <div class="greek">{{#words}}{{ unic }} {{/words}}
+    </div>
+    """
+
   replaceWord = ($word) ->
     $('a.word.mark').removeClass('mark')
     $word.addClass('mark')
@@ -126,8 +131,6 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
         scrollToElement($word)
 
   $ ->
-    handleHashChange()
-
     window.onpopstate = (e) ->
       if e.state
         $word =$("a##{e.state.wordId}")
@@ -138,19 +141,17 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
     window.onhashchange = ->
       handleHashChange()
 
-  quickTranslation = """
-    <div class="greek">{{#words}}{{ unic }} {{/words}}
-    </div>
-    """
-
-  $ ->
+    handleHashChange()
     scrollToElement($(".selectedVerse")) if ($(".selectedVerse").length>0)
 
   $("select[name='verse']").change ->
-    $link = $("a[name='#{$(this).val()}']");
-    $("span.verse.mark").removeClass("mark")
-    $link.parent().parent().addClass('mark')
-    scrollToElement($link)
+    bookId = $("#chapterTitle").data('book')
+    chapter = $("#chapterTitle").data('chapter')
+    if bookId == parseInt($("select[name='book']").val()) and chapter == parseInt($("select[name='chapter']").val())
+      $link = $("a[name='#{$(this).val()}']");
+      $("span.verse.mark").removeClass("mark")
+      $link.parent().parent().addClass('mark')
+      scrollToElement($link)
 
   showPopover = ($word) ->
     popoverHeader = """
