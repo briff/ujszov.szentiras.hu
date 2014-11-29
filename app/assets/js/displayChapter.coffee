@@ -116,7 +116,7 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
 
       concordanceFragment = Hogan.compile(concordanceTemplate.main).render( {
           result: result
-          first: if result.first.id == parseInt(wordId) then null else addLink(result.first)
+          first: if parseInt(result.first.id) == wordId then null else addLink(result.first)
           previous: addLink(result.previous) if result.previous
           next: addLink(result.next) if result.next
           nextAlphabetic: addLink(result.nextAlphabetic) if result.nextAlphabetic
