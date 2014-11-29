@@ -113,7 +113,6 @@ class TextController extends BaseController
 
     public function getConcordance($wordId)
     {
-
         return Response::json($this->findConcordance($wordId));
     }
 

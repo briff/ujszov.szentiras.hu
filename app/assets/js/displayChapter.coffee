@@ -52,7 +52,7 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
       """
     partials:
       link: """
-          <a href="/text/{{ id }}">{{bookName}} {{ chapter }},{{ verse }},{{ wordNum }}</a>
+          <a href="{{ linkText }}">{{bookName}} {{ chapter }},{{ verse }}<sub>{{ wordNum }}</sub></a>
         """
 
   quickTranslation = """
@@ -106,13 +106,21 @@ define ['common', 'abbrevs'], (common, abbrevs) ->
         )
         $('i', a).hide()
     $.get "/text/concordance/#{wordId}", (result) ->
+
+      addLink = (concordance) ->
+        if concordance.chapter == $("#chapterTitle").data('chapter') and concordance.bookId == $("#chapterTitle").data('book')
+          concordance.linkText = "#!#{ concordance.id }"
+        else
+          concordance.linkText = "/text/#{ concordance.id }"
+        return concordance
+
       concordanceFragment = Hogan.compile(concordanceTemplate.main).render( {
           result: result
-          first: if result.first.id == wordId then null else result.first
-          previous: result.previous if result.previous
-          next: result.next if result.next
-          nextAlphabetic: result.nextAlphabetic if result.nextAlphabetic
-          previousAlphabetic: result.previousAlphabetic if result.previousAlphabetic
+          first: if result.first.id == wordId then null else addLink(result.first)
+          previous: addLink(result.previous) if result.previous
+          next: addLink(result.next) if result.next
+          nextAlphabetic: addLink(result.nextAlphabetic) if result.nextAlphabetic
+          previousAlphabetic: addLink(result.previousAlphabetic) if result.previousAlphabetic
         }, concordanceTemplate.partials)
       $("div.concordance").html(concordanceFragment);
 
