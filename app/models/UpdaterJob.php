@@ -3,6 +3,8 @@
 
  */
 
-class UpdaterJob {
+class UpdaterJob extends Eloquent {
+
+
 
 } 

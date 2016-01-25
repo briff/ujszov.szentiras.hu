@@ -14,7 +14,7 @@ class UpdaterJobsTimestamps extends Migration {
 	{
 		Schema::table('updater_jobs', function(Blueprint $table)
 		{
-			//
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +27,7 @@ class UpdaterJobsTimestamps extends Migration {
 	{
 		Schema::table('updater_jobs', function(Blueprint $table)
 		{
-			//
+			$table->dropTimestamps();
 		});
 	}
 

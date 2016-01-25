@@ -124,7 +124,7 @@ return [
         'TwigBridge\ServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-	],
+    ],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -191,6 +191,7 @@ return [
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
-	],
+
+    ],
 
 ];

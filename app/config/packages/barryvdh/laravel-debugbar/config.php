@@ -13,7 +13,7 @@ return array(
      |
      */
 
-    'enabled' => false,
+    'enabled' => false, //Config::get('app.debug'),
 
     /*
      |--------------------------------------------------------------------------

@@ -66,6 +66,7 @@ module.exports = (grunt) ->
             flatten: true
             src: [
               'bower_components/bootstrap/dist/css/bootstrap.min.css'
+              'bower_components/dropzone/downloads/css/dropzone.css'
             ]
             dest: 'public/css'
           }
@@ -73,9 +74,9 @@ module.exports = (grunt) ->
             expand: true
             flatten: true
             src: [
-              'app/assets/css/images/*'
+              'app/assets/images/*'
             ]
-            dest: 'public/css/images'
+            dest: 'public/images'
           }
           {
             expand: true
@@ -85,7 +86,10 @@ module.exports = (grunt) ->
               'bower_components/requirejs/require.js'
               'bower_components/jquery/dist/jquery.min.js'
               'bower_components/jquery/dist/jquery.min.map'
+              'bower_components/jquery-ui/ui/minified/jquery.ui.widget.min.js'
               'bower_components/hogan/web/builds/3.0.2/hogan-3.0.2.min.amd.js'
+              'bower_components/dropzone/downloads/dropzone-amd-module.min.js'
+
             ]
             dest: 'public/js/lib'
           }

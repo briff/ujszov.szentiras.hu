@@ -5,6 +5,13 @@ use Illuminate\Database\Migrations\Migration;
 
 class WordFhLongify extends Migration {
 
+	private $tablePrefix;
+
+	function __construct()
+	{
+		$this->tablePrefix = Config::get('database.connections.mysql.prefix');
+	}
+
 	/**
 	 * Run the migrations.
 	 *
@@ -12,10 +19,7 @@ class WordFhLongify extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('konyvek', function(Blueprint $table)
-		{
-			//
-		});
+		DB::statement("ALTER TABLE {$this->tablePrefix}konyvek MODIFY COLUMN fh BIGINT");
 	}
 
 	/**
@@ -25,10 +29,7 @@ class WordFhLongify extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('konyvek', function(Blueprint $table)
-		{
-			//
-		});
+		DB::statement("ALTER TABLE {$this->tablePrefix}konyvek MODIFY COLUMN fh INT");
 	}
 
 }

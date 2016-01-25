@@ -14,7 +14,7 @@ class DictTimestamps extends Migration {
 	{
 		Schema::table('szot', function(Blueprint $table)
 		{
-			//
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +27,7 @@ class DictTimestamps extends Migration {
 	{
 		Schema::table('szot', function(Blueprint $table)
 		{
-			//
+			$table->dropTimestamps();
 		});
 	}
 

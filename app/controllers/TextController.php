@@ -68,8 +68,12 @@ class TextController extends BaseController
         $words = Word::findChapterWords($bookId, $chapter)->map(function ($dictWord) {
             $dictWord->unic = preg_replace("/ *¬/u", "˺", preg_replace("/⌐ */u", "˹", html_entity_decode($dictWord->unic, null, 'UTF-8')));
             $dictWord->szal = html_entity_decode($dictWord->szal, null, 'UTF-8');
-            $dictWord->dictMeaning = $this->replaceSpecialParts($dictWord->dictEntry->mj);
-            $dictWord->dictValt = $this->replaceSpecialParts($dictWord->dictEntry->valt);
+            if ($dictWord->dictEntry) {
+                $dictWord->dictMeaning = $this->replaceSpecialParts($dictWord->dictEntry->mj);
+                $dictWord->dictValt = $this->replaceSpecialParts($dictWord->dictEntry->valt);
+            } else {
+                Log::warning("{$dictWord->lh} has no corresponding dictionary entry");
+            }
             $dictWord->lj = $this->replaceSpecialParts($dictWord->lj);
             $dictWord->verse = preg_split('/,/', $dictWord->lh)[1];
             $dictWord->szf = $this->formatLexicalClass($dictWord->szf);
@@ -121,7 +125,7 @@ class TextController extends BaseController
             $wordId = $word->fh;
             $ref['id'] = $wordId;
             $matches = [];
-            preg_match("/^(\d{1,2}?)(\d{2})(\d{2})(\d{2})$/", $wordId, $matches);
+            preg_match("/^(\d{1,3}?)(\d{3})(\d{3})(\d{5})$/", $wordId, $matches);
             $ref['bookId'] = (int) $matches[1];
             $ref['bookName'] = Book::findById($ref['bookId'])->nev;
             $ref['chapter'] = (int) $matches[2];

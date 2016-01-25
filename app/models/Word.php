@@ -8,11 +8,12 @@ class Word extends Eloquent
 
     protected $table = 'konyvek';
     protected $primaryKey = 'fh';
+    protected $guarded = [];
 
     public static function findChapterWords($bookId, $chapter)
     {
-        $chapterAddress = (int)sprintf("%d%02d0000", $bookId, $chapter);
-        $words = Word::where('fh', '>', $chapterAddress)->where('fh', '<', $chapterAddress + 8500)->with('dictEntry')->orderBy('fh')->get();
+        $chapterAddress = sprintf("%d%03d", $bookId, $chapter);
+        $words = Word::where('fh', 'like', "{$chapterAddress}%")->with('dictEntry')->orderBy('fh')->get();
         return $words;
     }
 

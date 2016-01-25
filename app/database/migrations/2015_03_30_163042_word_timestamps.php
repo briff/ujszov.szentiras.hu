@@ -14,7 +14,7 @@ class WordTimestamps extends Migration {
 	{
 		Schema::table('konyvek', function(Blueprint $table)
 		{
-			//
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +27,7 @@ class WordTimestamps extends Migration {
 	{
 		Schema::table('konyvek', function(Blueprint $table)
 		{
-			//
+			$table->dropTimestamps();
 		});
 	}
 

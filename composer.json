@@ -9,7 +9,7 @@
         "rcrowe/twigbridge": "0.6.*"
 	},
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "1.11.1",
+        "barryvdh/laravel-ide-helper": "1.11.*",
         "barryvdh/laravel-debugbar": "1.*"
     },
     "autoload": {

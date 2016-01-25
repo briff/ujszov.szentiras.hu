@@ -14,7 +14,7 @@ class WordFhIndex extends Migration {
 	{
 		Schema::table('konyvek', function(Blueprint $table)
 		{
-			//
+			$table->index('fh');
 		});
 	}
 
@@ -27,7 +27,7 @@ class WordFhIndex extends Migration {
 	{
 		Schema::table('konyvek', function(Blueprint $table)
 		{
-			//
+			$table->dropIndex('konyvek_fh_index');
 		});
 	}
 

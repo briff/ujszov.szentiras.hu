@@ -1,5 +1,5 @@
-#!/bin/sh
-npm install
+#!/bin/bash
+npm --no-bin-link install
 node_modules/.bin/bower --config.interactive=false install
 node_modules/.bin/grunt
 php composer.phar install

@@ -3,7 +3,15 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SetSzotTableCharset extends Migration {
+class SetSzotTableCharset extends Migration
+{
+
+	private $tablePrefix;
+
+	function __construct()
+	{
+		$this->tablePrefix = Config::get('database.connections.mysql.prefix');
+	}
 
 	/**
 	 * Run the migrations.
@@ -12,10 +20,7 @@ class SetSzotTableCharset extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('szot', function(Blueprint $table)
-		{
-			//
-		});
+		DB::statement("ALTER TABLE {$this->tablePrefix}szot CONVERT TO CHARACTER SET utf8");
 	}
 
 	/**
@@ -25,10 +30,7 @@ class SetSzotTableCharset extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('szot', function(Blueprint $table)
-		{
-			//
-		});
+		DB::statement("ALTER TABLE {$this->tablePrefix}szot CONVERT TO CHARACTER SET latin1");
 	}
 
 }

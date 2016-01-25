@@ -12,9 +12,11 @@ class CreateUpdaterJobsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('updater_jobs', function(Blueprint $table)
+		Schema::create('updater_jobs', function(Blueprint $table)
 		{
-			//
+			$table->increments('id');
+            $table->unsignedInteger('lines');
+            $table->boolean('completed');
 		});
 	}
 
@@ -25,10 +27,7 @@ class CreateUpdaterJobsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('updater_jobs', function(Blueprint $table)
-		{
-			//
-		});
+        Schema::drop('updater_jobs');
 	}
 
 }

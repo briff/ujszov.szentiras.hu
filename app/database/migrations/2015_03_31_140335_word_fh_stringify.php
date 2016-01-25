@@ -5,6 +5,14 @@ use Illuminate\Database\Migrations\Migration;
 
 class WordFhStringify extends Migration {
 
+	private $tablePrefix;
+
+	function __construct()
+	{
+		$this->tablePrefix = Config::get('database.connections.mysql.prefix');
+	}
+
+
 	/**
 	 * Run the migrations.
 	 *
@@ -14,7 +22,7 @@ class WordFhStringify extends Migration {
 	{
 		Schema::table('konyvek', function(Blueprint $table)
 		{
-			//
+			DB::statement("ALTER TABLE {$this->tablePrefix}konyvek MODIFY COLUMN fh VARCHAR(15)");
 		});
 	}
 
@@ -27,7 +35,7 @@ class WordFhStringify extends Migration {
 	{
 		Schema::table('konyvek', function(Blueprint $table)
 		{
-			//
+			DB::statement("ALTER TABLE {$this->tablePrefix}konyvek MODIFY COLUMN fh VARCHAR(15)");
 		});
 	}
 
