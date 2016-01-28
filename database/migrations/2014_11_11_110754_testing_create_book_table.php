@@ -46,6 +46,18 @@ class TestingCreateBookTable extends Migration {
                 $table->string('szal');
                 $table->primary('fh');
             });
+            Schema::create('szot', function (Blueprint $table) {
+                $table->string('szal');
+                $table->string('szf', 50);
+                $table->integer('gk');
+                $table->text('valt');
+                $table->text('mj');
+                $table->string('elem', 20);
+                $table->string('strong', 10);
+                $table->string('bk', 7);
+                $table->primary('gk');
+            });
+
 
         }
 	}
@@ -61,6 +73,7 @@ class TestingCreateBookTable extends Migration {
             Schema::dropIfExists('konyvhossz');
             Schema::dropIfExists('konyvnevek');
             Schema::dropIfExists('konyvek');
+            Schema::dropIfExists('szot');
         }
 	}
 

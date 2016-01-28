@@ -11,6 +11,7 @@ $("a[data-message]").click (e) ->
   messageText = $("#msg#{messageId}").html();
   $("#replyModal .modal-header").html("Válasz #{senderName} #{messageId}. számú üzenetére")
   $("#replyModal #originalText").html(messageText)
+  $("#replyModal #messageId").val(messageId);
   $("#replyModal").modal('show')
   false
 $("#sendMessage").click ->
