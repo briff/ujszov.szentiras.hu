@@ -50,6 +50,7 @@
 
     <p><a href="#" id="newMessage" class="btn btn-default">Új üzenet...</a></p>
 
+    <div class="messageList">
     {% for message in messages %}
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -57,12 +58,13 @@
                 <div class="pull-right"><small>{{ message.created_at }}</small> - <small>{{ message.ssz }}</small></div>
             </div>
             <div class="panel-body">
-                <span id="msg{{ message.ssz }}">{{ message.uzenet }}</span>
+                <span id="msg{{ message.ssz }}">{{ message.uzenet|raw }}</span>
                 <div class="pull-right"><a href="#" id="reply{{ message.ssz }}" class="btn btn-default" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">Válasz</a></div>
             </div>
         </div>
 
     {% endfor %}
     {{ messages.render|raw }}
+    </div>
 
 {% endblock %}

@@ -44,14 +44,11 @@ a.word:hover { color: #428bca }
   text-align: center;
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;
+  position: fixed;
+  height:80px;
+  bottom:0;
   font-size: small;
   display: none;
-  // keep the footer at the bottom
-  height:80px;
-  margin-top: -80px;
-  clear: both;
-  position: relative;
-
 }
 
 div.wordDetails {
@@ -186,4 +183,9 @@ div.concordance {
   div.textContainer {
     width: 1140px;
   }
+}
+
+// pagination collides with footer
+.pagination > .active > span {
+  z-index: auto;
 }
