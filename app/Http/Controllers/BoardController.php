@@ -6,6 +6,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Message;
+use Input;
 use View;
 
 class BoardController extends Controller {
@@ -22,7 +23,8 @@ class BoardController extends Controller {
         if (Input::get('password') == 'esik') {
             $message['nev'] = Input::get('name');
             $message['e-mail'] = Input::get('email');
-            $message['uzenet'] = htmlspecialchars(Input::get('text'));
+            $text = htmlspecialchars(Input::get('text'));
+            $message['uzenet'] = preg_replace('/\n/', '<br>', $text);
             if (!empty($message['nev'])) {
                 $message->save();
             }
