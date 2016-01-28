@@ -12,7 +12,9 @@ class TestingCreateBookTable extends Migration {
 	 */
 	public function up()
 	{
-        if (App::environment() === 'testing') {
+        $env = App::environment();
+        print("Environment is $env");
+        if ($env === 'testing') {
             Schema::create('konyvnevek', function (Blueprint $table) {
                 $table->tinyInteger('konyv_id')->unsigned();
                 $table->string('nev', 10);
