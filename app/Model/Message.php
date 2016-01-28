@@ -12,4 +12,8 @@ class Message extends Model {
     protected $table="vendegk";
     protected $primaryKey="ssz";
 
+    public function repliedTo() {
+        return $this->belongsTo(Model::class);
+    }
+
 } 

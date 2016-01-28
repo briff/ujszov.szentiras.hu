@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TextController;
+
 class FormatMorphTest extends TestCase {
 
     public function testSentenceAnalysis()
