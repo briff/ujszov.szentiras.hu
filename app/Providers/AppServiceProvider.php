@@ -1,6 +1,8 @@
 <?php namespace App\Providers;
 
+use App\Model\UpdaterJob;
 use Illuminate\Support\ServiceProvider;
+use Queue;
 
 class AppServiceProvider extends ServiceProvider {
 
@@ -11,7 +13,11 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		//
+		Queue::failing(function ($connection, $job, $data) {
+			$updaterJob = UpdaterJob::where('queue_job_id', $data['id'])->first();
+			$updaterJob->failed = true;
+			$updaterJob->save();
+		});
 	}
 
 	/**

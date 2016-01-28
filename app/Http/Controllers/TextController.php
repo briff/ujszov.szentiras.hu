@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Model\Book;
 use App\Model\Word;
 use Input;
+use Log;
+use Redirect;
+use Response;
 use View;
 
 class TextController extends Controller
@@ -12,7 +15,7 @@ class TextController extends Controller
 
     public function getByWordId($wordId) {
         $ref = $this->createWordRef(Word::find($wordId));
-        return \Redirect::to("/text/{$ref['bookName']}/{$ref['chapter']}/{$ref['verse']}#!{$wordId}");
+        return Redirect::to("/text/{$ref['bookName']}/{$ref['chapter']}/{$ref['verse']}#!{$wordId}");
     }
 
     public function getIndex($bookName = false, $chapter = false, $verse = false)

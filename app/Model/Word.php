@@ -22,7 +22,7 @@ class Word extends Model
 
     public function dictEntry()
     {
-        return $this->hasOne('DictEntry', 'gk', 'gk');
+        return $this->hasOne(DictEntry::class, 'gk', 'gk');
     }
 
 } 

@@ -14,7 +14,7 @@
         Nincs futó/futtatott feldolgozás
     {% else %}
         <table class="table" id="updaterJobsTable">
-            <thead><tr><th>id</th><th>Feldolgozott sorok</th><th>Kész</th><th>Kezdés</th></tr></thead>
+            <thead><tr><th>id</th><th>Feldolgozott sorok</th><th>Kész</th><th>Kezdés</th><th>Hibásnak tűnő sorok</th></tr></thead>
             <tbody>
                 {% for job in jobs %}
                     {% set class %}
@@ -27,12 +27,19 @@
                         <td class="jobId">{{job.id}}</td>
                         <td class="jobLines">{{ job.lines }}</td>
                         <td class="jobCompleted">
-                            {% if not job.completed %}
+                            {% if not job.completed and not job.failed %}
                                 <i class="fa fa-refresh fa-spin"></i>
                             {% endif %}
                             <span class='glyphicon {{ job.completed ? "glyphicon-check" : "glyphicon-unchecked" }}'></span>
                         </td>
                         <td class="jobCreatedAt">{{ job.created_at }}</td>
+                        <td class="jobMessages">
+                            {% if job.messages > 0 %}
+                                <a href="/technikai/messages/{{ job.id }}">{{ job.messages }}</a>
+                            {% else %}
+                                {{ job.messages }}
+                            {% endif %}
+                        </td>
                     </tr>
 
                 {% endfor %}

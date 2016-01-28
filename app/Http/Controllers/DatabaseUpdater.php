@@ -20,7 +20,6 @@ class DatabaseUpdater extends Command implements SelfHandling, ShouldBeQueued {
     use InteractsWithQueue, SerializesModels;
 
     private $data;
-    private $updater;
 
     public function __construct($data)
     {
@@ -37,11 +36,11 @@ class DatabaseUpdater extends Command implements SelfHandling, ShouldBeQueued {
         $general = $this->data['general'] == 'true';
         $type = self::getFileType($path);
         if ($type == "konyvek") {
-            $this->updater = new WordUpdater($path, $general, $this->job->getJobId());
+            $updater = new WordUpdater($path, $general, $this->job->getJobId());
         } else {
-            $this->updater = new DictUpdater($path, $general, $this->job->getJobId());
+            $updater = new DictUpdater($path, $general, $this->job->getJobId());
         }
-        $this->updater->fire();
+        $updater->fire();
     }
 
     /**
@@ -62,9 +61,4 @@ class DatabaseUpdater extends Command implements SelfHandling, ShouldBeQueued {
         }
     }
 
-    public function failed() {
-        $job = UpdaterJob::find($this->updater->getJobId());
-        $job->failed = true;
-        $job->save();
-    }
-} 
+}

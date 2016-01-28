@@ -1,7 +1,5 @@
 {% extends 'layout' %}
 
-{% set jsModule= 'messageBoard' %}
-
 {% block content %}
 
     <div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="replyModalLabel" aria-hidden="true">
@@ -59,13 +57,12 @@
                 <div class="pull-right"><small>{{ message.created_at }}</small> - <small>{{ message.ssz }}</small></div>
             </div>
             <div class="panel-body">
-                <span id="msg{{ message.ssz }}">{{ message.uzenet|raw }}</span>
+                <span id="msg{{ message.ssz }}">{{ message.uzenet }}</span>
                 <div class="pull-right"><a href="#" id="reply{{ message.ssz }}" class="btn btn-default" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">Válasz</a></div>
             </div>
         </div>
 
     {% endfor %}
-    {{ messages.links|raw }}
-
+    {{ messages.render|raw }}
 
 {% endblock %}

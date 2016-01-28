@@ -25,7 +25,19 @@ class TechnicalController extends Controller
     public function getIndex()
     {
         $jobs = UpdaterJob::orderBy('created_at', 'desc')->get();
-        return View::make('technical.index', ['jobs' => $jobs]);
+        $jobData = $jobs->map(function ($job) {
+            return [
+                'id' => $job->id,
+                'created_at' => $job->created_at,
+                'completed' => $job->completed,
+                'failed' => $job->failed,
+                'messages' => $job->getMessages()->count(),
+                'lines' => $job->lines
+            ];
+
+        });
+        return View::make('technical.index',
+            ['jobs' => $jobData]);
     }
 
     public function getConvert()
@@ -33,10 +45,19 @@ class TechnicalController extends Controller
         return View::make('technical.convert');
     }
 
+    public function getMessages($id)
+    {
+        $job = UpdaterJob::find($id);
+        return View::make('technical.messages', ['messages' => $job->getMessages()->getResults()]);
+    }
+
     public function getStatus($id)
     {
         $job = UpdaterJob::find($id);
-        return Response::json(['id' => $id, 'lines' => $job->lines, 'completed' => $job->completed]);
+        $messages = $job->getMessages()->count();
+        return Response::json(
+            ['id' => $id, 'lines' => $job->lines, 'completed' => $job->completed,
+            'messages' => $messages]);
     }
 
     public function getQueueJobStatus($queueJobId)

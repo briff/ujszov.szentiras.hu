@@ -6,6 +6,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Message;
+use View;
 
 class BoardController extends Controller {
 

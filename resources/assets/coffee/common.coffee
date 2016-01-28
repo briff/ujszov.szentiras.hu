@@ -1,3 +1,4 @@
 global.jQuery = require('jquery')
 global.$ = jQuery
-require('bootstrap');
+require('bootstrap')
+global.Hogan = require('hogan')

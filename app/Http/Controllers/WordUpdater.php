@@ -39,8 +39,8 @@ class WordUpdater extends AbstractUpdater {
         $word['bk'] = $line[12];
         $word['felelos'] = $line[13];
         $word['gk'] = $line[14];
-        $word['hj'] = $line[15];
-        $word['szal'] = $line[16];
+        $word['szal'] = $line[15];
+        $word['hj'] = $line[16];
 
         return $word;
     }

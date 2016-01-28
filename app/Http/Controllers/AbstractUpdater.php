@@ -6,6 +6,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\UpdaterJob;
+use App\Model\UpdaterJobMessage;
 use Config;
 use DB;
 use Log;
@@ -68,6 +69,11 @@ abstract class AbstractUpdater {
                 $chunk[] = $line;
             } else {
                 Log::warning("Bad line", $line);
+                $message = new UpdaterJobMessage();
+                $message->updater_job_id=$this->job->id;
+                $message->message=print_r($line, true);
+                $message->line=$currentLine;
+                $message->save();
             }
             if (count($chunk) == self::CHUNK_SIZE) {
                 $this->storeLines($chunk);
