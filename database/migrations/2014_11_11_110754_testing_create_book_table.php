@@ -15,6 +15,7 @@ class TestingCreateBookTable extends Migration {
         $env = App::environment();
         print("Environment is $env");
         if ($env === 'testing') {
+            print("Create konyvnevek table");
             Schema::create('konyvnevek', function (Blueprint $table) {
                 $table->tinyInteger('konyv_id')->unsigned();
                 $table->string('nev', 10);
