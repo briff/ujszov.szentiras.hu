@@ -8,4 +8,36 @@
     <li><a href="/technikai/convert">Adatbázis frissítése</a></li>
 </ul>
 </div>
+<div class="container">
+    <h2>Futó/futtatott feldolgozások</h2>
+    {% if jobs is empty %}
+        Nincs futó/futtatott feldolgozás
+    {% else %}
+        <table class="table" id="updaterJobsTable">
+            <thead><tr><th>id</th><th>Feldolgozott sorok</th><th>Kész</th><th>Kezdés</th></tr></thead>
+            <tbody>
+                {% for job in jobs %}
+                    {% set class %}
+                        {% if job.failed %}danger
+                        {% elseif not job.completed  %}inProgress
+                        {% else %}success
+                        {% endif %}
+                    {% endset %}
+                    <tr class="{{ class|trim }}" data-id="{{ job.id }}">
+                        <td class="jobId">{{job.id}}</td>
+                        <td class="jobLines">{{ job.lines }}</td>
+                        <td class="jobCompleted">
+                            {% if not job.completed %}
+                                <i class="fa fa-refresh fa-spin"></i>
+                            {% endif %}
+                            <span class='glyphicon {{ job.completed ? "glyphicon-check" : "glyphicon-unchecked" }}'></span>
+                        </td>
+                        <td class="jobCreatedAt">{{ job.created_at }}</td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
 {% endblock %}

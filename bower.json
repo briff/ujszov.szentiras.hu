@@ -9,13 +9,10 @@
         "bower_components"
     ],
     "devDependencies": {
-        "bootstrap": "3.3.x",
-        "requirejs": "2.1.11"
     },
     "dependencies": {
-        "jquery": "1.11.1",
-        "jquery-ui": "1.10.4",
         "hogan": "3.0.2",
-        "dropzone": "3.12.0"
+        "dropzone": "3.12.0",
+        "bootstrap-sass": "3.3.6"
     }
 }

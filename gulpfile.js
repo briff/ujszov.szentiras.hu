@@ -17,31 +17,27 @@ elixir(function(mix) {
         .sass(['app.scss'], 'resources/assets/css/compiled/sass.css');
     mix.styles(['compiled/sass.css', 'compiled/less.css']);
     // compile coffee scripts
-    mix.coffee(
-        [
-            'abbrevs.coffee',
-            'common.coffee',
-            'convert.coffee',
-            'displayChapter.coffee',
-            'menu.coffee',
-            'messageBoard.coffee',
-            'moderate.coffee']
-        , 'resources/assets/js/compiled/coffee.js');
-    // concat coffee scripts with other js (if any)
-    mix.scripts(['compiled/coffee.js'], 'resources/assets/js/compiled/app.js');
 
-    // now browserify
     elixir.config.js.browserify.transformers.push({
         name: 'browserify-shim',
         options: {}
     });
-    mix.browserify('resources/assets/js/compiled/app.js')
 
-    mix.version(['css/all.css', 'js/app.js']);
+    function buildJsModule(moduleName, coffeeFiles) {
+        var compiledName = 'resources/assets/js/compiled/'+moduleName+'.js';
+        mix.coffee(coffeeFiles.map(function (name) { return name + ".coffee"}), compiledName);
+        mix.browserify(compiledName);
+    }
+
+    buildJsModule('app', ['common','abbrevs','displayChapter','menu','messageBoard','moderate', 'technical']);
+    buildJsModule('convert', ['convert']);
+
+    mix.version(['css/all.css', 'js/app.js', 'js/convert.js']);
 
     mix.copy('resources/assets/img', 'public/build/img');
     mix.copy('resources/assets/fonts', 'public/build/fonts');
     mix.copy('bower_components/bootstrap-sass/assets/fonts/bootstrap', 'public/build/fonts/bootstrap');
-
+    mix.copy('bower_components/dropzone/downloads/css', 'public/build/dropzone/css')
+    mix.copy('bower_components/dropzone/downloads/images', 'public/build/dropzone/images')
 
 });

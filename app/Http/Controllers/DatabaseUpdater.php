@@ -5,26 +5,43 @@
 
 namespace App\Http\Controllers;
 
-class DatabaseUpdater {
+use App\Model\UpdaterJob;
+use Log;
+
+use App\Commands\Command;
+
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Contracts\Queue\ShouldBeQueued;
+
+class DatabaseUpdater extends Command implements SelfHandling, ShouldBeQueued {
+
+    use InteractsWithQueue, SerializesModels;
+
+    private $data;
+    private $updater;
+
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
 
     /**
-     * @param \Illuminate\Queue\Jobs\Job $job
-     * @param $data
      */
-    public function fire($job, $data)
+    public function handle()
     {
-        $jsonData = json_encode($data);
+        $jsonData = json_encode($this->data);
         Log::info("fired database updater with data {$jsonData}");
-        $path = storage_path($data['file']);
-        $general = $data['general'] == 'true';
+        $path = storage_path($this->data['file']);
+        $general = $this->data['general'] == 'true';
         $type = self::getFileType($path);
         if ($type == "konyvek") {
-            $updater = new WordUpdater($path, $general);
+            $this->updater = new WordUpdater($path, $general, $this->job->getJobId());
         } else {
-            $updater = new DictUpdater($path, $general);
+            $this->updater = new DictUpdater($path, $general, $this->job->getJobId());
         }
-        $updater->fire();
-        $job->delete();
+        $this->updater->fire();
     }
 
     /**
@@ -45,4 +62,9 @@ class DatabaseUpdater {
         }
     }
 
+    public function failed() {
+        $job = UpdaterJob::find($this->updater->getJobId());
+        $job->failed = true;
+        $job->save();
+    }
 } 

@@ -14,3 +14,4 @@ app/storage
 node_modules
 bower_components
 app/assets/js/build
+.env

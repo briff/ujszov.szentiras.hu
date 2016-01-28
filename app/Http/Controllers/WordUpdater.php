@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Word;
+use DB;
 
 class WordUpdater extends AbstractUpdater {
 

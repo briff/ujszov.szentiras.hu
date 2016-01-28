@@ -5,6 +5,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\UpdaterJob;
+use Config;
+use DB;
+use Log;
+
 abstract class AbstractUpdater {
 
     protected $tablePrefix;
@@ -13,15 +18,18 @@ abstract class AbstractUpdater {
 
     const CHUNK_SIZE = 1000;
     private $job;
+    private $queueJobId;
 
     /**
      * @param string $filePath
      * @param boolean $general
      */
-    public function __construct($filePath, $general) {
+    public function __construct($filePath, $general, $queueJobId) {
         $this->filePath = $filePath;
         $this->general = $general;
         $this->tablePrefix = Config::get('database.connections.mysql.prefix');
+        Log::info("Database update job started, queued with id {$queueJobId}");
+        $this->queueJobId = $queueJobId;
     }
 
     public function fire() {
@@ -32,6 +40,8 @@ abstract class AbstractUpdater {
         $this->job = new UpdaterJob();
         $this->job->lines = 0;
         $this->job->completed = false;
+        $this->job->queue_job_id = $this->queueJobId;
+        Log::debug("Inserting updater job");
         $this->job->save();
         $this->processFile();
         $this->job->completed = true;
@@ -51,7 +61,9 @@ abstract class AbstractUpdater {
         $chunk = [];
         $queryLogEnabled = DB::connection()->logging();
         DB::connection()->disableQueryLog();
+        $currentLine = 0;
         while (($line = fgetcsv($file, 0, "\t"))) {
+            $currentLine++;
             if ($this->validateLine($line)) {
                 $chunk[] = $line;
             } else {
@@ -75,6 +87,10 @@ abstract class AbstractUpdater {
         if ($queryLogEnabled) {
             DB::connection()->enableQueryLog();
         }
+    }
+
+    public function getJobId() {
+        return $this->job->id;
     }
 
 }

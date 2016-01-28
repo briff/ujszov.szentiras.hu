@@ -5,6 +5,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\DictEntry;
+use DB;
+
 class DictUpdater extends AbstractUpdater {
 
     private function createDictEntry($line)
