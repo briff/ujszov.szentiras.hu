@@ -25,7 +25,7 @@ class BoardController extends Controller {
             $message['e-mail'] = Input::get('email');
             $text = htmlspecialchars(Input::get('text'));
             $message['uzenet'] = preg_replace('/\n/', '<br>', $text);
-
+            $message['replied_to'] = Input::get('messageId');
             if (!empty($message['nev'])) {
                 $message->save();
             }

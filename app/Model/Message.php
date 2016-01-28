@@ -12,8 +12,11 @@ class Message extends Model {
     protected $table="vendegk";
     protected $primaryKey="ssz";
 
-    public function repliedTo() {
-        return $this->belongsTo(Model::class);
+    public function getReplies() {
+        return $this->hasMany(Message::class);
     }
 
+    public function getRepliedTo() {
+        return $this->belongsTo(Message::class);
+    }
 } 

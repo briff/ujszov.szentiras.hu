@@ -55,10 +55,11 @@
     {% for message in messages %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                <strong>{{ message.nev }}</strong>
+                <a name="{{ message.ssz }}"><strong>{{ message.nev }}</strong></a>
                 <div class="pull-right"><small>{{ message.created_at }}</small> - <small>{{ message.ssz }}</small></div>
             </div>
             <div class="panel-body">
+                {% if message.replied_to > 0 %}<mark><small>Válasz a <a href="#{{ message.replied_to }}">{{ message.replied_to }}.</a> számú üzenetre: </small></mark><br>{% endif %}
                 <span id="msg{{ message.ssz }}">{{ message.uzenet|raw }}</span>
                 <div class="pull-right"><a href="#" id="reply{{ message.ssz }}" class="btn btn-default" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">Válasz</a></div>
             </div>
