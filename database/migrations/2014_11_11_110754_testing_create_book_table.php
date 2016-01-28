@@ -44,7 +44,6 @@ class TestingCreateBookTable extends Migration {
                 $table->integer('gk');
                 $table->integer('hj');
                 $table->string('szal');
-                $table->nullableTimestamps();
                 $table->primary('fh');
             });
 
