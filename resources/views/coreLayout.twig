@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="hu">
+<head>
+    {% if app.environment != 'production' %}<meta name="robots" content="noindex,nofollow">{% endif %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
+
+    {% if extraCss %}
+        {% for css in extraCss %}
+            <link href="/css/{{ css }}.css" rel="stylesheet">
+        {% endfor %}
+    {% endif %}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>Görög Újszövetség - Magyar nyelvtani elemzésekkel</title>
+</head>
+<body>
+<div class="container">
+    {% block navbar %}{% endblock %}
+            {% block menu %}{% endblock %}
+            {% block content %}{% endblock %}
+</div>
+<div class="footer">
+    <p>Kérdések, ötletek, problémák: Harmai Gábor, e-mail (ember számára olvasható formában): harmaig kukac ehf pont hu</p>
+    <p>Fejlesztés: <a href="https://github.com/briff/ujszov.szentiras.hu">GitHub</a>
+        {% if config_get('version.hash') %}- <small>verzió:
+            <a href="https://github.com/briff/ujszov.szentiras.hu/commit/{{ config_get('version.hash') }}">
+                {{ config_get('version.hash')[0:7] }}</a></small>{% endif %}</p>
+    <p>Programozók: <a href="https://github.com/briff">Fodor Bertalan</a> (2014-). Az eredeti honlapot készítette és sok éven át karbantartotta: <b>Süttő Dániel</b></p>
+</div>
+<script src="{{ elixir('js/app.js') }}"></script>
+</body>
+</html>
