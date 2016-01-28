@@ -9,7 +9,7 @@ before_script:
   - mkdir -p app/storage/meta
   - php composer.phar install --prefer-source --no-interaction --dev
 # migrate needs environment specification
-  - php artisan migrate --seed --env=testing
+  - php artisan migrate --seed
 
 script:
   - phpunit --configuration phpunit.xml
@@ -30,6 +30,7 @@ cache:
 
 env:
   global:
+  - APP_ENV=testing
   - DB_DATABASE=ujszovszoszedet
   - DB_USERNAME=root
   - DB_PASSWORD=""
