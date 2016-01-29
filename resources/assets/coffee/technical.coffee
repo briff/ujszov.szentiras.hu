@@ -8,12 +8,12 @@ if $("#updaterJobsTable").length > 0
       method: 'GET'
       success: (data) ->
         $row.children(".jobLines").html(data.lines)
-        if data.completed == 1
+        if data.completed
           $row.removeClass("inProgress")
           $row.children(".jobCompleted").children(".fa-refresh").hide()
           $row.children(".jobCompleted").children('.glyphicon').removeClass("glyphicon-unchecked")
           $row.children(".jobCompleted").children('.glyphicon').addClass("glyphicon-check")
-          if (data.failed == 1)
+          if data.failed
             $row.addClass("danger")
           else
             $row.addClass("success")

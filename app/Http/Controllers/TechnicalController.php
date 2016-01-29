@@ -56,8 +56,13 @@ class TechnicalController extends Controller
         $job = UpdaterJob::find($id);
         $messages = $job->getMessages()->count();
         return Response::json(
-            ['id' => $id, 'lines' => $job->lines, 'completed' => $job->completed,
-            'messages' => $messages]);
+            [
+                'id' => (int)$id,
+                'lines' => (int)$job->lines,
+                'completed' => (boolean)$job->completed,
+                'messages' => (int)$messages,
+                'failed' => (boolean)$job->failed
+            ]);
     }
 
     public function getQueueJobStatus($queueJobId)

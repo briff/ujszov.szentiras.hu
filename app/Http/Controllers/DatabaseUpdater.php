@@ -41,6 +41,7 @@ class DatabaseUpdater extends Command implements SelfHandling, ShouldBeQueued {
             $updater = new DictUpdater($path, $general, $this->job->getJobId());
         }
         $updater->fire();
+        unlink($path);
     }
 
     /**
