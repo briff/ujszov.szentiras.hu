@@ -1,7 +1,5 @@
 {% extends 'adminLayout' %}
 
-{% set jsModule = 'moderate' %}
-
 {% block content %}
 
     {% for message in messages %}
@@ -15,6 +13,7 @@
                 <span id="msg{{ message.ssz }}">{{ message.uzenet|raw }}</span>
                 <div class="pull-right">
                     <form method="POST" action="/technikai/moderate/delete">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                         <input name="id" type="hidden" value="{{ message.ssz }}">
                         <a id="delete{{ message.ssz }}" class="btn btn-primary delete" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">Töröl</a>
                     </form>
@@ -23,6 +22,8 @@
         </div>
 
     {% endfor %}
-    {{ messages.links|raw }}
+    <div style="padding-bottom: 80px">
+        {{ messages.render|raw }}
+    </div>
 
 {% endblock %}
