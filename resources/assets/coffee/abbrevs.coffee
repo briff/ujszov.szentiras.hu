@@ -42,14 +42,31 @@ morphs =
   "m.": { latin:"masculinum", hungarian: "hímnem" }
   "M.": { latin:"Medium", hungarian: "medium" }
   "n.": { latin:"neutrum", hungarian: "semlegesnem" }
+  "nm.": { latin: "nomen", hungarian: "főnév" }
+  "nm.coll.": { latin: "nomen collectivum", hungarian: "közösségnév (\"Izrael\" szófaja)" }
+  "nm.geo.": { latin: "nomen geograficus", hungarian: "földrajzi név" }
+  "nm.pers.": { latin: "nomen personalis", hungarian: "személynév" }
   "nom.": { latin:"nominativus", hungarian: "alanyeset" }
   "opt.": { latin:"optativus", hungarian: "óhajtó mód" }
   "P.": { latin:"Passivum", hungarian: "szenvedő" }
   "part.": { latin:"participium", hungarian: "melléknévi igenév" }
   "perf.": { latin:"perfectum", hungarian: "befejezett" }
   "pl.": { latin:"pluralis", hungarian: "Többes szám" }
+  "praep.": { latin: "praepositio", hungarian: "prepozíció" }
   "praes.": { latin:"praesens", hungarian: "jelen idő" }
   "praet.": { latin:"praeteritum", hungarian: "múlt idő" }
+  "partic.": { latin: "particula", hungarian: "indulatszó" }
+  "partic.interrog.": { latin: "particula interrogativa", hungarian: "kérdőszó" }
+  "partic.neg.": { latin: "particula negativa", hungarian: "tagadószó" }
+  "pron.dem.": { latin: "pronomen demonstrativum", hungarian: "mutató névmás" }
+  "pron.indef.": { latin: "pronomen indefinitivum", hungarian: "határozatlan névmás" }
+  "pron.interrog.": { latin: "pronomen interrogativum", hungarian: "kérdő névmás" }
+  "pron.pers.": { latin: "pronomen personale", hungarian: "személyes névmás" }
+  "pron.poss.": { latin: "pronomen possessivum", hungarian: "birtokos névmás" }
+  "pron.rec.": { latin: "pronomen reciprocum", hungarian: "kölcsönös névmás" }
+  "pron.refl.": { latin: "pronomen reflexivum", hungarian: "visszaható névmás" }
+  "pron.rel.": { latin: "pronomen relativum", hungarian: "vonatkozó névmás" }
+  
   "sg.": { latin:"singularis", hungarian: "egyes szám" }
   "voc.": { latin:"vocativus", hungarian: "megszólító eset" }
   "(acc. cum inf.)": { latin: "accusativus cum infinitivo" }
@@ -91,24 +108,7 @@ morphs =
   "card.": { latin: "cardinale", hungarian: "tőszámnév" }
   "cit.ar.": { latin: "citatum aramaicum", hungarian: "arám idézet" }
   "cit.lat.": { latin: "citatum latinae", hungarian: "latin idézet" }
-  "coni.": { latin: "coniunctio", hungarian: "kötőszó" }
-  "nm.": { latin: "nomen", hungarian: "főnév" }
-  "nm.coll.": { latin: "nomen collectivum", hungarian: "közösségnév (\"Izrael\" szófaja)" }
-  "nm.geo.": { latin: "nomen geograficus", hungarian: "földrajzi név" }
-  "nm.pers.": { latin: "nomen personalis", hungarian: "személynév" }
   "ord.": { latin: "ordinale", hungarian: "sorszámnév" }
-  "partic.": { latin: "particula", hungarian: "indulatszó" }
-  "partic.interrog.": { latin: "particula interrogativa", hungarian: "kérdőszó" }
-  "partic.neg.": { latin: "particula negativa", hungarian: "tagadószó" }
-  "praep.": { latin: "praepositio", hungarian: "prepozíció" }
-  "pron.dem.": { latin: "pronomen demonstrativum", hungarian: "mutató névmás" }
-  "pron.indef.": { latin: "pronomen indefinitivum", hungarian: "határozatlan névmás" }
-  "pron.interrog.": { latin: "pronomen interrogativum", hungarian: "kérdő névmás" }
-  "pron.pers.": { latin: "pronomen personale", hungarian: "személyes névmás" }
-  "pron.poss.": { latin: "pronomen possessivum", hungarian: "birtokos névmás" }
-  "pron.rec.": { latin: "pronomen reciprocum", hungarian: "kölcsönös névmás" }
-  "pron.refl.": { latin: "pronomen reflexivum", hungarian: "visszaható névmás" }
-  "pron.rel.": { latin: "pronomen relativum", hungarian: "vonatkozó névmás" }
   "verb.": { latin: "Verbum", hungarian: "ige" }
 
 module.exports =
