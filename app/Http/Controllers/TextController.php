@@ -55,7 +55,7 @@ class TextController extends Controller
 
     private function replaceSpecialParts($text)
     {
-        $replaced = htmlspecialchars(html_entity_decode($text, null, 'UTF-8'));
+        $replaced = $text; //htmlspecialchars(html_entity_decode($text, null, 'UTF-8'));
         $replaced = preg_replace("/([\x{0590}-\x{05FF}]+)/u", "<span lang='he'>$1</span>", $replaced);
         $replaced = preg_replace('/([[:upper:]]{2,}[[:alpha:]]*_?[[:alpha:]]*\d*|Úszsz)/u', "<abbr class='literature'>$1</abbr>", $replaced);
         $replaced = preg_replace("/((Mt|Mk|Lk|Jn) (\d+),(\d+))/", "<a href='/text/$2/$3/$4' class='ref' data-poload='/text/verse-text/$2/$3/$4'>$2&nbsp;$3,$4</a>", $replaced);
@@ -64,28 +64,32 @@ class TextController extends Controller
 
     public function getDetails($wordId)
     {
-        $word = Word::find($wordId);
+        $word = Word::where('fh',$wordId)->with('dictEntry')->first();
         return View::make("text.detailsModal", [
-            "word" => $word
+            "word" => $this->processDictWord($word)
         ]);
+    }
+
+    private function processDictWord($dictWord) {
+        $dictWord->unic = preg_replace("/ *¬/u", "˺", preg_replace("/⌐ */u", "˹", html_entity_decode($dictWord->unic, null, 'UTF-8')));
+        $dictWord->szal = html_entity_decode($dictWord->szal, null, 'UTF-8');
+        if ($dictWord->dictEntry) {
+            $dictWord->dictMeaning = $this->replaceSpecialParts($dictWord->dictEntry->mj);
+            $dictWord->dictValt = $this->replaceSpecialParts($dictWord->dictEntry->valt);
+        } else {
+            Log::warning("{$dictWord->lh} has no corresponding dictionary entry");
+        }
+        $dictWord->lj = $this->replaceSpecialParts($dictWord->lj);
+        $dictWord->verse = preg_split('/,/', $dictWord->lh)[1];
+        $dictWord->szf = $this->formatLexicalClass($dictWord->szf);
+        $dictWord->elem = $this->formatMorphs($dictWord->elem);
+        return $dictWord;
     }
 
     private function getChapterText($bookId, $chapter)
     {
-        $words = Word::findChapterWords($bookId, $chapter)->map(function ($dictWord) {
-            $dictWord->unic = preg_replace("/ *¬/u", "˺", preg_replace("/⌐ */u", "˹", html_entity_decode($dictWord->unic, null, 'UTF-8')));
-            $dictWord->szal = html_entity_decode($dictWord->szal, null, 'UTF-8');
-            if ($dictWord->dictEntry) {
-                $dictWord->dictMeaning = $this->replaceSpecialParts($dictWord->dictEntry->mj);
-                $dictWord->dictValt = $this->replaceSpecialParts($dictWord->dictEntry->valt);
-            } else {
-                Log::warning("{$dictWord->lh} has no corresponding dictionary entry");
-            }
-            $dictWord->lj = $this->replaceSpecialParts($dictWord->lj);
-            $dictWord->verse = preg_split('/,/', $dictWord->lh)[1];
-            $dictWord->szf = $this->formatLexicalClass($dictWord->szf);
-            $dictWord->elem = $this->formatMorphs($dictWord->elem);
-            return $dictWord;
+        $words = Word::findChapterWords($bookId, $chapter)->map(function($word) {
+            return $this->processDictWord($word);
         });
         return $words;
     }

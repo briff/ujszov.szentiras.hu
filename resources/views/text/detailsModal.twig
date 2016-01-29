@@ -1,9 +1,19 @@
-<div class="modal-body">
+<div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-    <h4><span class="greek">{{ word.unic|raw }}</span> <i>{{ word.mj }}</i> <small>({{ word.szf }}, {{ word.elem }}<sup><i class="fa fa-info-circle"></i></sup>)</small> - <small>{{ word.lh }}</small></h4>
-    <b>Szótári alak:</b> <span class="word">{{ word.szal|raw }}</span>
-    <br />
-    ... work in progress ...
+    <div class="wordDetails">
+        <span class="word">{{ word.unic }}</span> - {{ word.mj }}
+        <div><small>{{ word.szf|raw }} {{ word.elem|raw }}</small></div>
+    </div>
+</div>
+<div class="modal-body wordDetails">
+    <div><span class="word">{{ word.szal }}</span> - {{ word.dictMeaning|raw }}</div>
+    {% if word.dictValt is not empty %}
+    <div class="variants"><small>Változatok:</small> {{ word.dictValt }}</div>
+    {% endif %}
+    {% if word.lj is not empty %}
+    <div class="footnote"><small>{{ word.lj|raw }}</small></div>
+    {% endif %}
+    <div class="concordance"><small>Konkordancia betöltése <i class="fa fa-spinner fa-spin"></i></small></div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Bezár</button>

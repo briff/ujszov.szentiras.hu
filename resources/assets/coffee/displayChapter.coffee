@@ -60,6 +60,26 @@ quickTranslation = """
   </div>
   """
 
+loadConcordance = (wordId) ->
+  $.get "/text/concordance/#{wordId}", (result) ->
+
+    addLink = (concordance) ->
+      if concordance.chapter == $("#chapterTitle").data('chapter') and concordance.bookId == $("#chapterTitle").data('book')
+        concordance.linkText = "#!#{ concordance.id }"
+      else
+        concordance.linkText = "/text/#{ concordance.id }"
+      return concordance
+
+    concordanceFragment = Hogan.compile(concordanceTemplate.main).render( {
+      result: result
+      first: if parseInt(result.first.id) == wordId then null else addLink(result.first)
+      previous: addLink(result.previous) if result.previous
+      next: addLink(result.next) if result.next
+      nextAlphabetic: addLink(result.nextAlphabetic) if result.nextAlphabetic
+      previousAlphabetic: addLink(result.previousAlphabetic) if result.previousAlphabetic
+    }, concordanceTemplate.partials)
+    $("div.concordance").html(concordanceFragment);
+
 replaceWord = ($word) ->
   $('a.word.mark').removeClass('mark')
   $word.addClass('mark')
@@ -105,24 +125,7 @@ replaceWord = ($word) ->
         placement: 'top auto'
       )
       $('i', a).hide()
-  $.get "/text/concordance/#{wordId}", (result) ->
-
-    addLink = (concordance) ->
-      if concordance.chapter == $("#chapterTitle").data('chapter') and concordance.bookId == $("#chapterTitle").data('book')
-        concordance.linkText = "#!#{ concordance.id }"
-      else
-        concordance.linkText = "/text/#{ concordance.id }"
-      return concordance
-
-    concordanceFragment = Hogan.compile(concordanceTemplate.main).render( {
-        result: result
-        first: if parseInt(result.first.id) == wordId then null else addLink(result.first)
-        previous: addLink(result.previous) if result.previous
-        next: addLink(result.next) if result.next
-        nextAlphabetic: addLink(result.nextAlphabetic) if result.nextAlphabetic
-        previousAlphabetic: addLink(result.previousAlphabetic) if result.previousAlphabetic
-      }, concordanceTemplate.partials)
-    $("div.concordance").html(concordanceFragment);
+  loadConcordance(wordId)
 
 handleWordClick = ($words) ->
     if $(".detailsDisplay").is ":visible"
@@ -162,35 +165,16 @@ $("select[name='verse']").change ->
     scrollToElement($link)
 
 showPopover = ($word) ->
-  popoverHeader = """
-          <span class="word">#{$word.data('unic')}</span> <i>#{$word.data('mj')}</i>
-          <button type="button" class="close"><span aria-hidden="true" style="padding-left: 10px"><sup>&times;</sup></span><span class="sr-only">Bezár</span></button>
-          <br><small>#{$word.data('szf')}, #{$word.data('elem')}</small>
-    """
-  popoverContent = """
-        <div class="wordPopover" id="pop#{$word.data('wordid')}">
-                    <span class="word">#{$word.data('szal')}</span><br /><br />
-            <a id="a#{$word.data('wordid')}" href="/details" class="btn btn-default btn-sm">Részletek</a>
-            </div>
-      """
+  $('a.word.mark').removeClass('mark')
+  $word.addClass('mark')
   wordId = $word.data("wordid");
   popLink = $word;
-  $word.on 'shown.bs.popover', ->
-    $("#a"+wordId).click ->
-      $(popLink).popover('hide')
-      $(".modal-content").load "/details/"+wordId
-      $("#detailsModal").modal('show')
-      false
-    $closeButton = $(".popover-title .close", $("div#pop#{ wordId }").parent().parent())
-    $closeButton.click ->
-      $(popLink).popover('hide')
-  $word.popover(
-    placement: "auto top"
-    trigger: "manual"
-    html: true
-    title: popoverHeader
-    content: popoverContent
-  ).popover('toggle')
+  $(".modal-content").load "/details/"+wordId
+  $("#detailsModal").modal(
+    backdrop: false
+    show: true
+  )
+  loadConcordance(wordId)
   false
 
 resetWord = ($wordDetailsDiv) ->
