@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Book;
+use Response;
 use \View;
 
 class HomeController extends Controller
