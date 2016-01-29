@@ -55,7 +55,8 @@ class TextController extends Controller
 
     private function replaceSpecialParts($text)
     {
-        $replaced = $text; //htmlspecialchars(html_entity_decode($text, null, 'UTF-8'));
+        $replaced = htmlspecialchars(html_entity_decode($text, null, 'UTF-8'));
+        $replaced = preg_replace('/&lt;\/?br&gt;/', '<br>', $replaced);
         $replaced = preg_replace("/([\x{0590}-\x{05FF}]+)/u", "<span lang='he'>$1</span>", $replaced);
         $replaced = preg_replace('/([[:upper:]]{2,}[[:alpha:]]*_?[[:alpha:]]*\d*|Úszsz)/u', "<abbr class='literature'>$1</abbr>", $replaced);
         $replaced = preg_replace("/((Mt|Mk|Lk|Jn) (\d+),(\d+))/", "<a href='/text/$2/$3/$4' class='ref' data-poload='/text/verse-text/$2/$3/$4'>$2&nbsp;$3,$4</a>", $replaced);

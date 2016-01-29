@@ -8,7 +8,7 @@
 <div class="modal-body wordDetails">
     <div><span class="word">{{ word.szal }}</span> - {{ word.dictMeaning|raw }}</div>
     {% if word.dictValt is not empty %}
-    <div class="variants"><small>Változatok:</small> {{ word.dictValt }}</div>
+    <div class="variants"><small>Változatok:</small> {{ word.dictValt|raw }}</div>
     {% endif %}
     {% if word.lj is not empty %}
     <div class="footnote"><small>{{ word.lj|raw }}</small></div>
