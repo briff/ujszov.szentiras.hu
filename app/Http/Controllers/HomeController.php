@@ -15,7 +15,7 @@ class HomeController extends Controller
             where('tipus', 'default')
             ->where('konyv_id','>=',200)
             ->where('konyv_id', '<', 300)
-            ->orderBy('konyv_id')->get();
+            ->orderBy('konyv_id')->get()->toArray();
         $firstBookLength = Book::getBookLength('Mt');
         $firstChapterLength = Book::getChapterLength('Mt', 1);
         return View::make('welcome',

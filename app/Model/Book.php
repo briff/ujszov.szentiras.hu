@@ -11,6 +11,8 @@ class Book extends Model {
 
     protected $table = 'konyvnevek';
     protected $primaryKey = 'nev';
+    public $incrementing = false;
+
 
     /**
      * @param int $id

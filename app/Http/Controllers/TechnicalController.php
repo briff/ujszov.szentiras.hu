@@ -14,7 +14,7 @@ class TechnicalController extends Controller
 
     public function __construct()
     {
-        $this->beforeFilter('auth.basic');
+        $this->middleware('auth.basic');
     }
 
         /**

@@ -11,7 +11,7 @@ class KonyvnevekFixId extends Migration {
 	function __construct()
 	{
 		$this->tablePrefix = Config::get('database.connections.mysql.prefix');
-		$tableName = $this->tablePrefix . "konyvnevek";
+		$this->tableName = $this->tablePrefix . "konyvnevek";
 	}
 
 	/**
@@ -38,7 +38,6 @@ class KonyvnevekFixId extends Migration {
 	{
 		Schema::table('konyvnevek', function(Blueprint $table)
 		{
-			$table->dropColumn('konyv_id')->change();
 		});
 		DB::table($this->tableName)->where('nev', 'Didaché')->update(['konyv_id' => 255]);
 		DB::table($this->tableName)->where('nev', 'Credo')->update(['konyv_id' => 255]);

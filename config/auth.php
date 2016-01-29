@@ -65,10 +65,13 @@ return [
     */
 
 	'providers' => [
-		'users' => [
-			'driver' => 'eloquent',
-			'model' => App\User::class,
-		],
+//		'users' => [
+//			'driver' => 'eloquent',
+//			'model' => App\User::class,
+//		],
+        'users' => [
+            'driver' => 'property'
+        ]
 
 		// 'users' => [
 		//     'driver' => 'database',
@@ -103,5 +106,9 @@ return [
 			'expire' => 60,
 		],
 	],
+
+    'admin' => [
+        env('ADMIN_USER_EMAIL') => env('ADMIN_USER_PASSWORD_HASH')
+    ]
 
 ];
