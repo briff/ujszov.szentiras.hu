@@ -1,3 +1,5 @@
+abbrevs = require('./abbrevs.js')
+
 scrollToElement = (element) ->
   $('div.textDisplay').animate
     scrollTop: $(element).offsetParent().scrollTop()+$(element).offset().top - 140, # todo: this is calculated from the top of window, should be made responsive

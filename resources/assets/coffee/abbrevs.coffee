@@ -113,7 +113,6 @@ morphs =
   "pron.rel.": { latin: "pronomen relativum", hungarian: "vonatkozó névmás" }
   "verb.": { latin: "Verbum", hungarian: "ige" }
 
-return {
-    literature: literature
-    morphs: morphs
-  }
+module.exports =
+  literature: literature
+  morphs: morphs

@@ -29,7 +29,8 @@ elixir(function(mix) {
         mix.browserify(compiledName);
     }
 
-    buildJsModule('app', ['common','abbrevs','displayChapter','menu','messageBoard','moderate', 'technical']);
+    mix.coffee('abbrevs', 'resources/assets/js/compiled/abbrevs.js');
+    buildJsModule('app', ['common', 'displayChapter','menu','messageBoard','moderate', 'technical']);
     buildJsModule('convert', ['convert']);
 
     mix.version(['css/all.css', 'js/app.js', 'js/convert.js']);
