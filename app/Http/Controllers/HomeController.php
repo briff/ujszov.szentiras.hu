@@ -11,13 +11,17 @@ class HomeController extends Controller
 
     public function getIndex()
     {
-        $books = Book::where('tipus', 'default')->orderBy('konyv_id')->get();
+        $books = Book::
+            where('tipus', 'default')
+            ->where('konyv_id','>=',200)
+            ->where('konyv_id', '<', 300)
+            ->orderBy('konyv_id')->get();
         $firstBookLength = Book::getBookLength('Mt');
         $firstChapterLength = Book::getChapterLength('Mt', 1);
         return View::make('welcome',
             [
                 'books' => $books,
-                'currentBook' => 1,
+                'currentBook' => 201,
                 'currentChapter' => 1,
                 'currentVerse' => 1,
                 'currentBookLength' => $firstBookLength,
