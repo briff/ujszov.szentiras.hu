@@ -29,7 +29,7 @@ elixir(function(mix) {
         mix.browserify(compiledName);
     }
 
-    mix.coffee('abbrevs', 'resources/assets/js/compiled/abbrevs.js');
+    mix.coffee('abbrevs.coffee', 'resources/assets/js/compiled');
     buildJsModule('app', ['common', 'displayChapter','menu','messageBoard','moderate', 'technical']);
     buildJsModule('convert', ['convert']);
 

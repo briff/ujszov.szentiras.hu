@@ -1,5 +1,3 @@
-require('jquery')
-
 literature =
   "BD": "Magyar nyelvű Újszövetség P. Békés Gellért és P. Dalos Patrik fordítása szerint"
   "BGOG": "VARGA ZS. J., Bibliai görög olvasó- és gyakorlókönyv, Sárospatak, 2002"
