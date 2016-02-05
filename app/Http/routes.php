@@ -16,7 +16,7 @@ Route::controller("/technikai", "TechnicalController");
 Route::get("/details/{id}", "TextController@getDetails");
 
 Route::get("/text/verse-text/{book}/{chapter}/{verse}", "TextController@getVerseText");
-Route::get("/text/concordance/{wordId}", "TextController@getConcordance");
+Route::get("/text/concordance/{wordId}/{corpusId}", "TextController@getConcordance");
 Route::get("/text/{wordId}", "TextController@getByWordId")->where('wordId', '[0-9]+');
 Route::controller("/text/{book?}/{chapter?}/{verse?}", "TextController");
 Route::controller("/board", "BoardController");

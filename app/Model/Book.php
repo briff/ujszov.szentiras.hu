@@ -28,10 +28,16 @@ class Book extends Model {
 
     public static function getChapterLength($bookName, $chapter) {
         $latestWord = Word::where('lh', 'like', "{$bookName} {$chapter},%")->orderBy('fh', 'desc')->first()->lh;
-        $wordReferencePattern = "/.*? (\d+),(\d+),\d+/";
+        $wordReferencePattern = "/.*? (\d+),(\d+)\w*,\d+/";
         $matches = [];
         preg_match($wordReferencePattern, $latestWord, $matches);
         return (int) $matches[2];
     }
+
+    function __toString()
+    {
+        return "{$this->nev} (id:{$this->konyv_id})";
+    }
+
 
 } 

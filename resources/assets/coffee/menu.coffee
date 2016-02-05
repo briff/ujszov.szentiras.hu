@@ -1,5 +1,6 @@
 require('jquery')
 
+$corpusSelector = $("select[name='corpus']")
 $bookSelector = $("select[name='book']")
 $chapterSelector = $("select[name='chapter']")
 $verseSelector = $("select[name='verse']")
@@ -20,3 +21,16 @@ $bookSelector.change (e) ->
 $chapterSelector.change (e) ->
   $verseSelector.empty()
   updateSelectors $bookSelector.val(), $chapterSelector.val()
+
+$corpusSelector.change (e) ->
+  $bookSelector.empty()
+  $chapterSelector.empty()
+  $verseSelector.empty()
+  corpus = parseInt($corpusSelector.val())
+  $.getJSON "/corpus/#{corpus}", [], (booksResponse) ->
+    $bookSelector.append("<option value='#{book.konyv_id}' #{ book.konyv_id == 1 ? 'selected' }'>#{book.nev}</option>") for book in booksResponse['books']
+    updateSelectors(corpus * 100+1)
+
+$('#searchFormDisplay').click (e) ->
+  $('#searchFormDisplay').hide()
+  $('#chooserForm').show(300)
