@@ -12,7 +12,7 @@ use View;
 class BoardController extends Controller {
 
     public function getIndex() {
-        $messages = Message::where('hidden', false)->orderBy('ssz', 'desc')->paginate(50);
+        $messages = Message::where('hidden', false)->with('repliedMessage')->orderBy('ssz', 'desc')->paginate(50);
         return View::make('board.messageList', [
             'messages' => $messages
         ]);
