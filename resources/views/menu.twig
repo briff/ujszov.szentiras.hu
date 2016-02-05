@@ -1,24 +1,40 @@
 <div class="chooser">
-    <form class="form-inline" role="form" action="/text" method="get">
-        <label class="sr-only" for="book">Hely: </label>
-        <select name="book" class="form-control jumper-form-control">
-            {% for book in books %}
-                <option value="{{ book.konyv_id }}" {{ currentBook == book.konyv_id ? 'selected' }}>{{ book.nev }}</option>
-            {% endfor %}
-        </select>
-        <label class="sr-only" for="chapter">Fejezet</label>
-        <select name="chapter" type="text" class="form-control jumper-form-control">
-            {% for chapter in 1..currentBookLength %}
-                <option value="{{ chapter }}" {{ chapter == currentChapter ? 'selected' }}>{{ chapter }}</option>
-            {% endfor %}
-        </select>
-        <label class="sr-only" for="verse">Vers</label>
-        <select name="verse" type="text" class="form-control jumper-form-control">
-            {% for verse in 1..currentChapterLength %}
-                <option value="{{ verse }}" {{ verse == currentVerse ? 'selected' }}>{{ verse }}</option>
-            {% endfor %}
-        </select>
-        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"><span class="sr-only">Keres</span>
-        </button>
+    <a class="btn btn-default" id="searchFormDisplay">{{ book.nev }} {{ currentChapter }},{{ currentVerse ?: '1' }}</a>
+    <form id="chooserForm" class="form-inline" role="form" action="/text" method="get">
+        <div class="row">
+            <div class="col-sm-11">
+                <div class="input-group">
+                    <label class="sr-only" for="corpus">Corpus:</label>
+                    {% set corpusList = { 1 : 'Septuaginta', 2: 'Újszövetség', 3: 'Patrológia', 4: 'Klasszikus görög' } %}
+                    <select name="corpus" class="form-control jumper-form-control">
+                        {% for key,value in corpusList %}
+                            <option value={{ key }} {{ book.konyv_id < key*100+100 and book.konyv_id> key*100 ? 'selected' }} >{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label class="sr-only" for="book">Könyv: </label>
+                    <select name="book" class="form-control jumper-form-control">
+                        {% for bookOption in books %}
+                            <option value="{{ bookOption.konyv_id }}" {{ bookOption.konyv_id == book.konyv_id ? 'selected' }}>{{ bookOption.nev }}</option>
+                        {% endfor %}
+                    </select>
+                    <label class="sr-only" for="chapter">Fejezet</label>
+                    <select name="chapter" type="text" class="form-control jumper-form-control">
+                        {% for chapter in 1..currentBookLength %}
+                            <option value="{{ chapter }}" {{ chapter == currentChapter ? 'selected' }}>{{ chapter }}</option>
+                        {% endfor %}
+                    </select>
+                    <label class="sr-only" for="verse">Vers</label>
+                    <select name="verse" type="text" class="form-control jumper-form-control">
+                        {% for verse in 1..currentChapterLength %}
+                            <option value="{{ verse }}" {{ verse == currentVerse ? 'selected' }}>{{ verse }}</option>
+                        {% endfor %}
+                    </select>
+                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span><span class="sr-only">Keres</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>

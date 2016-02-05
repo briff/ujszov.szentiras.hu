@@ -59,14 +59,14 @@
                 <div class="pull-right"><small>{{ message.created_at }}</small> - <small>{{ message.ssz }}</small></div>
             </div>
             <div class="panel-body">
-                {% if message.replied_to > 0 %}<mark><small>Válasz <b>{{ message['e-mail'] }}</b> <a href="#{{ message.replied_to }}">{{ message.replied_to }}.</a> számú üzenetére: </small></mark><br>{% endif %}
+                {% if message.replied_to > 0 %}<mark><small>Válasz <b>{{ message['nev'] }}</b> <a href="#{{ message.replied_to }}">{{ message.replied_to }}.</a> számú üzenetére: </small></mark><br>{% endif %}
                 <span id="msg{{ message.ssz }}">{{ message.uzenet|raw }}</span>
                 <div class="pull-right"><a href="#" id="reply{{ message.ssz }}" class="btn btn-default" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">Válasz</a></div>
             </div>
         </div>
 
     {% endfor %}
-        <div style="padding-bottom: 80px">
+        <div>
             {{ messages.render|raw }}
         </div>
     </div>

@@ -36,7 +36,8 @@ class TextController extends Controller
         }
         $words = $this->getChapterText($bookId, $chapter);
         $book = Book::findById($bookId);
-        $books = Book::where('tipus', 'default')->orderBy('konyv_id')->get();
+        $corpus = (int)($book->konyv_id / 100);
+        $books = Book::where('tipus', 'default')->where('konyv_id', 'like', "{$corpus}%")->orderBy('konyv_id')->get();
         $bookLength = Book::getBookLength($book->nev);
         $chapterLength = Book::getChapterLength($book->nev, $chapter);
         return View::make("text.displayChapter", [
@@ -127,9 +128,9 @@ class TextController extends Controller
         return Response::json($words->values());
     }
 
-    public function getConcordance($wordId)
+    public function getConcordance($wordId, $corpusId = null)
     {
-        return Response::json($this->findConcordance($wordId));
+        return Response::json($this->findConcordance($wordId, $corpusId));
     }
 
     private function createWordRef($word) {
@@ -149,14 +150,29 @@ class TextController extends Controller
         }
     }
 
-    private function findConcordance($wordId) {
+    private function findConcordance($wordId, $corpusId) {
         $concordance = [];
         $word = Word::find($wordId);
-        $concordance['first'] = $this->createWordRef(Word::where('szal', $word->szal)->groupBy('szal')->first());
-        $concordance['previous'] = $this->createWordRef(Word::where('szal', $word->szal)->where('fh', '<', $wordId)->orderBy('fh', 'desc')->first());
-        $concordance['next'] = $this->createWordRef(Word::where('szal', $word->szal)->where('fh', '>', $wordId)->orderBy('fh')->first());
+        $concordance['first'] = $this->createWordRef($this->concordanceBasicQuery($word, $corpusId)->groupBy('szal')->first());
+        $concordance['previous'] = $this->createWordRef($this->concordanceBasicQuery($word, $corpusId)->where('fh', '<', $wordId)->orderBy('fh', 'desc')->first());
+        $concordance['next'] = $this->createWordRef($this->concordanceBasicQuery($word, $corpusId)->where('fh', '>', $wordId)->orderBy('fh')->first());
+
         $concordance['nextAlphabetic'] = $this->createWordRef(Word::find($word->fkh));
         $concordance['previousAlphabetic'] = $this->createWordRef(Word::find($word->feh));
         return $concordance;
+    }
+
+    private function concordanceBasicQuery($word, $corpusId)
+    {
+        return $this->checkCorpus(Word::where('szal', $word->szal), $corpusId);
+    }
+
+    private function checkCorpus($wordSzal, $corpusId)
+    {
+        if ($corpusId != '*') {
+            return $wordSzal->where('fh', 'like', "{$corpusId}%");
+        } else {
+            return $wordSzal;
+        }
     }
 }

@@ -65,16 +65,15 @@ a.word.mark {
 div.textContainer {
   bottom: 0;
   position: fixed;
-  top: 120px;
+  top: 60px;
   z-index: -1;
+  padding-bottom: 30px;
 }
 
 div.textDisplay {
   overflow-y: scroll;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  position: relative;
+  height: 100%;
 }
 
 div.detailsDisplay {
@@ -104,7 +103,22 @@ div.concordance {
   .detailsBlock;
 }
 
-// no columns, popup
+div#textWithDetails {
+  position: relative;
+  height: 100%;
+}
+
+// display chooser form elements in one line even if there is not much space
+#chooserForm .input-group {
+  display: block;
+}
+
+#searchFormDisplay {
+  display: none;
+  max-width: 120px;
+}
+
+// mobile view: no columns, instead popup, selector hidden
 @media screen and (max-width: 529px) {
   div.textContainer {
     width: 100%;
@@ -117,6 +131,15 @@ div.concordance {
   }
   div.detailsDisplay {
     display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  #chooserForm {
+    display: none
+  }
+  #searchFormDisplay {
+    display: block;
   }
 }
 
@@ -160,6 +183,9 @@ div.concordance {
 
 // show footer if has place
 @media (min-height: 768px) and (min-width: 768px) {
+  div#mainContainer {
+    padding-bottom: 80px;
+  }
   div.textContainer {
     bottom: 80px;
   }
@@ -184,9 +210,4 @@ div.concordance {
   div.textContainer {
     width: 1140px;
   }
-}
-
-// pagination collides with footer
-.pagination > .active > span {
-  z-index: auto;
 }

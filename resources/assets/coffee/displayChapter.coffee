@@ -48,6 +48,9 @@ concordanceTemplate =
           {{/nextAlphabetic}}
           </li>
         </ul>
+        <label class="btn btn-default" style="text-align: left;">
+          <input type="checkbox" id="allCorpus" {{#allCorpus}}checked{{/allCorpus}} data-wordid="{{ wordId }}" data-corpus="{{ corpus }}" style="vertical-align:top"> A teljes szószedetben
+        </label>
       </small>
     """
   partials:
@@ -60,8 +63,14 @@ quickTranslation = """
   </div>
   """
 
-loadConcordance = (wordId) ->
-  $.get "/text/concordance/#{wordId}", (result) ->
+getCorpusId = () ->
+  return $("select[name='corpus']").val()
+
+loadConcordance = (wordId, corpus) ->
+  corpusId = "*"
+  if (corpus)
+    corpusId = corpus
+  $.get "/text/concordance/#{wordId}/#{corpusId}", (result) ->
 
     addLink = (concordance) ->
       if concordance.chapter == $("#chapterTitle").data('chapter') and concordance.bookId == $("#chapterTitle").data('book')
@@ -77,8 +86,13 @@ loadConcordance = (wordId) ->
       next: addLink(result.next) if result.next
       nextAlphabetic: addLink(result.nextAlphabetic) if result.nextAlphabetic
       previousAlphabetic: addLink(result.previousAlphabetic) if result.previousAlphabetic
+      wordId: wordId
+      corpus: getCorpusId()
+      allCorpus: corpusId == "*"
     }, concordanceTemplate.partials)
     $("div.concordance").html(concordanceFragment);
+    $("#allCorpus").change (e) ->
+      loadConcordance($(this).data('wordid'), if $(this).prop('checked') then false else $(this).data('corpus'))
 
 replaceWord = ($word) ->
   $('a.word.mark').removeClass('mark')
@@ -125,7 +139,7 @@ replaceWord = ($word) ->
         placement: 'top auto'
       )
       $('i', a).hide()
-  loadConcordance(wordId)
+  loadConcordance(wordId, getCorpusId())
 
 handleWordClick = ($words) ->
     if $(".detailsDisplay").is ":visible"
@@ -174,7 +188,7 @@ showPopover = ($word) ->
     backdrop: false
     show: true
   )
-  loadConcordance(wordId)
+  loadConcordance(wordId, getCorpusId())
   false
 
 resetWord = ($wordDetailsDiv) ->
@@ -227,4 +241,3 @@ $verseNums.click (verseNumEvent) ->
     $("button[data-verse-id='#{e.data('verse-id')}'].close").click ->
       e.popover('hide')
   false
-

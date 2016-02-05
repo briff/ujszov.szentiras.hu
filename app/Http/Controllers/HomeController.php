@@ -16,15 +16,15 @@ class HomeController extends Controller
             ->where('konyv_id','>=',200)
             ->where('konyv_id', '<', 300)
             ->orderBy('konyv_id')->get()->toArray();
-        $firstBookLength = Book::getBookLength('Mt');
-        $firstChapterLength = Book::getChapterLength('Mt', 1);
+        $firstBook = Book::findById(201);
+        $firstChapterLength = Book::getChapterLength($firstBook->nev, 1);
         return View::make('welcome',
             [
                 'books' => $books,
-                'currentBook' => 201,
+                'book' => $firstBook,
                 'currentChapter' => 1,
                 'currentVerse' => 1,
-                'currentBookLength' => $firstBookLength,
+                'currentBookLength' => $firstBook->hossz,
                 'currentChapterLength' => $firstChapterLength
             ]);
     }
@@ -57,6 +57,11 @@ class HomeController extends Controller
                 'chapterLength' => Book::getChapterLength($book->nev, $chapter)
             ]
         );
+    }
+
+    public function getCorpus($corpusId) {
+        $books = Book::where('konyv_id', '>', $corpusId*100)->where('konyv_id', '<', $corpusId*100+100)->orderBy('konyv_id')->get();
+        return Response::json( ['books' => $books]);
     }
 
 }
