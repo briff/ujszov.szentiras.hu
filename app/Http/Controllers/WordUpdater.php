@@ -23,24 +23,24 @@ class WordUpdater extends AbstractUpdater {
     private function createWord($line)
     {
         $word = [];
+        $i = 0;
 
-        $word['lh'] = $line[0];
-        $word['fh'] = $line[1];
-        $word['feh'] = $line[2];
-        $word['fkh'] = $line[3];
-        $word['unic'] = $line[4];
-        $word['grae'] = $line[5];
-        $word['rk'] = $line[6];
-        $word['ef'] = $line[7];
-        $word['lj'] = $line[8];
-        $word['mj'] = $line[9];
-        $word['szf'] = $line[10];
-        $word['elem'] = $line[11];
-        $word['bk'] = $line[12];
-        $word['felelos'] = $line[13];
-        $word['gk'] = $line[14];
-        $word['szal'] = $line[15];
-        $word['hj'] = $line[16];
+        $word['lh'] = $line[$i++];
+        $word['fh'] = $line[$i++];
+        $word['igecsop'] = $line[$i++];
+        $word['unic'] = $line[$i++];
+        $word['grae'] = $line[$i++];
+        $word['rk'] = $line[$i++];
+        $word['ef'] = $line[$i++];
+        $word['lj'] = $line[$i++];
+        $word['mj'] = $line[$i++];
+        $word['szf'] = $line[$i++];
+        $word['elem'] = $line[$i++];
+        $word['bk'] = $line[$i++];
+        $word['felelos'] = $line[$i++];
+        $word['gk'] = $line[$i++];
+        $word['szal'] = $line[$i++];
+        $word['hj'] = $line[$i++];
 
         return $word;
     }
