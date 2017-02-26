@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class KonyvekUseNewOrderColumns extends Migration
+class KonyvekIgecsop extends Migration
 {
     /**
      * Run the migrations.
