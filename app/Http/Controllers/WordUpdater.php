@@ -48,7 +48,7 @@ class WordUpdater extends AbstractUpdater {
 
     protected function validateLine($line)
     {
-        $valid = count($line) >= 17;
+        $valid = count($line) >= 16;
         if ($valid) {
             $valid = preg_match("/\d+\w?/", $line[1]);
         }
