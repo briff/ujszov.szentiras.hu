@@ -95,8 +95,9 @@ class TechnicalController extends Controller
 
     public function postModerate() {
         $id = Request::input('id');
+        $undo = Request::input('undo');
         $message = Message::find($id);
-        $message->hidden = true;
+        $message->hidden = $undo !== 'true';
         $message->save();
         return $this->getModerate();
     }

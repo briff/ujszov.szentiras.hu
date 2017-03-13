@@ -1,21 +1,23 @@
 {% extends 'adminLayout' %}
 
 {% block content %}
-
+<h3>Üzenőfal moderálása</h3>
     {% for message in messages %}
         <div class="panel panel-default">
             <div class="panel-heading">
                 {% if message.hidden %}Törölt üzenet{% endif %}
                 <strong>{{ message.nev }}</strong>
+                <a href="mailto:{{ message['e-mail'] }}">{{ message['e-mail'] }}</a>
                 <div class="pull-right"><small>{{ message.created_at }}</small> - <small>{{ message.ssz }}</small></div>
             </div>
             <div class="panel-body">
                 <span id="msg{{ message.ssz }}">{{ message.uzenet|raw }}</span>
                 <div class="pull-right">
-                    <form method="POST" action="/technikai/moderate/delete">
+                    <form method="POST" action="/technikai/moderate">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                         <input name="id" type="hidden" value="{{ message.ssz }}">
-                        <a id="delete{{ message.ssz }}" class="btn btn-primary delete" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">Töröl</a>
+                        <a id="delete{{ message.ssz }}" data-undo="{{ message.hidden }}" class="btn btn-primary delete" data-sender="{{ message.nev }}" data-message="{{ message.ssz }}">{{ message.hidden ? 'Mégsem töröl' : 'Töröl' }}</a>
+                        {% if message.hidden  %} <input type="hidden" name="undo" value="true">{% endif %}
                     </form>
                 </div>
             </div>

@@ -16,7 +16,7 @@ class Message extends Model {
         return $this->hasMany(Message::class);
     }
 
-    public function getRepliedTo() {
-        return $this->belongsTo(Message::class);
+    public function repliedMessage() {
+        return $this->belongsTo(Message::class, 'replied_to');
     }
 } 
