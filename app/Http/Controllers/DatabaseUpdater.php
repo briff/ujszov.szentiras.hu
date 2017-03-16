@@ -5,10 +5,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\UpdaterJob;
-use Log;
-
 use App\Commands\Command;
+use Log;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
