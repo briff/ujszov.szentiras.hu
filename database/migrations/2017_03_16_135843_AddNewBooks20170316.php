@@ -16,7 +16,7 @@ class AddNewBooks20170316 extends Migration
         $table->insert([
                 "nev" => "Spártaiak",
                 "konyv_id" => "401",
-                "hossz" => 2,
+                "hossz" => 1,
                 "tipus" => "default"
             ]);
     }

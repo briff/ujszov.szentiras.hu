@@ -20,6 +20,7 @@ detailTemplate = """
                 <div class="footnote"><small>{{{ lj }}}</small></div>
                 {{/lj}}
                 <div class="concordance"><small>Konkordancia betöltése <i class="fa fa-spinner fa-spin"></i></small></div>
+                <div class="allTranslations"></div>
               </div>
           </div>
         """
@@ -65,6 +66,31 @@ quickTranslation = """
 
 getCorpusId = () ->
   return $("select[name='corpus']").val()
+
+allTranslationsTemplate =
+  main: """
+  <div style="border-top: 1px solid #ccc; margin-top:4px;">
+  <blockquote style="margin-top:4px"><small>
+    <span id="allTranslationText">{{ defaultTranslationText }}</span>
+  </small>
+  {{#allTranslations}}
+    <button type="button" class="btn btn-default btn-xs translationChanger" data-text="{{text}}">{{translationAbbrev}}</button>
+  {{/allTranslations}}
+  </blockquote>
+
+  """
+
+loadAllTranslations = (verseId) ->
+  $.get "//szentiras.hu/api/ref/#{verseId}/*", (result) ->
+    defaultTranslation = $.grep result, (translation) ->
+      translation.translationAbbrev == "KNB"
+    div = Hogan.compile(allTranslationsTemplate.main).render({
+      defaultTranslationText : defaultTranslation[0].text
+      allTranslations : result
+    })
+    $("div.allTranslations").html(div)
+    $(".translationChanger").click ->
+      $("#allTranslationText").html($(this).data('text'))
 
 loadConcordance = (wordId, corpus) ->
   corpusId = "*"
@@ -140,6 +166,7 @@ replaceWord = ($word) ->
       )
       $('i', a).hide()
   loadConcordance(wordId, getCorpusId())
+  loadAllTranslations($word.data('verseid'))
 
 handleWordClick = ($words) ->
     if $(".detailsDisplay").is ":visible"
