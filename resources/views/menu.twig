@@ -11,6 +11,7 @@
                             <option value={{ key }} {{ book.konyv_id < key*100+100 and book.konyv_id> key*100 ? 'selected' }} >{{ value }}</option>
                         {% endfor %}
                     </select>
+                    <button title="Információ a corpusról" id="btnCorpusInfo" class="btn btn-default form-control jumper-form-control"><span class="glyphicon glyphicon-book"></span></button>
                 </div>
                 <div class="input-group">
                     <label class="sr-only" for="book">Könyv: </label>

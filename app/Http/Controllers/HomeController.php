@@ -49,6 +49,10 @@ class HomeController extends Controller
         return View::make('download');
     }
 
+    public function getCorpusInfo($corpusId) {
+        return View::make('corpus-info/corpus' . $corpusId);
+    }
+
     public function getChapterLength($bookId, $chapter) {
         $book = Book::findById($bookId);
         return Response::json(

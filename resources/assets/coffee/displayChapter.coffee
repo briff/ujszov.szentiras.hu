@@ -70,11 +70,10 @@ getCorpusId = () ->
 allTranslationsTemplate =
   main: """
   <div style="border-top: 1px solid #ccc; margin-top:4px;">
-  <blockquote style="margin-top:4px"><small>
-    <span id="allTranslationText">{{ defaultTranslationText }}</span>
-  </small>
+  <blockquote style="margin-top:4px; font-size:14px;">
+    <p class="allTranslationText">{{{ defaultTranslationText }}}</p>
   {{#allTranslations}}
-    <button type="button" class="btn btn-default btn-xs translationChanger" data-text="{{text}}">{{translationAbbrev}}</button>
+    <button type="button" class="btn btn-default btn-xs translationChanger" data-text="{{text}}" data-link="{{canonicalUrl}}" data-ref="{{canonicalRef}}">{{translationAbbrev}}</button>
   {{/allTranslations}}
   </blockquote>
 
@@ -85,12 +84,15 @@ loadAllTranslations = (verseId) ->
     defaultTranslation = $.grep result, (translation) ->
       translation.translationAbbrev == "KNB"
     div = Hogan.compile(allTranslationsTemplate.main).render({
-      defaultTranslationText : defaultTranslation[0].text
+      defaultTranslationText : defaultTranslation[0].text + ' (<a target="_blank" href="' + defaultTranslation[0].canonicalUrl + '">' + defaultTranslation[0].canonicalRef + '</a>)'
       allTranslations : result
+      verseId : verseId
     })
     $("div.allTranslations").html(div)
     $(".translationChanger").click ->
-      $("#allTranslationText").html($(this).data('text'))
+      text = $(this).data('text');
+      text += ' (<a target="_blank" href="' + $(this).data('link') + '">' + $(this).data('ref') + '</a>)'
+      $(".allTranslationText").html(text)
 
 loadConcordance = (wordId, corpus) ->
   corpusId = "*"
@@ -209,13 +211,15 @@ showPopover = ($word) ->
   $('a.word.mark').removeClass('mark')
   $word.addClass('mark')
   wordId = $word.data("wordid");
+  verseId = $word.data("verseid");
   popLink = $word;
-  $(".modal-content").load "/details/"+wordId
-  $("#detailsModal").modal(
-    backdrop: false
-    show: true
-  )
-  loadConcordance(wordId, getCorpusId())
+  $(".modal-content").load "/details/"+wordId, ->
+    loadConcordance(wordId, getCorpusId())
+    loadAllTranslations(verseId)
+    $("#detailsModal").modal(
+      backdrop: false
+      show: true
+    )
   false
 
 resetWord = ($wordDetailsDiv) ->

@@ -34,3 +34,7 @@ $corpusSelector.change (e) ->
 $('#searchFormDisplay').click (e) ->
   $('#searchFormDisplay').hide()
   $('#chooserForm').show(300)
+
+$('#btnCorpusInfo').click ->
+  location.assign "/corpus-info/" + $corpusSelector.val()
+  false
