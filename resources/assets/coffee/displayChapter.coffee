@@ -213,13 +213,13 @@ showPopover = ($word) ->
   wordId = $word.data("wordid");
   verseId = $word.data("verseid");
   popLink = $word;
-  $(".modal-content").load "/details/"+wordId
-  $("#detailsModal").modal(
-    backdrop: false
-    show: true
-  )
-  loadConcordance(wordId, getCorpusId())
-  loadAllTranslations(verseId)
+  $(".modal-content").load "/details/"+wordId, ->
+    loadConcordance(wordId, getCorpusId())
+    loadAllTranslations(verseId)
+    $("#detailsModal").modal(
+      backdrop: false
+      show: true
+    )
   false
 
 resetWord = ($wordDetailsDiv) ->
