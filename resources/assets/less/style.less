@@ -122,6 +122,15 @@ div.chooser {
   max-width: 120px;
 }
 
+@media screen and (max-width: 767px) {
+  .navbar-collapse {
+    position: absolute;
+    z-index: 2000;
+    background-color: white;
+    width: 100%;
+    border: 1px solid #e7e7e7;
+  }
+}
 // mobile view: no columns, instead popup, selector hidden
 @media screen and (max-width: 529px) {
   div.textContainer {
