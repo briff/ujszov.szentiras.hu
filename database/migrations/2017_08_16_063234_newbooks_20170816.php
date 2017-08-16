@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNewBooks20170316 extends Migration
+class Newbooks20170816 extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,14 @@ class AddNewBooks20170316 extends Migration
      */
     public function up()
     {
+        DB::statement("ALTER TABLE konyvnevek MODIFY nev VARCHAR(10) COLLATE utf8_bin");
         $table = DB::table('konyvnevek');
         $table->insert([
-                "nev" => "Spártaiak",
-                "konyv_id" => "401",
-                "hossz" => 1,
-                "tipus" => "default"
-            ]);
+            "nev" => "Júd",
+            "konyv_id" => 226,
+            "hossz" => 1,
+            "tipus" => "default"
+        ]);
     }
 
     /**
@@ -29,6 +30,6 @@ class AddNewBooks20170316 extends Migration
     public function down()
     {
         $table = DB::table('konyvnevek');
-        $table->delete()->where('konyv_id', 401);
+        $table->where('konyv_id', 226)->delete();
     }
 }
