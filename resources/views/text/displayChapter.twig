@@ -32,9 +32,10 @@
                         {% endif %}
                         <span class="verse {{ currentVerse == verse and verse != 1 ? 'mark selectedVerse' }}">
                         {% set verseId = book.nev ~ chapter ~ "," ~ currentVerse %}
+                        {% set szhuVerseId = (book.szentirashu ?: book.nev) ~ chapter ~ "," ~ currentVerse %}
                         {% set verseLink %}
-                            <a name="{{ currentVerse }}" href="#" data-verse-id="{{ verseId }}" data-trigger="toggle"
-                               data-poload="//szentiras.hu/api/ref/{{ verseId }}">
+                            <a name="{{ currentVerse }}" href="#" data-szhuverseid="{{ szhuVerseId }}" data-verse-id="{{ verseId }}" data-trigger="toggle"
+                               data-poload="//szentiras.hu/api/ref/{{ szhuVerseId }}">
                                 <sup>{{ currentVerse }}</sup></a>
                         {% endset %}
                     {% endif %}
@@ -42,6 +43,7 @@
                         {{ verseLink }}
                             <a id="{{ word.fh }}" href="#"
                                class="word"
+                               data-szhuverseid="{{ szhuVerseId }}"
                                data-verseId="{{ verseId }}"
                                data-wordid="{{ word.fh }}"
                                data-unic="{{ word.unic|raw }}"

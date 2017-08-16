@@ -168,7 +168,7 @@ replaceWord = ($word) ->
       )
       $('i', a).hide()
   loadConcordance(wordId, getCorpusId())
-  loadAllTranslations($word.data('verseid'))
+  loadAllTranslations($word.data('szhuverseid'))
 
 handleWordClick = ($words) ->
     if $(".detailsDisplay").is ":visible"
