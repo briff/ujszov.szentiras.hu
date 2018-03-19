@@ -138,7 +138,7 @@ class TextController extends Controller
             $wordId = $word->fh;
             $ref['id'] = $wordId;
             $matches = [];
-            preg_match("/^(\d{1,3}?)(\d{3})(\d{3})(\d{5})$/", $wordId, $matches);
+			preg_match("/^(\d{3})(\d{3})(\d{3})(\d{4,5})$/", $wordId, $matches);
             $ref['bookId'] = (int) $matches[1];
             $ref['bookName'] = Book::findById($ref['bookId'])->nev;
             $ref['chapter'] = (int) $matches[2];
