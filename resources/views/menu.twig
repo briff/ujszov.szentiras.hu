@@ -3,7 +3,7 @@
     <form id="chooserForm" class="form-inline" role="form" action="/text" method="get">
         <div class="row">
             <div class="col-sm-11">
-                <div class="input-group">
+                <div class="form-group">
                     <label class="sr-only" for="corpus">Corpus:</label>
                     {% set corpusList = { 1 : 'Septuaginta', 2: 'Újszövetség', 3: 'Patrológia', 4: 'Klasszikus görög' } %}
                     <select name="corpus" class="form-control jumper-form-control">
@@ -13,7 +13,7 @@
                     </select>
                     <button title="Információ a corpusról" id="btnCorpusInfo" class="btn btn-default form-control jumper-form-control"><span class="glyphicon glyphicon-book"></span></button>
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                     <label class="sr-only" for="book">Könyv: </label>
                     <select name="book" class="form-control jumper-form-control">
                         {% for bookOption in books %}
