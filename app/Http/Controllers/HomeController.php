@@ -18,9 +18,15 @@ class HomeController extends Controller
             ->orderBy('konyv_id')->get()->toArray();
         $firstBook = Book::findById(201);
         $firstChapterLength = Book::getChapterLength($firstBook->nev, 1);
+
+        foreach ([1, 3, 4] as $corpus) {
+            $otherBooks[$corpus] = Book::where('tipus', 'default')->where('konyv_id', 'like', "{$corpus}%")->orderBy('konyv_id')->get();
+        }
+
         return View::make('welcome',
             [
-                'books' => $books,
+                'newTestamentBooks' => $books,
+                'otherBooks' => $otherBooks,
                 'book' => $firstBook,
                 'currentChapter' => 1,
                 'currentVerse' => 1,

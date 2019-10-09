@@ -13,8 +13,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix
-        .less(['app.less'], 'resources/assets/css/compiled/less.css')
-        .sass(['app.scss'], 'resources/assets/css/compiled/sass.css');
+        .less(['app.less'], 'resources/assets/css/compiled/less.css');
     mix.styles(['compiled/sass.css', 'compiled/less.css']);
     // compile coffee scripts
 
