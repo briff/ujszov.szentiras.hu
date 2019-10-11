@@ -1,0 +1,22 @@
+{% extends "layout" %}
+
+{% block menu %}
+    {% include 'menu' %}
+{% endblock %}
+
+{% block content %}
+        <h4>Tanulmányozható könyveink</h4>
+        {% set corpusList = { 1 : 'Septuaginta', 2: 'Újszövetség', 3: 'Patrológia', 4: 'Klasszikus görög' } %}
+            {% for key,value in corpusList %}
+            <h5>{{ value }}</h5>
+                    <p>
+                        <small>
+                            {% for book in otherBooks[key] %}
+                                <a class="btn btn-default btn-xs" href="/text/{{ book.nev }}/">{{ book.nev }}</a>
+                            {% endfor %}
+                        </small>
+                    </p>
+
+            {% endfor %}
+
+{% endblock %}
