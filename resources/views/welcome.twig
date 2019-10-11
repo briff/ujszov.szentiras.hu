@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-        <h3>Üdvözöljük a görög újszövetségi szószedetben!</h3>
+        <h3>Üdvözöljük a Szent Jeromos Katolikus Bibliatársulat görög Újszövetséget bemutató honlapján!</h3>
         <h4>Az Újszövetség könyvei</h4>
         <p>
             <small>
@@ -15,20 +15,11 @@
             </small>
         </p>
         <h4>További könyvek</h4>
-        {% set corpusList = { 1 : 'Septuaginta', 3: 'Patrológia', 4: 'Klasszikus görög' } %}
-            {% for key,value in corpusList %}
-            <h5>{{ value }}</h5>
-                    <p>
-                        <small>
-                            {% for book in otherBooks[key] %}
-                                <a class="btn btn-default btn-xs" href="/text/{{ book.nev }}/">{{ book.nev }}</a>
-                            {% endfor %}
-                        </small>
-                    </p>
-
-            {% endfor %}
-
         <p>
-            <img class="img-responsive" alt="" title="Fil 1,3-8" src="/build/img/gnt_wh.jpg">
+            Az Újszövetség mellett a Septuaginta, valamint patrisztikus és klasszikus görög szövegek is tanulmányozhatók honlapunkon.
+        </p>
+    <p>Ezek megtekintéséhez kattintson <a href="/all-books">ide!</a></p>
+        <p>
+            <a href="/text/Fil/1/3"><img class="img-responsive" alt="" title="Fil 1,3-8" src="/build/img/gnt_wh.jpg"></a>
         </p>
 {% endblock %}

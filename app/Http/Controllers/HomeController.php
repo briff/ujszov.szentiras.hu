@@ -35,6 +35,18 @@ class HomeController extends Controller
             ]);
     }
 
+    public function getAllBooks()
+    {
+        foreach ([1, 2, 3, 4] as $corpus) {
+            $otherBooks[$corpus] = Book::where('tipus', 'default')->where('konyv_id', 'like', "{$corpus}%")->orderBy('konyv_id')->get();
+        }
+
+        return View::make('allbooks',
+            [
+                'otherBooks' => $otherBooks,
+            ]);
+    }
+
     public function getHelp()
     {
         return View::make('help');
