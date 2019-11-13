@@ -80,7 +80,7 @@ allTranslationsTemplate =
   """
 
 loadAllTranslations = (verseId) ->
-  $.get "//szentiras.hu/api/ref/#{verseId}/*", (result) ->
+  $.get "https://szentiras.hu/api/ref/#{verseId}/*", (result) ->
     defaultTranslation = $.grep result, (translation) ->
       translation.translationAbbrev == "KNB"
     div = Hogan.compile(allTranslationsTemplate.main).render({
@@ -89,7 +89,10 @@ loadAllTranslations = (verseId) ->
       verseId : verseId
     })
     $("div.allTranslations").html(div)
+    $(".translationChanger").first().addClass("active")
     $(".translationChanger").click ->
+      $(".translationChanger").removeClass("active")
+      $(this).addClass("active")
       text = $(this).data('text');
       text += ' (<a target="_blank" href="' + $(this).data('link') + '">' + $(this).data('ref') + '</a>)'
       $(".allTranslationText").html(text)
