@@ -69,6 +69,7 @@ class WordController extends Controller
 
         $occurrences = \App\Model\Word
         ::where('gk', $gk)
+        ->limit(200)
         ->get();
         $results = [];
         foreach ($occurrences as $occurrence) {
