@@ -88,10 +88,10 @@ class TextController extends Controller
         return $dictWord;
     }
 
-    private function getChapterText($bookId, $chapter)
+    private function getChapterText($bookId, $chapter, $process = true)
     {
-        $words = Word::findChapterWords($bookId, $chapter)->map(function($word) {
-            return $this->processDictWord($word);
+        $words = Word::findChapterWords($bookId, $chapter, $process)->map(function($word, $process) {
+            return $process ? $this->processDictWord($word) : $word;
         });
         return $words;
     }
@@ -119,9 +119,9 @@ class TextController extends Controller
         return $newMorphString;
     }
 
-    public function getVerseTextArray($bookName, $chapter, $verse)
+    public function getVerseTextArray($bookName, $chapter, $verse, $process = true)
     {
-        $words = $this->getChapterText(Book::find($bookName)->konyv_id, $chapter);
+        $words = $this->getChapterText(Book::find($bookName)->konyv_id, $chapter, $process);
         $words = $words->filter(function ($word) use ($verse) {
             return $word->verse == $verse;
         });

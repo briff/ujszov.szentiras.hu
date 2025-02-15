@@ -13,10 +13,12 @@ class Word extends Model
     protected $primaryKey = 'fh';
     protected $guarded = [];
 
-    public static function findChapterWords($bookId, $chapter)
+    public static function findChapterWords($bookId, $chapter, $withEntry = true)
     {
         $chapterAddress = sprintf("%d%03d", $bookId, $chapter);
-        $words = Word::where('fh', 'like', "{$chapterAddress}%")->with('dictEntry')->orderBy('fh')->get();
+        $words = Word::where('fh', 'like', "{$chapterAddress}%");
+        $words = $words->with('dictEntry');
+        $words = $words->orderBy('fh')->get();
         return $words;
     }
 

@@ -74,7 +74,7 @@ class WordController extends Controller
         $results = [];
         foreach ($occurrences as $occurrence) {
             $wordRef = $this->textController->createWordRef($occurrence);
-            $text = $this->textController->getVerseTextArray($wordRef['bookName'], $wordRef['chapter'], $wordRef['verse']);
+            $text = $this->textController->getVerseTextArray($wordRef['bookName'], $wordRef['chapter'], $wordRef['verse'], false);
             $results[] = ['ref' => $wordRef, 'text' => $text];
         }
 

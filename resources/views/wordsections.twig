@@ -6,7 +6,7 @@
 <table class="table greek">
 {% for word in words %}
 <tr>
-<td>{{ word.szal }}</td><td>{{word.szf}}</td><td>{{ word.mj }}</td><td>{{word.valt}}</td><td><a href="/words/search/{{ word.gk }}">Előfordulások</a>
+<td>{{ word.szal }}<a href="/words/search/{{ word.gk }}" title="Előfordulások"> <i class="glyphicon glyphicon-search"></i></a></td><td>{{word.szf}}</td><td>{{ word.mj }}</td><td>{{word.valt}}</td>
 </tr>
 {%endfor %}
 </table>
