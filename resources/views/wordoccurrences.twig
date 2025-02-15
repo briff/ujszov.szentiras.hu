@@ -1,0 +1,24 @@
+{% extends "layout" %}
+
+{% block content %}
+<h2>Előfordulások</h2>
+<h3>{{ word.szal }}</h3>
+<table class="table greek">
+{% for occurrence in words %}
+<tr>
+    <td><a href="/text/{{occurrence.ref.bookName}}/{{ occurrence.ref.chapter }}/{{ occurrence.ref.verse }}">{{ occurrence.ref.bookName }} {{ occurrence.ref.chapter }},{{ occurrence.ref.verse }}</a>: 
+        {% set verseId = occurrence.ref.bookName ~ occurrence.ref.chapter ~ "," ~ occurrence.ref.verse %}
+        <a href="https://szentiras.hu/{{verseId}}" target="_blank"><sup>szentiras.hu</sup></a>
+    {% for textPart in occurrence.text %}
+    {{ textPart.unic }}
+    {% endfor %}
+    <br>
+    {% for textPart in occurrence.text %}
+    <i>{{ textPart.mj }}</i>
+    {% endfor %}
+    </td>
+</td>
+{%endfor %}
+</table>
+
+{%  endblock %}

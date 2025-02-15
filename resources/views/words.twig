@@ -1,0 +1,14 @@
+{% extends "layout" %}
+
+{% block content %}
+<h2>Szótár</h2>
+
+<div class="greek'">
+{% for word in words %}
+<div>
+<a href="/words/section/{{word.first.gk}}/{{ word.last.gk }}">{{word.first.szal}} — {{word.last.szal}}</a>
+</div>
+{%endfor %}
+</div>
+
+{%  endblock %}

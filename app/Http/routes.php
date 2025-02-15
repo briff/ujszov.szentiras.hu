@@ -19,7 +19,13 @@ Route::get("/text/verse-text/{book}/{chapter}/{verse}", "TextController@getVerse
 Route::get("/text/concordance/{wordId}/{corpusId}", "TextController@getConcordance");
 Route::get("/text/{wordId}", "TextController@getByWordId")->where('wordId', '[0-9]+');
 Route::controller("/text/{book?}/{chapter?}/{verse?}", "TextController");
+
+Route::get("/words", 'WordController@getIndex');
+Route::get("/words/section/{from}/{to}", "WordController@getSection");
+Route::get("/words/search/{gk}", "WordController@getSearch");
+
 Route::controller("/board", "BoardController");
+
 
 Route::get('/help.html', function() { return Redirect::to('/help', 301); });
 Route::get('/rovjegyz.htm', function() { return Redirect::to('/rovjegyz', 301);});

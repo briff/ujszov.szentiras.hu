@@ -119,6 +119,16 @@ class TextController extends Controller
         return $newMorphString;
     }
 
+    public function getVerseTextArray($bookName, $chapter, $verse)
+    {
+        $words = $this->getChapterText(Book::find($bookName)->konyv_id, $chapter);
+        $words = $words->filter(function ($word) use ($verse) {
+            return $word->verse == $verse;
+        });
+        return $words->values();
+    }
+
+
     public function getVerseText($bookName, $chapter, $verse)
     {
         $words = $this->getChapterText(Book::find($bookName)->konyv_id, $chapter);
@@ -133,20 +143,20 @@ class TextController extends Controller
         return Response::json($this->findConcordance($wordId, $corpusId));
     }
 
-    private function createWordRef($word) {
+    public function createWordRef($word) {
         if ($word !== null) {
             $wordId = $word->fh;
             $ref['id'] = $wordId;
             $matches = [];
 			preg_match("/^(\d{3})(\d{3})(\d{3})(\d{4,5})/", $wordId, $matches);
-            //print_r($wordId);
+            // print_r($wordId);
 	    if($matches == array()) return null;
 	    $ref['bookId'] = (int) $matches[1];
             $ref['bookName'] = Book::findById($ref['bookId'])->nev;
             $ref['chapter'] = (int) $matches[2];
             $ref['verse'] = (int) $matches[3];
             $ref['wordNum'] = (int) $matches[4];
-            return $ref;
+            return $ref;            
         } else {
             return null;
         }

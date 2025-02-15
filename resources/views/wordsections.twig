@@ -1,0 +1,14 @@
+{% extends "layout" %}
+
+{% block content %}
+<h2>Szótár</h2>
+
+<table class="table greek">
+{% for word in words %}
+<tr>
+<td>{{ word.szal }}</td><td>{{word.szf}}</td><td>{{ word.mj }}</td><td>{{word.valt}}</td><td><a href="/words/search/{{ word.gk }}">Előfordulások</a>
+</tr>
+{%endfor %}
+</table>
+
+{%  endblock %}
