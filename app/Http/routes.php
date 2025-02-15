@@ -23,6 +23,7 @@ Route::controller("/text/{book?}/{chapter?}/{verse?}", "TextController");
 Route::get("/words", 'WordController@getIndex');
 Route::get("/words/section/{from}/{to}", "WordController@getSection");
 Route::get("/words/search/{gk}", "WordController@getSearch");
+Route::post("/words/mj", "WordController@getByMj");
 
 Route::controller("/board", "BoardController");
 

@@ -80,4 +80,10 @@ class WordController extends Controller
         return view('wordoccurrences', ['words' => $results, 'word' => $word]);
     }
 
+    public function getByMj() {
+        $mj = request('mj');
+        $entries = \App\Model\DictEntry::where('mj', 'like', "%$mj%")->get();
+        return view('wordsections', ['words' => $entries]);
+    }
+
 }

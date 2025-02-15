@@ -3,6 +3,21 @@
 {% block content %}
 <h2>Szótár</h2>
 
+<div class="panel panel-default">
+  <div class="panel-heading">Magyar jelentés keresése:</div>
+<div class="panel-body">
+<form action="/words/mj" class="form-inline" method="post">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+
+                        <div class="form-group">
+                        
+                            <label for="name" class="control-label">Szó:</label>
+                                <input type="text" class="form-control" name="mj" id="mj">
+                                <button type="submit" class="btn btn-default">Keresés</button>
+                        </div>
+</form>
+</div>
+</div>
 <div class="greek'">
 {% for word in words %}
 <div>
