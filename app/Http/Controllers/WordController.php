@@ -69,7 +69,7 @@ class WordController extends Controller
 
         $occurrences = \App\Model\Word
         ::where('gk', $gk)
-        ->limit(200)
+        ->limit(100)
         ->get();
         $results = [];
         foreach ($occurrences as $occurrence) {
@@ -83,7 +83,7 @@ class WordController extends Controller
 
     public function getByMj() {
         $mj = request('mj');
-        $entries = \App\Model\DictEntry::where('mj', 'like', "%$mj%")->get();
+        $entries = \App\Model\DictEntry::where('mj', 'like', "%$mj%")->limit(100)->get();
         return view('wordsections', ['words' => $entries]);
     }
 
